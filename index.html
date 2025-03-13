@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            color: white;
+            color: #333; /* Couleur de texte principale */
             scroll-behavior: smooth; /* Défilement fluide */
         }
 
@@ -63,6 +63,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre pour améliorer la lisibilité */
             text-align: center;
             line-height: 1.2; /* Espacement entre les lignes */
+            color: white; /* Texte blanc pour contraster avec la vidéo */
         }
 
         h1 br {
@@ -107,9 +108,10 @@
 
         /* Sections supplémentaires */
         .about-section, .creations-section {
-            background-color: #1e1e1e; /* Fond sombre */
+            background-color: #f0f4f8; /* Fond clair bleuté */
             padding: 60px 20px;
             text-align: center;
+            color: #333; /* Texte sombre pour contraster avec le fond clair */
         }
 
         .about-content, .creations-content {
@@ -118,26 +120,27 @@
             font-family: 'Arial', sans-serif;
             font-size: 1.1rem;
             line-height: 1.6;
-            color: white;
         }
 
         .about-content h2, .creations-content h2 {
             font-size: 2.5rem;
             font-family: 'Shrikhand', cursive;
             margin-bottom: 20px;
+            color: #1a73e8; /* Bleu vif pour les titres */
         }
 
         .about-content p, .creations-content p {
             margin-bottom: 20px;
+            color: #333; /* Texte sombre */
         }
 
         .about-content .highlight, .creations-content .highlight {
-            color: #ffcc00; /* Couleur d'accentuation */
+            color: #1a73e8; /* Bleu vif pour les mots-clés */
             font-weight: bold;
         }
 
         .creations-content a {
-            color: #ffcc00; /* Couleur des liens */
+            color: #1a73e8; /* Bleu vif pour les liens */
             text-decoration: none;
             font-weight: bold;
         }
@@ -152,6 +155,7 @@
             border: none;
             border-radius: 10px;
             margin-top: 20px;
+            background-color: white; /* Fond blanc pour l'iframe */
         }
     </style>
 </head>
@@ -219,7 +223,7 @@
             <!-- Intégration du graphique Google Sheets -->
             <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive"></iframe>
             <p>
-                Ce graphique montre une corrélation négative forte (R² = 0,989), ce qui signifie qu'une augmentation du pourcentage de véhicules électriques dans le parc automobile entraîne une réduction significative des émissions de CO₂ toutefois grâce à l'outil du calculateur carbone on voit que cette solution ne suffit pas à faire du mode de vie rurbain un mode de vie durable.
+                Ce graphique montre une corrélation négative forte (R² = 0,989), ce qui signifie qu'une augmentation du pourcentage de véhicules électriques dans le parc automobile entraîne une réduction significative des émissions de CO₂. Toutefois, grâce à l'outil du Calculateur Carbone, on voit que cette solution ne suffit pas à faire du mode de vie rurbain un mode de vie durable.
             </p>
         </div>
     </section>
