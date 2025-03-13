@@ -145,6 +145,14 @@
         .creations-content a:hover {
             text-decoration: underline; /* Soulignement au survol */
         }
+
+        .creations-content iframe {
+            width: 100%;
+            height: 500px; /* Hauteur de l'iframe */
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -204,6 +212,14 @@
             </p>
             <p>
                 <a href="https://mariusbrion.github.io/calculateur-carbone/" target="_blank">Accéder au Calculateur Carbone</a>
+            </p>
+            <p>
+                Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l’électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Voici le graphique interactif qui illustre cette relation :
+            </p>
+            <!-- Intégration du graphique Google Sheets -->
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive"></iframe>
+            <p>
+                Ce graphique montre une corrélation négative forte (R² = 0,989), ce qui signifie qu'une augmentation du pourcentage de véhicules électriques dans le parc automobile entraîne une réduction significative des émissions de CO₂ toutefois grâce à l'outil du calculateur carbone on voit que cette solution ne suffit pas à faire du mode de vie rurbain un mode de vie durable.
             </p>
         </div>
     </section>
