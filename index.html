@@ -201,50 +201,122 @@
             font-size: 1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .skills-peripheral .bubble:hover {
             background-color: #1557b0; /* Bleu plus foncé au survol */
         }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            max-width: 400px;
-            width: 90%;
+        .skills-peripheral .bubble.expanded {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            z-index: 10;
         }
 
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-
-        .modal-content {
-            text-align: left;
-        }
-
-        .modal-close {
+        .skills-peripheral .bubble.expanded::after {
+            content: '';
             position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #333;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid #1a73e8;
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .skills-peripheral .bubble.expanded img {
+            display: block;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .skills-peripheral .bubble img {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Taille de police réduite pour les petits écrans */
+            }
+
+            .box {
+                width: 120px; /* Largeur réduite des boîtes */
+                font-size: 1rem; /* Taille de police réduite */
+            }
+
+            .skills-bubble {
+                width: 150px;
+                height: 150px;
+                font-size: 1rem;
+            }
+
+            .skills-peripheral .bubble {
+                width: 120px;
+                height: 120px;
+                font-size: 0.9rem;
+            }
+
+            .skills-peripheral .bubble.expanded {
+                width: 250px;
+                height: 250px;
+            }
+
+            .skills-peripheral .bubble.expanded img {
+                width: 80px;
+                top: -40px;
+            }
+
+            .creations-content iframe {
+                height: 300px; /* Hauteur réduite de l'iframe pour les petits écrans */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem; /* Taille de police encore plus réduite pour les mobiles */
+            }
+
+            .box {
+                width: 100px; /* Largeur encore plus réduite des boîtes */
+                font-size: 0.9rem; /* Taille de police encore plus réduite */
+            }
+
+            .skills-bubble {
+                width: 120px;
+                height: 120px;
+                font-size: 0.9rem;
+            }
+
+            .skills-peripheral .bubble {
+                width: 100px;
+                height: 100px;
+                font-size: 0.8rem;
+            }
+
+            .skills-peripheral .bubble.expanded {
+                width: 200px;
+                height: 200px;
+            }
+
+            .skills-peripheral .bubble.expanded img {
+                width: 60px;
+                top: -30px;
+            }
+
+            .creations-content iframe {
+                height: 200px; /* Hauteur encore plus réduite de l'iframe pour les mobiles */
+            }
         }
     </style>
 </head>
@@ -338,79 +410,59 @@
                 Institut Universitaire de Technologie Bordeaux Montaigne<br>BUT Villes et Territoires Durables
             </div>
             <div class="skills-peripheral">
-                <div class="bubble" onclick="openModal('cartographie')">Cartographie et SIG (Systèmes d'Information Géographique)</div>
-                <div class="bubble" onclick="openModal('langues')">Maîtrise de différentes langues</div>
-                <div class="bubble" onclick="openModal('visualisation')">Compétences en visualisation et maîtrise des données</div>
-                <div class="bubble" onclick="openModal('analyse')">Analyse socio-économique</div>
+                <div class="bubble" onclick="expandBubble(this, 'cartographie')">
+                    Cartographie et SIG (Systèmes d'Information Géographique)
+                    <img src="https://via.placeholder.com/100" alt="Cartographie et SIG">
+                </div>
+                <div class="bubble" onclick="expandBubble(this, 'langues')">
+                    Maîtrise de différentes langues
+                    <img src="https://via.placeholder.com/100" alt="Langues">
+                </div>
+                <div class="bubble" onclick="expandBubble(this, 'visualisation')">
+                    Compétences en visualisation et maîtrise des données
+                    <img src="https://via.placeholder.com/100" alt="Visualisation des données">
+                </div>
+                <div class="bubble" onclick="expandBubble(this, 'analyse')">
+                    Analyse socio-économique
+                    <img src="https://via.placeholder.com/100" alt="Analyse socio-économique">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Modals pour les détails des compétences -->
-    <div id="cartographie-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('cartographie')">&times;</span>
-            <h3>Cartographie et SIG</h3>
-            <p>
-                Maîtrise des outils de cartographie et des systèmes d'information géographique (SIG) tels que QGIS pour analyser et visualiser des données spatiales.
-            </p>
-        </div>
-    </div>
-
-    <div id="langues-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('langues')">&times;</span>
-            <h3>Maîtrise de différentes langues</h3>
-            <p>
-                - Anglais : Niveau B2+ (Certificat Cambridge)<br>
-                - Espagnol : Niveau B1<br>
-                - Français : Langue maternelle
-            </p>
-        </div>
-    </div>
-
-    <div id="visualisation-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('visualisation')">&times;</span>
-            <h3>Compétences en visualisation et maîtrise des données</h3>
-            <p>
-                Expérience dans la création de graphiques, tableaux de bord et outils interactifs pour présenter des données complexes de manière claire et accessible.
-            </p>
-        </div>
-    </div>
-
-    <div id="analyse-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('analyse')">&times;</span>
-            <h3>Analyse socio-économique</h3>
-            <p>
-                Capacité à analyser les dynamiques socio-économiques d'un territoire pour proposer des solutions d'aménagement durable.
-            </p>
-        </div>
-    </div>
-
-    <!-- Overlay pour les modals -->
-    <div id="modal-overlay" class="modal-overlay"></div>
-
     <script>
-        // Fonctions pour gérer les modals
-        function openModal(modalId) {
-            document.getElementById(`${modalId}-modal`).style.display = 'block';
-            document.getElementById('modal-overlay').style.display = 'block';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(`${modalId}-modal`).style.display = 'none';
-            document.getElementById('modal-overlay').style.display = 'none';
-        }
-
-        // Fermer les modals en cliquant en dehors
-        document.getElementById('modal-overlay').addEventListener('click', () => {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.style.display = 'none';
+        // Fonction pour agrandir la bulle
+        function expandBubble(bubble, type) {
+            // Réduire toutes les bulles
+            document.querySelectorAll('.skills-peripheral .bubble').forEach(b => {
+                if (b !== bubble) {
+                    b.classList.remove('expanded');
+                }
             });
-            document.getElementById('modal-overlay').style.display = 'none';
-        });
+
+            // Agrandir ou réduire la bulle cliquée
+            bubble.classList.toggle('expanded');
+
+            // Ajouter une image spécifique en fonction du type
+            if (bubble.classList.contains('expanded')) {
+                let imgSrc = '';
+                switch (type) {
+                    case 'cartographie':
+                        imgSrc = 'https://via.placeholder.com/100'; // Remplacez par l'URL de l'image
+                        break;
+                    case 'langues':
+                        imgSrc = 'https://via.placeholder.com/100'; // Remplacez par l'URL de l'image
+                        break;
+                    case 'visualisation':
+                        imgSrc = 'urban-typology'; // Remplacez par l'URL de l'image
+                        break;
+                    case 'analyse':
+                        imgSrc = 'emile-durkheim'; // Remplacez par l'URL de l'image
+                        break;
+                }
+                bubble.querySelector('img').src = imgSrc;
+            }
+        }
     </script>
 </body>
 </html>
