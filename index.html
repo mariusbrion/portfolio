@@ -163,6 +163,7 @@
         .skills-content {
             position: relative;
             text-align: center;
+            padding: 100px 0; /* Ajout de padding pour éviter que les bulles ne touchent les bords */
         }
 
         .skills-bubble {
@@ -179,13 +180,15 @@
             font-size: 1.2rem;
             font-weight: bold;
             margin: 0 auto 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .skills-peripheral {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            position: relative;
+            width: 100%;
+            height: 400px; /* Hauteur suffisante pour contenir les bulles périphériques */
+            margin: 0 auto;
         }
 
         .skills-peripheral .bubble {
@@ -202,7 +205,8 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
+            position: absolute;
+            z-index: 2;
         }
 
         .skills-peripheral .bubble:hover {
@@ -242,6 +246,31 @@
 
         .skills-peripheral .bubble img {
             display: none;
+        }
+
+        /* Positionnement des bulles périphériques */
+        .skills-peripheral .bubble:nth-child(1) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .skills-peripheral .bubble:nth-child(2) {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .skills-peripheral .bubble:nth-child(3) {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .skills-peripheral .bubble:nth-child(4) {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         /* Responsive Design */
@@ -406,13 +435,13 @@
     <section id="skills-section" class="skills-section">
         <div class="skills-content">
             <h2>Mes compétences</h2>
-            <div class="skills-bubble">
-                Institut Universitaire de Technologie Bordeaux Montaigne<br>BUT Villes et Territoires Durables
-            </div>
             <div class="skills-peripheral">
                 <div class="bubble" onclick="expandBubble(this, 'cartographie')">
                     Cartographie et SIG (Systèmes d'Information Géographique)
                     <img src="https://via.placeholder.com/100" alt="Cartographie et SIG">
+                </div>
+                <div class="skills-bubble">
+                    Institut Universitaire de Technologie Bordeaux Montaigne<br>BUT Villes et Territoires Durables
                 </div>
                 <div class="bubble" onclick="expandBubble(this, 'langues')">
                     Maîtrise de différentes langues
