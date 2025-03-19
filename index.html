@@ -163,7 +163,7 @@
         .skills-content {
             position: relative;
             text-align: center;
-            padding: 100px 0; /* Ajout de padding pour éviter que les bulles ne touchent les bords */
+            padding: 150px 0; /* Ajout de padding pour éviter que les bulles ne touchent les bords */
         }
 
         .skills-bubble {
@@ -186,9 +186,9 @@
 
         .skills-peripheral {
             position: relative;
-            width: 100%;
-            height: 400px; /* Hauteur suffisante pour contenir les bulles périphériques */
-            margin: 0 auto;
+            width: 1200px; /* Largeur augmentée */
+            height: 800px; /* Hauteur augmentée */
+            margin: 0 auto; /* Centrage horizontal */
         }
 
         .skills-peripheral .bubble {
@@ -250,27 +250,36 @@
 
         /* Positionnement des bulles périphériques */
         .skills-peripheral .bubble:nth-child(1) {
-            top: 0;
+            top: 10%; /* Position en haut */
             left: 50%;
             transform: translateX(-50%);
         }
 
         .skills-peripheral .bubble:nth-child(2) {
             top: 50%;
-            left: 0;
+            left: 10%; /* Position à gauche */
             transform: translateY(-50%);
         }
 
         .skills-peripheral .bubble:nth-child(3) {
             top: 50%;
-            right: 0;
+            right: 10%; /* Position à droite */
             transform: translateY(-50%);
         }
 
         .skills-peripheral .bubble:nth-child(4) {
-            bottom: 0;
+            bottom: 10%; /* Position en bas */
             left: 50%;
             transform: translateX(-50%);
+        }
+
+        /* Positionnement de la bulle principale */
+        .skills-main-bubble {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
         }
 
         /* Responsive Design */
@@ -304,6 +313,12 @@
             .skills-peripheral .bubble.expanded img {
                 width: 80px;
                 top: -40px;
+            }
+
+            .skills-main-bubble {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
 
             .creations-content iframe {
@@ -341,6 +356,12 @@
             .skills-peripheral .bubble.expanded img {
                 width: 60px;
                 top: -30px;
+            }
+
+            .skills-main-bubble {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
 
             .creations-content iframe {
@@ -440,9 +461,6 @@
                     Cartographie et SIG (Systèmes d'Information Géographique)
                     <img src="https://via.placeholder.com/100" alt="Cartographie et SIG">
                 </div>
-                <div class="skills-bubble">
-                    Institut Universitaire de Technologie Bordeaux Montaigne<br>BUT Villes et Territoires Durables
-                </div>
                 <div class="bubble" onclick="expandBubble(this, 'langues')">
                     Maîtrise de différentes langues
                     <img src="https://via.placeholder.com/100" alt="Langues">
@@ -454,6 +472,12 @@
                 <div class="bubble" onclick="expandBubble(this, 'analyse')">
                     Analyse socio-économique
                     <img src="https://via.placeholder.com/100" alt="Analyse socio-économique">
+                </div>
+            </div>
+            <!-- Bulle principale au centre -->
+            <div class="skills-main-bubble">
+                <div class="skills-bubble">
+                    Institut Universitaire de Technologie Bordeaux Montaigne<br>BUT Villes et Territoires Durables
                 </div>
             </div>
         </div>
