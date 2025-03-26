@@ -159,127 +159,123 @@
             margin-top: 20px;
         }
 
-        /* Section "Mes compétences" */
-        .skills-content {
-            position: relative;
+        /* NOUVELLE SECTION COMPETENCES */
+        .skills-section {
+            background-color: #f0f4f8;
+            padding: 100px 20px;
             text-align: center;
-            padding: 150px 0; /* Ajout de padding pour éviter que les bulles ne touchent les bords */
-        }
-
-        .skills-bubble {
-            display: inline-block;
-            background-color: #1a73e8;
-            color: white;
-            padding: 20px;
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 0 auto 40px;
             position: relative;
-            z-index: 1;
         }
 
-        .skills-peripheral {
+        .skills-container {
             position: relative;
-            width: 1200px; /* Largeur augmentée */
-            height: 1200px; /* Hauteur augmentée */
-            margin: 0 auto; /* Centrage horizontal */
+            width: 100%;
+            height: 1400px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .skills-peripheral .bubble {
-            background-color: #1a73e8;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: absolute;
-            z-index: 2;
-        }
-
-        .skills-peripheral .bubble:hover {
-            background-color: #1557b0; /* Bleu plus foncé au survol */
-        }
-
-        .skills-peripheral .bubble.expanded {
-            width: 300px;
-            height: 300px;
-            border-radius: 20px;
-            z-index: 10;
-        }
-
-        .skills-peripheral .bubble.expanded::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 2px solid #1a73e8;
-            border-radius: 20px;
-            z-index: -1;
-        }
-
-        .skills-peripheral .bubble.expanded img {
-            display: block;
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .skills-peripheral .bubble img {
-            display: none;
-        }
-
-        /* Positionnement des bulles périphériques */
-        .skills-peripheral .bubble:nth-child(1) {
-            top: 10%; /* Position en haut */
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .skills-peripheral .bubble:nth-child(2) {
-            top: 50%;
-            left: 10%; /* Position à gauche */
-            transform: translateY(-50%);
-        }
-
-        .skills-peripheral .bubble:nth-child(3) {
-            top: 50%;
-            right: 10%; /* Position à droite */
-            transform: translateY(-50%);
-        }
-
-        .skills-peripheral .bubble:nth-child(4) {
-            bottom: 10%; /* Position en bas */
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Positionnement de la bulle principale */
-        .skills-main-bubble {
+        /* Bulle Centrale */
+        .central-bubble {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 1;
+            width: 200px;
+            height: 200px;
+            background-color: #1a73e8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Shrikhand', cursive;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(26, 115, 232, 0.5);
+            z-index: 10;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .central-bubble:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        /* Bulles Satellites */
+        .skill-bubble {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: #1a73e8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 0 20px rgba(26, 115, 232, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+
+        .skill-bubble:hover {
+            transform: scale(1.1);
+        }
+
+        /* POSITIONNEMENT AVEC 12% D'ÉCART */
+        .skill-bubble[data-skill="sig"] {
+            top: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .skill-bubble[data-skill="langues"] {
+            top: 50%;
+            left: 12%;
+            transform: translateY(-50%);
+        }
+
+        .skill-bubble[data-skill="visualisation"] {
+            top: 50%;
+            right: 12%;
+            transform: translateY(-50%);
+        }
+
+        .skill-bubble[data-skill="analyse"] {
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* État étendu des bulles */
+        .skill-bubble.expanded {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            z-index: 20;
+            transform: scale(1) !important;
+        }
+
+        .skill-bubble.expanded .content {
+            display: block;
+        }
+
+        .skill-bubble .content {
+            display: none;
+        }
+
+        .skill-bubble .book-image {
+            width: 80px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         /* Responsive Design */
@@ -293,32 +289,42 @@
                 font-size: 1rem; /* Taille de police réduite */
             }
 
-            .skills-bubble {
+            .skills-container {
+                height: 800px;
+            }
+            
+            .central-bubble {
                 width: 150px;
                 height: 150px;
                 font-size: 1rem;
             }
-
-            .skills-peripheral .bubble {
+            
+            .skill-bubble {
                 width: 120px;
                 height: 120px;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
-
-            .skills-peripheral .bubble.expanded {
+            
+            .skill-bubble.expanded {
                 width: 250px;
                 height: 250px;
             }
-
-            .skills-peripheral .bubble.expanded img {
-                width: 80px;
-                top: -40px;
+            
+            /* Ajustement mobile */
+            .skill-bubble[data-skill="sig"] {
+                top: 10%;
             }
-
-            .skills-main-bubble {
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+            
+            .skill-bubble[data-skill="analyse"] {
+                bottom: 10%;
+            }
+            
+            .skill-bubble[data-skill="langues"] {
+                left: 10%;
+            }
+            
+            .skill-bubble[data-skill="visualisation"] {
+                right: 10%;
             }
 
             .creations-content iframe {
@@ -336,32 +342,26 @@
                 font-size: 0.9rem; /* Taille de police encore plus réduite */
             }
 
-            .skills-bubble {
+            .skills-container {
+                height: 700px;
+            }
+            
+            .central-bubble {
                 width: 120px;
                 height: 120px;
                 font-size: 0.9rem;
             }
-
-            .skills-peripheral .bubble {
+            
+            .skill-bubble {
                 width: 100px;
                 height: 100px;
-                font-size: 0.8rem;
+                font-size: 0.7rem;
+                padding: 10px;
             }
-
-            .skills-peripheral .bubble.expanded {
+            
+            .skill-bubble.expanded {
                 width: 200px;
                 height: 200px;
-            }
-
-            .skills-peripheral .bubble.expanded img {
-                width: 60px;
-                top: -30px;
-            }
-
-            .skills-main-bubble {
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
             }
 
             .creations-content iframe {
@@ -404,13 +404,13 @@
         <div class="about-content">
             <h2>À propos de moi</h2>
             <p>
-                Je suis étudiant en deuxième année de <span class="highlight">BUT Villes et Territoires Durables</span> à l'IUT Bordeaux Montaigne, avec une passion pour l’aménagement du territoire et l’urbanisme. Mon parcours académique, enrichi par des expériences professionnelles variées, m’a permis de développer des compétences concrètes dans ces domaines.
+                Je suis étudiant en deuxième année de <span class="highlight">BUT Villes et Territoires Durables</span> à l'IUT Bordeaux Montaigne, avec une passion pour l'aménagement du territoire et l'urbanisme. Mon parcours académique, enrichi par des expériences professionnelles variées, m'a permis de développer des compétences concrètes dans ces domaines.
             </p>
             <p>
-                J’ai eu l’opportunité de réaliser un stage d’un mois au sein de l’agglomération du <a href="https://www.grand-chatellerault.fr/" target="_blank">Grand Châtellerault</a>, où j’ai contribué aux initiatives du programme <span class="highlight">Action Cœur de Ville</span>, ainsi qu’un stage de deux mois à l’<a href="https://www.at86.fr/" target="_blank">Agence des Territoires de la Vienne</a>, où j’ai travaillé sur des projets stratégiques d’aménagement territorial. Ces expériences m’ont conforté dans mon choix de poursuivre un master en urbanisme pour approfondir mes connaissances et relever les défis des villes de demain.
+                J'ai eu l'opportunité de réaliser un stage d'un mois au sein de l'agglomération du <a href="https://www.grand-chatellerault.fr/" target="_blank">Grand Châtellerault</a>, où j'ai contribué aux initiatives du programme <span class="highlight">Action Cœur de Ville</span>, ainsi qu'un stage de deux mois à l'<a href="https://www.at86.fr/" target="_blank">Agence des Territoires de la Vienne</a>, où j'ai travaillé sur des projets stratégiques d'aménagement territorial. Ces expériences m'ont conforté dans mon choix de poursuivre un master en urbanisme pour approfondir mes connaissances et relever les défis des villes de demain.
             </p>
             <p>
-                Curieux et motivé, je suis déterminé à m’investir dans des projets qui façonnent des territoires <span class="highlight">durables et inclusifs</span>.
+                Curieux et motivé, je suis déterminé à m'investir dans des projets qui façonnent des territoires <span class="highlight">durables et inclusifs</span>.
             </p>
         </div>
     </section>
@@ -429,7 +429,7 @@
                 <a href="https://mariusbrion.github.io/calculateur-carbone/" target="_blank">Accéder au Calculateur Carbone</a>
             </p>
             <p>
-                Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l’électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Voici le graphique interactif qui illustre cette relation :
+                Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l'électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Voici le graphique interactif qui illustre cette relation :
             </p>
             <!-- Intégration du graphique Google Sheets -->
             <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive"></iframe>
@@ -452,70 +452,85 @@
         </div>
     </section>
 
-    <!-- Section "Mes compétences" -->
+    <!-- NOUVELLE SECTION "Mes compétences" -->
     <section id="skills-section" class="skills-section">
-        <div class="skills-content">
-            <h2>Mes compétences</h2>
-            <div class="skills-peripheral">
-                <div class="bubble" onclick="expandBubble(this, 'cartographie')">
-                    Cartographie et SIG (Systèmes d'Information Géographique)
-                    <img src="https://via.placeholder.com/100" alt="Cartographie et SIG">
-                </div>
-                <div class="bubble" onclick="expandBubble(this, 'langues')">
-                    Maîtrise de différentes langues
-                    <img src="https://via.placeholder.com/100" alt="Langues">
-                </div>
-                <div class="bubble" onclick="expandBubble(this, 'visualisation')">
-                    Compétences en visualisation et maîtrise des données
-                    <img src="https://via.placeholder.com/100" alt="Visualisation des données">
-                </div>
-                <div class="bubble" onclick="expandBubble(this, 'analyse')">
-                    Analyse socio-économique
-                    <img src="https://via.placeholder.com/100" alt="Analyse socio-économique">
+        <h2 style="font-family: 'Shrikhand', cursive; color: #1a73e8; font-size: 2.5rem; margin-bottom: 50px;">
+            Mes Compétences
+        </h2>
+        
+        <div class="skills-container">
+            <!-- Bulle Centrale -->
+            <div class="central-bubble" id="centralBubble">
+                Institut Universitaire<br>de Technologie<br>Bordeaux Montaigne
+            </div>
+            
+            <!-- Bulles Satellites -->
+            <div class="skill-bubble" data-skill="sig">
+                SIG et représentation graphique
+                <div class="content">
+                    <img src="https://via.placeholder.com/80x120" alt="Livre SIG" class="book-image">
+                    <img src="https://via.placeholder.com/80x120" alt="Livre Cartographie" class="book-image">
                 </div>
             </div>
-            <!-- Bulle principale au centre -->
-            <div class="skills-main-bubble">
-                <div class="skills-bubble">
-                    Institut Universitaire de Technologie Bordeaux Montaigne<br>BUT Villes et Territoires Durables
+            
+            <div class="skill-bubble" data-skill="langues">
+                Maîtrise de différentes langues
+                <div class="content">
+                    <img src="https://via.placeholder.com/80x120" alt="Livre Langues" class="book-image">
+                </div>
+            </div>
+            
+            <div class="skill-bubble" data-skill="visualisation">
+                Compétences en visualisation et maîtrise des données
+                <div class="content">
+                    <img src="https://via.placeholder.com/80x120" alt="Livre Data" class="book-image">
+                </div>
+            </div>
+            
+            <div class="skill-bubble" data-skill="analyse">
+                Analyse socio-économique
+                <div class="content">
+                    <img src="https://via.placeholder.com/80x120" alt="Le Suicide d'Emile Durkheim" class="book-image">
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        // Fonction pour agrandir la bulle
-        function expandBubble(bubble, type) {
-            // Réduire toutes les bulles
-            document.querySelectorAll('.skills-peripheral .bubble').forEach(b => {
-                if (b !== bubble) {
-                    b.classList.remove('expanded');
-                }
+        // Gestion des compétences
+        document.addEventListener('DOMContentLoaded', function() {
+            const centralBubble = document.getElementById('centralBubble');
+            const skillBubbles = document.querySelectorAll('.skill-bubble');
+            
+            // Gestion des clics sur les bulles satellites
+            skillBubbles.forEach(bubble => {
+                bubble.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Ferme toutes les autres bulles
+                    skillBubbles.forEach(b => {
+                        if (b !== bubble) b.classList.remove('expanded');
+                    });
+                    
+                    // Ouvre/ferme la bulle cliquée
+                    bubble.classList.toggle('expanded');
+                });
             });
-
-            // Agrandir ou réduire la bulle cliquée
-            bubble.classList.toggle('expanded');
-
-            // Ajouter une image spécifique en fonction du type
-            if (bubble.classList.contains('expanded')) {
-                let imgSrc = '';
-                switch (type) {
-                    case 'cartographie':
-                        imgSrc = 'https://via.placeholder.com/100'; // Remplacez par l'URL de l'image
-                        break;
-                    case 'langues':
-                        imgSrc = 'https://via.placeholder.com/100'; // Remplacez par l'URL de l'image
-                        break;
-                    case 'visualisation':
-                        imgSrc = 'urban-typology.jpg'; // Remplacez par l'URL de l'image
-                        break;
-                    case 'analyse':
-                        imgSrc = 'emile-durkheim.jpg'; // Remplacez par l'URL de l'image
-                        break;
-                }
-                bubble.querySelector('img').src = imgSrc;
-            }
-        }
+            
+            // Clic sur la bulle centrale pour tout fermer
+            centralBubble.addEventListener('click', function() {
+                skillBubbles.forEach(bubble => {
+                    bubble.classList.remove('expanded');
+                });
+            });
+            
+            // Clic en dehors pour fermer
+            document.addEventListener('click', function() {
+                skillBubbles.forEach(bubble => {
+                    bubble.classList.remove('expanded');
+                });
+            });
+        });
     </script>
 </body>
 </html>
