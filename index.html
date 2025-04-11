@@ -11,14 +11,13 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            color: #333; /* Couleur de texte principale */
-            scroll-behavior: smooth; /* Défilement fluide */
+            color: #333;
+            scroll-behavior: smooth;
         }
 
-        /* Section d'accueil */
         .home-section {
             position: relative;
-            height: 100vh; /* Pleine hauteur de l'écran */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,35 +41,32 @@
             object-fit: cover;
         }
 
-        /* Nom en haut à gauche */
         .name {
             position: absolute;
             top: 20px;
             left: 20px;
-            font-size: 1.5rem; /* Taille de police réduite */
+            font-size: 1.5rem;
             font-weight: bold;
             color: white;
             z-index: 2;
-            font-family: 'Shrikhand', cursive; /* Police Shrikhand */
+            font-family: 'Shrikhand', cursive;
         }
 
-        /* Titre avec retour à la ligne et police Shrikhand */
         h1 {
-            font-size: 3rem; /* Taille de police réduite */
+            font-size: 3rem;
             margin: 0;
             font-weight: normal;
-            font-family: 'Shrikhand', cursive; /* Police Shrikhand */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre pour améliorer la lisibilité */
+            font-family: 'Shrikhand', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             text-align: center;
-            line-height: 1.2; /* Espacement entre les lignes */
-            color: white; /* Texte blanc pour contraster avec la vidéo */
+            line-height: 1.2;
+            color: white;
         }
 
         h1 br {
-            display: block; /* Forcer le retour à la ligne */
+            display: block;
         }
 
-        /* Conteneur des boîtes */
         .box-container {
             position: absolute;
             bottom: 20px;
@@ -78,17 +74,16 @@
             transform: translateX(-50%);
             display: flex;
             justify-content: center;
-            gap: 20px; /* Espace entre les boîtes */
+            gap: 20px;
             z-index: 2;
         }
 
-        /* Style des boîtes */
         .box {
-            background-color: rgba(255, 255, 255, 0.2); /* Fond semi-transparent */
+            background-color: rgba(255, 255, 255, 0.2);
             border: 2px solid white;
-            border-radius: 15px; /* Contours arrondis */
-            padding: 10px 20px; /* Padding réduit */
-            width: 150px; /* Largeur des boîtes */
+            border-radius: 15px;
+            padding: 10px 20px;
+            width: 150px;
             text-align: center;
             font-family: 'Shrikhand', cursive;
             font-size: 1.2rem;
@@ -98,20 +93,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 40px; /* Hauteur fixe pour aplatir les boîtes */
-            text-decoration: none; /* Supprimer le soulignement des liens */
+            height: 40px;
+            text-decoration: none;
         }
 
         .box:hover {
-            background-color: rgba(255, 255, 255, 0.4); /* Effet au survol */
+            background-color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Sections supplémentaires */
         .about-section, .creations-section, .skills-section {
-            background-color: #f0f4f8; /* Fond clair bleuté */
+            background-color: #f0f4f8;
             padding: 60px 20px;
             text-align: center;
-            color: #333; /* Texte sombre pour contraster avec le fond clair */
+            color: #333;
         }
 
         .about-content, .creations-content, .skills-content {
@@ -120,46 +114,72 @@
             font-family: 'Arial', sans-serif;
             font-size: 1.1rem;
             line-height: 1.6;
+            text-align: justify;
         }
 
         .about-content h2, .creations-content h2, .skills-content h2 {
             font-size: 2.5rem;
             font-family: 'Shrikhand', cursive;
             margin-bottom: 20px;
-            color: #1a73e8; /* Bleu vif pour les titres */
+            color: #1a73e8;
+            text-align: center;
         }
 
         .about-content p, .creations-content p, .skills-content p {
             margin-bottom: 20px;
-            color: #333; /* Texte sombre */
+            color: #333;
         }
 
         .about-content a, .creations-content a {
-            color: #1a73e8; /* Bleu vif pour les liens */
+            color: #1a73e8;
             text-decoration: none;
             font-weight: bold;
         }
 
         .about-content a:hover, .creations-content a:hover {
-            color: #1557b0; /* Bleu plus foncé au survol */
+            color: #1557b0;
         }
 
         .creations-content iframe {
             width: 100%;
-            height: 500px; /* Hauteur de l'iframe */
+            height: 500px;
             border: none;
             border-radius: 10px;
             margin-top: 20px;
-            background-color: white; /* Fond blanc pour l'iframe */
+            background-color: white;
         }
 
-        .creations-content img {
+        .creations-content img, .creations-content video {
             max-width: 100%;
             border-radius: 10px;
             margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* NOUVELLE SECTION COMPETENCES */
+        .legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+        
+        .legend-text {
+            font-size: 0.9rem;
+        }
+
         .skills-section {
             background-color: #f0f4f8;
             padding: 100px 20px;
@@ -175,7 +195,6 @@
             margin: 0 auto;
         }
 
-        /* Bulle Centrale */
         .central-bubble {
             position: absolute;
             top: 50%;
@@ -203,7 +222,6 @@
             transform: translate(-50%, -50%) scale(1.05);
         }
 
-        /* Bulles Satellites */
         .skill-bubble {
             position: absolute;
             width: 150px;
@@ -227,7 +245,6 @@
             transform: scale(1.1);
         }
 
-        /* POSITIONNEMENT AVEC 12% D'ÉCART */
         .skill-bubble[data-skill="sig"] {
             top: 12%;
             left: 50%;
@@ -252,41 +269,51 @@
             transform: translateX(-50%);
         }
 
-        /* État étendu des bulles */
         .skill-bubble.expanded {
             width: 300px;
             height: 300px;
             border-radius: 20px;
             z-index: 20;
             transform: scale(1) !important;
+            overflow-y: auto;
         }
 
-        .skill-bubble.expanded .content {
+        .skill-bubble .short-text {
             display: block;
         }
 
-        .skill-bubble .content {
+        .skill-bubble .long-text {
+            display: none;
+            font-size: 0.8rem;
+            padding: 15px;
+        }
+
+        .skill-bubble.expanded .short-text {
             display: none;
         }
 
-        .skill-bubble .book-image {
+        .skill-bubble.expanded .long-text {
+            display: block;
+        }
+
+        .book-image {
             width: 80px;
             height: 120px;
             object-fit: cover;
             border-radius: 5px;
-            margin: 10px;
+            margin: 10px auto;
+            display: block;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem; /* Taille de police réduite pour les petits écrans */
+                font-size: 2rem;
             }
 
             .box {
-                width: 120px; /* Largeur réduite des boîtes */
-                font-size: 1rem; /* Taille de police réduite */
+                width: 120px;
+                font-size: 1rem;
             }
 
             .skills-container {
@@ -310,7 +337,6 @@
                 height: 250px;
             }
             
-            /* Ajustement mobile */
             .skill-bubble[data-skill="sig"] {
                 top: 10%;
             }
@@ -328,18 +354,18 @@
             }
 
             .creations-content iframe {
-                height: 300px; /* Hauteur réduite de l'iframe pour les petits écrans */
+                height: 300px;
             }
         }
 
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.5rem; /* Taille de police encore plus réduite pour les mobiles */
+                font-size: 1.5rem;
             }
 
             .box {
-                width: 100px; /* Largeur encore plus réduite des boîtes */
-                font-size: 0.9rem; /* Taille de police encore plus réduite */
+                width: 100px;
+                font-size: 0.9rem;
             }
 
             .skills-container {
@@ -365,7 +391,7 @@
             }
 
             .creations-content iframe {
-                height: 200px; /* Hauteur encore plus réduite de l'iframe pour les mobiles */
+                height: 200px;
             }
         }
     </style>
@@ -374,24 +400,20 @@
     <!-- Section d'accueil -->
     <section class="home-section">
         <div class="video-background">
-            <!-- Nouvelle vidéo d'arrière-plan -->
             <video autoplay muted loop>
                 <source src="https://videos.pexels.com/video-files/20046744/20046744-uhd_3840_2160_60fps.mp4" type="video/mp4">
                 Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
         </div>
 
-        <!-- Nom en haut à gauche -->
         <div class="name">Marius Brion</div>
 
-        <!-- Contenu centré -->
         <div class="content">
             <h1>
                 Étudiant en<br>Villes et Territoires Durables
             </h1>
         </div>
 
-        <!-- Boîtes en bas de la page -->
         <div class="box-container">
             <a href="#about-section" class="box">À propos</a>
             <a href="#creations-section" class="box">Mes créations</a>
@@ -431,28 +453,59 @@
             <p>
                 Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l'électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Voici le graphique interactif qui illustre cette relation :
             </p>
-            <!-- Intégration du graphique Google Sheets -->
+            
             <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive"></iframe>
+            
             <p>
                 Ce graphique montre une corrélation négative forte (R² = 0,989), ce qui signifie qu'une augmentation du pourcentage de véhicules électriques dans le parc automobile entraîne une réduction significative des émissions de CO₂. Toutefois, grâce à l'outil du Calculateur Carbone, on voit que cette solution ne suffit pas à faire du mode de vie rurbain un mode de vie durable.
             </p>
 
-            <h3>Réalisation cartographique</h3>
+            <h3>Cartographie 3D des mobilités pendulaires</h3>
             <p>
-                La maîtrise d'outils cartographiques comme <span class="highlight">QGIS</span> est essentielle pour analyser un territoire. Ces outils permettent de visualiser et d'interpréter des données spatiales, ce qui est crucial pour prendre des décisions éclairées en matière d'aménagement et de développement durable.
+                Voici une réalisation cartographique en 3D illustrant les mobilités pendulaires sur la ville de Châtellerault, avec les bâtiments colorés selon leur destination :
+            </p>
+            
+            <video autoplay muted loop controls>
+                <source src="cartographie3d.mov" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #1a73e8;"></div>
+                    <span class="legend-text">Résidentiel</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #0b6623;"></div>
+                    <span class="legend-text">Commerce</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #4CAF50;"></div>
+                    <span class="legend-text">Agricole</span>
+                </div>
+            </div>
+            
+            <p>
+                Cette visualisation 3D, réalisée avec QGIS et Blender, permet d'analyser les flux de déplacements domicile-travail et leur impact sur l'organisation urbaine. Les bâtiments sont représentés en 3D avec une coloration spécifique selon leur usage principal : bleu pour les zones résidentielles, vert foncé pour les commerces et vert clair pour les espaces agricoles.
+            </p>
+            
+            <h3>Autres réalisations cartographiques</h3>
+            <p>
+                La maîtrise d'outils cartographiques comme <span class="highlight">QGIS</span> et <span class="highlight">Kepler.gl</span> est essentielle pour analyser un territoire. Ces outils permettent de visualiser et d'interpréter des données spatiales, ce qui est crucial pour prendre des décisions éclairées en matière d'aménagement et de développement durable.
             </p>
             <p>
                 Voici un exemple de mes réalisations cartographiques :
             </p>
-            <!-- Intégration du GIF -->
+            
             <img src="gif-creation-senille-VEED.gif" alt="Réalisation cartographique avec QGIS" width="100%">
+            
             <p>
                 Ce GIF illustre la création d'une carte interactive avec QGIS, montrant comment cet outil permet de représenter des données complexes de manière claire et accessible.
             </p>
         </div>
     </section>
 
-    <!-- NOUVELLE SECTION "Mes compétences" -->
+    <!-- SECTION "Mes compétences" -->
     <section id="skills-section" class="skills-section">
         <h2 style="font-family: 'Shrikhand', cursive; color: #1a73e8; font-size: 2.5rem; margin-bottom: 50px;">
             Mes Compétences
@@ -466,31 +519,71 @@
             
             <!-- Bulles Satellites -->
             <div class="skill-bubble" data-skill="sig">
-                SIG et représentation graphique
-                <div class="content">
+                <span class="short-text">SIG et représentation graphique</span>
+                <div class="long-text">
+                    <h3>SIG et Représentation Graphique</h3>
+                    <p><strong>Maîtrise avancée de :</strong></p>
+                    <ul>
+                        <li>QGIS (création de cartes thématiques, géotraitement)</li>
+                        <li>Kepler.gl (visualisation de données géospatiales)</li>
+                        <li>ArcGIS (niveau intermédiaire)</li>
+                        <li>Blender (modélisation 3D pour cartographie)</li>
+                    </ul>
                     <img src="https://via.placeholder.com/80x120" alt="Livre SIG" class="book-image">
                     <img src="https://via.placeholder.com/80x120" alt="Livre Cartographie" class="book-image">
+                    <p>Création de cartes interactives et de représentations graphiques complexes pour l'analyse territoriale.</p>
                 </div>
             </div>
             
             <div class="skill-bubble" data-skill="langues">
-                Maîtrise de différentes langues
-                <div class="content">
+                <span class="short-text">Langues et programmation</span>
+                <div class="long-text">
+                    <h3>Langues et Programmation</h3>
+                    <p><strong>Langues :</strong></p>
+                    <ul>
+                        <li>Anglais : Courant (Certification Cambridge C1)</li>
+                        <li>Espagnol : Niveau B2</li>
+                        <li>Français : Langue maternelle</li>
+                    </ul>
+                    <p><strong>Programmation :</strong></p>
+                    <ul>
+                        <li>HTML/CSS (création de sites web comme ce portfolio)</li>
+                        <li>Python (analyse de données, scripts d'automatisation)</li>
+                        <li>R (statistiques et visualisation de données)</li>
+                    </ul>
                     <img src="https://via.placeholder.com/80x120" alt="Livre Langues" class="book-image">
                 </div>
             </div>
             
             <div class="skill-bubble" data-skill="visualisation">
-                Compétences en visualisation et maîtrise des données
-                <div class="content">
+                <span class="short-text">Visualisation de données</span>
+                <div class="long-text">
+                    <h3>Visualisation et Analyse de Données</h3>
+                    <p><strong>Outils maîtrisés :</strong></p>
+                    <ul>
+                        <li>Tableau (création de dashboards interactifs)</li>
+                        <li>Google Data Studio</li>
+                        <li>Python (Matplotlib, Seaborn)</li>
+                        <li>R (ggplot2)</li>
+                    </ul>
                     <img src="urban-typology.jpg" alt="Livre Data" class="book-image">
+                    <p>Capacité à transformer des données complexes en visualisations claires et percutantes pour la prise de décision.</p>
                 </div>
             </div>
             
             <div class="skill-bubble" data-skill="analyse">
-                Analyse socio-économique
-                <div class="content">
+                <span class="short-text">Analyse territoriale</span>
+                <div class="long-text">
+                    <h3>Analyse Socio-économique et Territoriale</h3>
+                    <p><strong>Compétences :</strong></p>
+                    <ul>
+                        <li>Analyse des dynamiques urbaines et territoriales</li>
+                        <li>Étude des indicateurs socio-économiques</li>
+                        <li>Méthodologies qualitatives (enquêtes, entretiens)</li>
+                        <li>Méthodologies quantitatives (statistiques spatiales)</li>
+                    </ul>
                     <img src="emile-durkheim.jpg" alt="Le Suicide d'Emile Durkheim" class="book-image">
+                    <p>Expérience pratique acquise lors de mes stages en agence d'urbanisme et collectivité territoriale.</p>
                 </div>
             </div>
         </div>
