@@ -306,6 +306,14 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
+        .calculator-preview {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -450,6 +458,9 @@
             <p>
                 <a href="https://mariusbrion.github.io/calculateur-carbone/" target="_blank">Accéder au Calculateur Carbone</a>
             </p>
+            
+            <img src="calculateur.jpg" alt="Capture d'écran du Calculateur Carbone" class="calculator-preview">
+            
             <p>
                 Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l'électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Voici le graphique interactif qui illustre cette relation :
             </p>
@@ -486,21 +497,10 @@
             </div>
             
             <p>
-                Cette visualisation 3D, réalisée avec QGIS et Blender, permet d'analyser les flux de déplacements domicile-travail et leur impact sur l'organisation urbaine. Les bâtiments sont représentés en 3D avec une coloration spécifique selon leur usage principal : bleu pour les zones résidentielles, vert foncé pour les commerces et vert clair pour les espaces agricoles.
-            </p>
-            
-            <h3>Autres réalisations cartographiques</h3>
-            <p>
-                La maîtrise d'outils cartographiques comme <span class="highlight">QGIS</span> et <span class="highlight">Kepler.gl</span> est essentielle pour analyser un territoire. Ces outils permettent de visualiser et d'interpréter des données spatiales, ce qui est crucial pour prendre des décisions éclairées en matière d'aménagement et de développement durable.
+                Cette cartographie interactive 3D, réalisée à l'aide de QGIS, Kepler.gl, geojson.io et Excel, permet d'explorer les habitudes de mobilité domicile-travail en zone périurbaine. Elle met en lumière l'impact de la concentration des bâtiments à usage commercial (issus des données 3D de l'IGN) sur les flux pendulaires, en soulignant comment ces implantations influencent les dynamiques de déplacement quotidien. Les bâtiments sont représentés en 3D, avec une coloration selon leur usage principal : bleu pour les zones résidentielles, vert foncé pour les commerces et vert clair pour les espaces agricoles.
             </p>
             <p>
-                Voici un exemple de mes réalisations cartographiques :
-            </p>
-            
-            <img src="gif-creation-senille-VEED.gif" alt="Réalisation cartographique avec QGIS" width="100%">
-            
-            <p>
-                Ce GIF illustre la création d'une carte interactive avec QGIS, montrant comment cet outil permet de représenter des données complexes de manière claire et accessible.
+                Ce travail cartographique complète le calculateur carbone développé en parallèle, en illustrant sur un support spatial concret les effets territoriaux et écologiques des mobilités pendulaires. L'impact environnemental est estimé à travers un indice économique fondé sur le coût social du carbone par tonne de CO₂, tel que défini par l'<a href="https://www.insee.fr/fr/statistiques/8276271?sommaire=8071406" target="_blank">INSEE dans son étude de 2023</a>.
             </p>
         </div>
     </section>
@@ -529,8 +529,7 @@
                         <li>ArcGIS (niveau intermédiaire)</li>
                         <li>Blender (modélisation 3D pour cartographie)</li>
                     </ul>
-                    <img src="https://via.placeholder.com/80x120" alt="Livre SIG" class="book-image">
-                    <img src="https://via.placeholder.com/80x120" alt="Livre Cartographie" class="book-image">
+                    <img src="gif-creation-senille-VEED.gif" alt="Démonstration QGIS" class="book-image" style="width: 100%; height: auto;">
                     <p>Création de cartes interactives et de représentations graphiques complexes pour l'analyse territoriale.</p>
                 </div>
             </div>
