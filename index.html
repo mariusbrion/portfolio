@@ -10,7 +10,7 @@
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Times New Roman', serif;
             color: #333;
             scroll-behavior: smooth;
         }
@@ -111,7 +111,7 @@
         .about-content, .creations-content, .skills-content {
             max-width: 800px;
             margin: 0 auto;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Times New Roman', serif;
             font-size: 1.1rem;
             line-height: 1.6;
             text-align: justify;
@@ -142,11 +142,12 @@
 
         .creations-content iframe {
             width: 100%;
-            height: 500px;
+            height: 600px;
             border: none;
             border-radius: 10px;
-            margin-top: 20px;
+            margin: 20px auto;
             background-color: white;
+            display: block;
         }
 
         .creations-content img, .creations-content video {
@@ -296,22 +297,25 @@
             display: block;
         }
 
-        .book-image {
-            width: 80px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin: 10px auto;
-            display: block;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
         .calculator-preview {
             width: 100%;
             max-width: 800px;
             margin: 20px auto;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 10px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-paragraph {
+            margin: 10px 0;
+            text-align: left;
         }
 
         @media (max-width: 768px) {
@@ -362,7 +366,7 @@
             }
 
             .creations-content iframe {
-                height: 300px;
+                height: 400px;
             }
         }
 
@@ -399,7 +403,7 @@
             }
 
             .creations-content iframe {
-                height: 200px;
+                height: 300px;
             }
         }
     </style>
@@ -462,7 +466,7 @@
             <img src="calculateur.png" alt="Capture d'écran du Calculateur Carbone" class="calculator-preview">
             
             <p>
-                Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l'électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Voici le graphique interactif qui illustre cette relation :
+                Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l'électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Voici l'analyse graphique qui illustre cette relation :
             </p>
             
             <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive"></iframe>
@@ -522,15 +526,8 @@
                 <span class="short-text">SIG et représentation graphique</span>
                 <div class="long-text">
                     <h3>SIG et Représentation Graphique</h3>
-                    <p><strong>Maîtrise avancée de :</strong></p>
-                    <ul>
-                        <li>QGIS (création de cartes thématiques, géotraitement)</li>
-                        <li>Kepler.gl (visualisation de données géospatiales)</li>
-                        <li>ArcGIS (niveau intermédiaire)</li>
-                        <li>Blender (modélisation 3D pour cartographie)</li>
-                    </ul>
-                    <img src="gif-creation-senille-VEED.gif" alt="Démonstration QGIS" class="book-image" style="width: 100%; height: auto;">
-                    <p>Création de cartes interactives et de représentations graphiques complexes pour l'analyse territoriale.</p>
+                    <p class="skill-paragraph">Maîtrise avancée de QGIS pour la création de cartes thématiques et le géotraitement, ainsi que de Kepler.gl pour la visualisation de données géospatiales. Expérience avec ArcGIS (niveau intermédiaire) et Blender pour la modélisation 3D cartographique.</p>
+                    <img src="cartopopulation.png" alt="Exemple de cartographie" class="skill-image">
                 </div>
             </div>
             
@@ -538,7 +535,6 @@
                 <span class="short-text">Langues et programmation</span>
                 <div class="long-text">
                     <h3>Langues et Programmation</h3>
-                    <p><strong>Langues :</strong></p>
                     <ul>
                         <li>Anglais : Courant (Certification Cambridge C1)</li>
                         <li>Espagnol : Niveau B2</li>
@@ -550,7 +546,6 @@
                         <li>Python (analyse de données, scripts d'automatisation)</li>
                         <li>R (statistiques et visualisation de données)</li>
                     </ul>
-                    <img src="https://via.placeholder.com/80x120" alt="Livre Langues" class="book-image">
                 </div>
             </div>
             
@@ -558,15 +553,7 @@
                 <span class="short-text">Visualisation de données</span>
                 <div class="long-text">
                     <h3>Visualisation et Analyse de Données</h3>
-                    <p><strong>Outils maîtrisés :</strong></p>
-                    <ul>
-                        <li>Tableau (création de dashboards interactifs)</li>
-                        <li>Google Data Studio</li>
-                        <li>Python (Matplotlib, Seaborn)</li>
-                        <li>R (ggplot2)</li>
-                    </ul>
-                    <img src="urban-typology.jpg" alt="Livre Data" class="book-image">
-                    <p>Capacité à transformer des données complexes en visualisations claires et percutantes pour la prise de décision.</p>
+                    <p class="skill-paragraph">Maîtrise de Tableau pour la création de dashboards interactifs et de Google Data Studio. Compétences en visualisation avec Python (Matplotlib, Seaborn) et R (ggplot2). Capacité à transformer des données complexes en visualisations claires et percutantes pour la prise de décision.</p>
                 </div>
             </div>
             
@@ -574,17 +561,14 @@
                 <span class="short-text">Analyse territoriale</span>
                 <div class="long-text">
                     <h3>Analyse Socio-économique et Territoriale</h3>
-                    <p><strong>Compétences :</strong></p>
-                    <ul>
-                        <li>Analyse des dynamiques urbaines et territoriales</li>
-                        <li>Étude des indicateurs socio-économiques</li>
-                        <li>Méthodologies qualitatives (enquêtes, entretiens)</li>
-                        <li>Méthodologies quantitatives (statistiques spatiales)</li>
-                    </ul>
-                    <img src="emile-durkheim.jpg" alt="Le Suicide d'Emile Durkheim" class="book-image">
-                    <p>Expérience pratique acquise lors de mes stages en agence d'urbanisme et collectivité territoriale.</p>
+                    <p class="skill-paragraph">Expertise dans l'analyse des dynamiques urbaines et territoriales, avec une approche combinant méthodologies qualitatives (enquêtes, entretiens) et quantitatives (statistiques spatiales). Expérience pratique acquise lors de stages en agence d'urbanisme et collectivité territoriale.</p>
                 </div>
             </div>
+        </div>
+
+        <!-- Ajout du GIF en bas de la section compétences -->
+        <div style="max-width: 800px; margin: 50px auto 0;">
+            <img src="gif-creation-senille-VEED.gif" alt="Démonstration de création cartographique" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
         </div>
     </section>
 
