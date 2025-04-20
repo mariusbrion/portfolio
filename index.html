@@ -141,8 +141,8 @@
         }
 
         .creations-content iframe {
-            width: 100%;
-            height: 600px;
+            width: 100% !important;
+            height: 600px !important;
             border: none;
             border-radius: 10px;
             margin: 20px auto;
@@ -350,7 +350,6 @@
             display: none;
             font-size: 0.8rem;
             padding: 15px;
-            text-align: justify;
         }
 
         .skill-bubble.expanded .short-text {
@@ -359,13 +358,6 @@
 
         .skill-bubble.expanded .long-text {
             display: block;
-        }
-
-        .skill-bubble .long-text h3 {
-            font-family: 'Shrikhand', cursive;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            text-align: center;
         }
 
         .calculator-preview {
@@ -386,7 +378,7 @@
 
         .skill-paragraph {
             margin: 10px 0;
-            text-align: justify;
+            text-align: left;
         }
 
         @media (max-width: 768px) {
@@ -443,7 +435,7 @@
             }
 
             .creations-content iframe {
-                height: 400px;
+                height: 400px !important;
             }
         }
 
@@ -494,7 +486,7 @@
             }
 
             .creations-content iframe {
-                height: 300px;
+                height: 300px !important;
             }
         }
     </style>
@@ -560,7 +552,7 @@
                 Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l'électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Voici l'analyse graphique qui illustre cette relation :
             </p>
             
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive"></iframe>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive" style="width: 100%; height: 600px;"></iframe>
             
             <p>
                 Ce graphique montre une corrélation négative forte (R² = 0,989), ce qui signifie qu'une augmentation du pourcentage de véhicules électriques dans le parc automobile entraîne une réduction significative des émissions de CO₂. Toutefois, grâce à l'outil du Calculateur Carbone, on voit que cette solution ne suffit pas à faire du mode de vie rurbain un mode de vie durable.
@@ -632,8 +624,8 @@
                     </ul>
                     <h3>Un événement marquant et porteur de sens</h3>
                     <p>La table ronde a permis de croiser des parcours de vie, des approches militantes et des initiatives concrètes pour penser l’accès à la culture comme un droit fondamental, y compris derrière les murs des prisons. En tant qu’animateur de ce débat, j’ai veillé à faire dialoguer ces voix singulières tout en gardant un fil conducteur accessible pour le public, favorisant les échanges et la réflexion.</p>
-                    <img src="table_ronde_1.jpg" alt="Photo de la table ronde 1">
-                    <img src="table_ronde_2.jpg" alt="Photo de la table ronde 2">
+                    <img src="table_ronde_1.JPG" alt="Photo de la table ronde 1">
+                    <img src="table_ronde_2.JPG" alt="Photo de la table ronde 2">
                 </div>
             </div>
             
@@ -669,9 +661,8 @@
                 <span class="short-text">Visualisation de données</span>
                 <div class="long-text">
                     <h3>Visualisation et Analyse de Données</h3>
-                    <p class="skill-paragraph">Maîtrise de Tableau pour la création de dashboards interactifs et de Google Data Studio. Compétences en visualisation avec Python (Matplotlib, Seaborn) and R (ggplot2). Capacité à transformer des données complexes en visualisations claires et percutantes pour la prise de décision.</p>
+                    <p class="skill-paragraph">Maîtrise de Tableau pour la création de dashboards interactifs et de Google Data Studio. Compétences en visualisation avec Python (Matplotlib, Seaborn) et R (ggplot2). Capacité à transformer des données complexes en visualisations claires et percutantes pour la prise de décision.</p>
                     <img src="urban-typology.jpg" alt="Exemple de visualisation de données" class="skill-image">
-                    <p class="skill-paragraph">Note : L'image ci-dessus est une couverture d'un ouvrage lu en lien avec la compétence en visualisation de données.</p>
                 </div>
             </div>
             
@@ -681,7 +672,6 @@
                     <h3>Analyse Socio-économique et Territoriale</h3>
                     <p class="skill-paragraph">Expertise dans l'analyse des dynamiques urbaines et territoriales, avec une approche combinant méthodologies qualitatives (enquêtes, entretiens) et quantitatives (statistiques spatiales). Expérience pratique acquise lors de stages en agence d'urbanisme et collectivité territoriale.</p>
                     <img src="emile-durkheim.jpg" alt="Exemple d'analyse territoriale" class="skill-image">
-                    <p class="skill-paragraph">Note : L'image ci-dessus est une couverture d'un ouvrage lu en lien avec la compétence en analyse territoriale.</p>
                 </div>
             </div>
         </div>
