@@ -216,11 +216,73 @@
             box-shadow: 0 0 30px rgba(26, 115, 232, 0.5);
             z-index: 10;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
         }
 
         .central-bubble:hover {
             transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .central-bubble.expanded {
+            width: 90vw;
+            height: 90vh;
+            max-width: 1200px;
+            max-height: 800px;
+            border-radius: 20px;
+            background-color: #1557b0;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 30;
+            overflow-y: auto;
+            padding: 40px;
+            display: block;
+        }
+
+        .central-bubble .short-text {
+            display: block;
+        }
+
+        .central-bubble .long-text {
+            display: none;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: white;
+            text-align: justify;
+        }
+
+        .central-bubble.expanded .short-text {
+            display: none;
+        }
+
+        .central-bubble.expanded .long-text {
+            display: block;
+        }
+
+        .central-bubble .long-text h3 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .central-bubble .long-text p {
+            margin-bottom: 20px;
+        }
+
+        .central-bubble .long-text ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .central-bubble .long-text img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
         .skill-bubble {
@@ -338,6 +400,12 @@
                 font-size: 1rem;
             }
             
+            .central-bubble.expanded {
+                width: 95vw;
+                height: 80vh;
+                padding: 20px;
+            }
+            
             .skill-bubble {
                 width: 120px;
                 height: 120px;
@@ -388,6 +456,20 @@
                 width: 120px;
                 height: 120px;
                 font-size: 0.9rem;
+            }
+            
+            .central-bubble.expanded {
+                width: 95vw;
+                height: 85vh;
+                padding: 15px;
+            }
+            
+            .central-bubble .long-text h3 {
+                font-size: 1.5rem;
+            }
+            
+            .central-bubble .long-text img {
+                max-width: 300px;
             }
             
             .skill-bubble {
@@ -506,6 +588,12 @@
             <p>
                 Ce travail cartographique complète le calculateur carbone développé en parallèle, en illustrant sur un support spatial concret les effets territoriaux et écologiques des mobilités pendulaires. L'impact environnemental est estimé à travers un indice économique fondé sur le coût social du carbone par tonne de CO₂, tel que défini par l'<a href="https://www.insee.fr/fr/statistiques/8276271?sommaire=8071406" target="_blank">INSEE dans son étude de 2023</a>.
             </p>
+
+            <h3>Animation cartographique</h3>
+            <p>
+                L'animation suivante montre ma capacité à utiliser des données simples, telles que les infrastructures et les bâtiments d'un territoire, ainsi que les différentes zones de protection écologique, pour appréhender le territoire sur QGIS :
+            </p>
+            <img src="gif-creation-senille-VEED.gif" alt="Démonstration de création cartographique" style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); margin: 20px auto; display: block;">
         </div>
     </section>
 
@@ -518,7 +606,20 @@
         <div class="skills-container">
             <!-- Bulle Centrale -->
             <div class="central-bubble" id="centralBubble">
-                Institut Universitaire<br>de Technologie<br>Bordeaux Montaigne
+                <span class="short-text">Institut Universitaire<br>de Technologie<br>Bordeaux Montaigne</span>
+                <div class="long-text">
+                    <h3>Projets réalisés à l’IUT Bordeaux Montaigne</h3>
+                    <p>Dans le cadre du Festisol, notre commission "Évasion culturelle" a organisé une table ronde sur l'accès à la culture en milieu carcéral.</p>
+                    <p>J’ai animé ce débat en présence de :</p>
+                    <ul>
+                        <li>David Desclos, ancien multirécidiviste devenu humoriste,</li>
+                        <li>Corentin Blanchard, ancien mineur incarcéré, fondateur d’une association pour l’accès à la culture dans les quartiers,</li>
+                        <li>Sarah, de l’association France Amérique Latine, intervenant en prison pour mineurs à Gradignan.</li>
+                    </ul>
+                    <p>La table ronde s’est déroulée devant une centaine de personnes, et j’en étais l’animateur.</p>
+                    <img src="table_ronde_1.jpg" alt="Photo de la table ronde 1">
+                    <img src="table_ronde_2.jpg" alt="Photo de la table ronde 2">
+                </div>
             </div>
             
             <!-- Bulles Satellites -->
@@ -554,6 +655,7 @@
                 <div class="long-text">
                     <h3>Visualisation et Analyse de Données</h3>
                     <p class="skill-paragraph">Maîtrise de Tableau pour la création de dashboards interactifs et de Google Data Studio. Compétences en visualisation avec Python (Matplotlib, Seaborn) et R (ggplot2). Capacité à transformer des données complexes en visualisations claires et percutantes pour la prise de décision.</p>
+                    <img src="urban-typology.jpg" alt="Exemple de visualisation de données" class="skill-image">
                 </div>
             </div>
             
@@ -562,49 +664,50 @@
                 <div class="long-text">
                     <h3>Analyse Socio-économique et Territoriale</h3>
                     <p class="skill-paragraph">Expertise dans l'analyse des dynamiques urbaines et territoriales, avec une approche combinant méthodologies qualitatives (enquêtes, entretiens) et quantitatives (statistiques spatiales). Expérience pratique acquise lors de stages en agence d'urbanisme et collectivité territoriale.</p>
+                    <img src="emile-durkheim.jpg" alt="Exemple d'analyse territoriale" class="skill-image">
                 </div>
             </div>
-        </div>
-
-        <!-- Ajout du GIF en bas de la section compétences -->
-        <div style="max-width: 800px; margin: 50px auto 0;">
-            <img src="gif-creation-senille-VEED.gif" alt="Démonstration de création cartographique" style="width: 100%; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
         </div>
     </section>
 
     <script>
-        // Gestion des compétences
         document.addEventListener('DOMContentLoaded', function() {
             const centralBubble = document.getElementById('centralBubble');
             const skillBubbles = document.querySelectorAll('.skill-bubble');
+            
+            // Gestion du clic sur la bulle centrale
+            centralBubble.addEventListener('click', function(e) {
+                e.stopPropagation();
+                centralBubble.classList.toggle('expanded');
+                
+                // Ferme toutes les bulles satellites si la bulle centrale est ouverte
+                if (centralBubble.classList.contains('expanded')) {
+                    skillBubbles.forEach(bubble => bubble.classList.remove('expanded'));
+                }
+            });
             
             // Gestion des clics sur les bulles satellites
             skillBubbles.forEach(bubble => {
                 bubble.addEventListener('click', function(e) {
                     e.stopPropagation();
                     
-                    // Ferme toutes les autres bulles
+                    // Ferme toutes les autres bulles satellites et la bulle centrale
                     skillBubbles.forEach(b => {
                         if (b !== bubble) b.classList.remove('expanded');
                     });
+                    centralBubble.classList.remove('expanded');
                     
                     // Ouvre/ferme la bulle cliquée
                     bubble.classList.toggle('expanded');
                 });
             });
             
-            // Clic sur la bulle centrale pour tout fermer
-            centralBubble.addEventListener('click', function() {
-                skillBubbles.forEach(bubble => {
-                    bubble.classList.remove('expanded');
-                });
-            });
-            
-            // Clic en dehors pour fermer
-            document.addEventListener('click', function() {
-                skillBubbles.forEach(bubble => {
-                    bubble.classList.remove('expanded');
-                });
+            // Clic en dehors pour fermer toutes les bulles
+            document.addEventListener('click', function(e) {
+                if (!centralBubble.contains(e.target) && !Array.from(skillBubbles).some(bubble => bubble.contains(e.target))) {
+                    centralBubble.classList.remove('expanded');
+                    skillBubbles.forEach(bubble => bubble.classList.remove('expanded'));
+                }
             });
         });
     </script>
