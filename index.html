@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1400">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio de Marius Brion</title>
     <!-- Ajout de la police Shrikhand depuis Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
@@ -13,8 +13,6 @@
             font-family: 'Times New Roman', serif;
             color: #333;
             scroll-behavior: smooth;
-            width: 1400px;
-            margin: 0 auto;
         }
 
         .home-section {
@@ -226,7 +224,7 @@
         }
 
         .central-bubble.expanded {
-            width: 90%;
+            width: 90vw;
             height: 90vh;
             max-width: 1200px;
             max-height: 800px;
@@ -399,6 +397,121 @@
             margin: 20px auto;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .box {
+                width: 120px;
+                font-size: 1rem;
+            }
+
+            .skills-container {
+                height: 800px;
+            }
+
+            .central-bubble {
+                width: 150px;
+                height: 150px;
+                font-size: 1rem;
+            }
+
+            .central-bubble.expanded {
+                width: 95vw;
+                height: 80vh;
+                padding: 20px;
+            }
+
+            .central-bubble .long-text .image-container img {
+                max-width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .skill-bubble {
+                width: 120px;
+                height: 120px;
+                font-size: 0.8rem;
+            }
+
+            .skill-bubble.expanded {
+                width: 250px;
+                height: 250px;
+            }
+
+            .skill-bubble[data-skill="sig"] {
+                top: 10%;
+            }
+
+            .skill-bubble[data-skill="analyse"] {
+                bottom: 10%;
+            }
+
+            .skill-bubble[data-skill="langues"] {
+                left: 10%;
+            }
+
+            .skill-bubble[data-skill="visualisation"] {
+                right: 10%;
+            }
+
+            .creations-content .chart-iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .box {
+                width: 100px;
+                font-size: 0.9rem;
+            }
+
+            .skills-container {
+                height: 700px;
+            }
+
+            .central-bubble {
+                width: 120px;
+                height: 120px;
+                font-size: 0.9rem;
+            }
+
+            .central-bubble.expanded {
+                width: 95vw;
+                height: 85vh;
+                padding: 15px;
+            }
+
+            .central-bubble .long-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .central-bubble .long-text .image-container img {
+                max-width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .skill-bubble {
+                width: 100px;
+                height: 100px;
+                font-size: 0.7rem;
+                padding: 10px;
+            }
+
+            .skill-bubble.expanded {
+                width: 200px;
+                height: 200px;
+            }
+
+            .creations-content .chart-iframe {
+                height: 300px;
+            }
         }
     </style>
 </head>
