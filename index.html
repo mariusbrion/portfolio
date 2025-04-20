@@ -216,7 +216,7 @@
             box-shadow: 0 0 30px rgba(26, 115, 232, 0.5);
             z-index: 10;
             cursor: pointer;
-            transition: all 0.5s ease;
+            transition: all: 0.5s ease;
         }
 
         .central-bubble:hover {
@@ -304,7 +304,7 @@
             padding: 15px;
             box-shadow: 0 0 20px rgba(26, 115, 232, 0.3);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all: 0.3s ease;
             z-index: 5;
         }
 
@@ -376,7 +376,13 @@
             font-size: 1.2rem;
             margin-bottom: 15px;
             text-align: center;
-            padding-top: 40px; /* Augmenté pour simuler deux sauts de ligne */
+            padding-top: 40px; /* Espacement standard pour SIG et Langues */
+        }
+
+        /* Espacement très grand pour Visualisation et Analyse */
+        .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3,
+        .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
+            padding-top: 130px; /* Espacement très grand comme demandé */
         }
 
         .skill-bubble .long-text .bubble-content .skill-paragraph {
@@ -459,7 +465,13 @@
             }
 
             .skill-bubble .long-text .bubble-content h3 {
-                padding-top: 30px; /* Augmenté pour tablettes */
+                padding-top: 30px; /* Espacement standard pour tablettes */
+            }
+
+            /* Espacement adapté pour Visualisation et Analyse */
+            .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3,
+            .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
+                padding-top: 100px; /* Espacement adapté pour tablettes */
             }
 
             .creations-content .chart-iframe {
@@ -515,7 +527,13 @@
             }
 
             .skill-bubble .long-text .bubble-content h3 {
-                padding-top: 30px; /* Augmenté pour mobiles */
+                padding-top: 30px; /* Espacement standard pour mobiles */
+            }
+
+            /* Espacement adapté pour Visualisation et Analyse */
+            .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3,
+            .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
+                padding-top: 100px; /* Espacement adapté pour mobiles */
             }
 
             .creations-content .chart-iframe {
