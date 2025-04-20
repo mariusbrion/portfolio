@@ -141,8 +141,8 @@
         }
 
         .creations-content .chart-iframe {
-            width: 600px;
-            height: 400px;
+            width: 610px;
+            height: 380px;
             border: none;
             border-radius: 10px;
             margin: 20px auto;
@@ -376,7 +376,12 @@
             font-size: 1.2rem;
             margin-bottom: 15px;
             text-align: center;
-            padding-top: 40px; /* Espacement standard pour SIG et Langues */
+            padding-top: 40px; /* Espacement standard pour SIG */
+        }
+
+        /* Espacement pour Langues */
+        .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
+            padding-top: 180px; /* Espacement important */
         }
 
         /* Espacement très grand pour Visualisation et Analyse */
@@ -482,6 +487,11 @@
                 padding-top: 30px; /* Espacement standard pour tablettes */
             }
 
+            /* Espacement adapté pour Langues */
+            .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
+                padding-top: 140px; /* Espacement adapté pour tablettes */
+            }
+
             /* Espacement adapté pour Visualisation et Analyse */
             .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3,
             .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
@@ -489,8 +499,8 @@
             }
 
             .creations-content .chart-iframe {
-                width: 500px;
-                height: 350px;
+                width: 510px;
+                height: 360px;
             }
         }
 
@@ -543,6 +553,11 @@
 
             .skill-bubble .long-text .bubble-content h3 {
                 padding-top: 30px; /* Espacement standard pour mobiles */
+            }
+
+            /* Espacement adapté pour Langues */
+            .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
+                padding-top: 140px; /* Espacement adapté pour mobiles */
             }
 
             /* Espacement adapté pour Visualisation et Analyse */
@@ -746,7 +761,8 @@
                     <div class="bubble-content">
                         <h3>Visualisation et Analyse de Données</h3>
                         <p class="skill-paragraph">Maîtrise de Tableau pour la création de dashboards interactifs et de Google Data Studio. Compétences en visualisation avec Python (Matplotlib, Seaborn) et R (ggplot2). Capacité à transformer des données complexes en visualisations claires et percutantes pour la prise de décision.</p>
-                        <img src="urban-typology.jpg" alt="Exemple de visualisation de données" class="skill-image">
+                        <!-- Placeholder pour l'image à ajouter plus tard -->
+                        <img src="" alt="Image à définir" class="skill-image">
                     </div>
                 </div>
             </div>
@@ -757,7 +773,10 @@
                     <div class="bubble-content">
                         <h3>Analyse Socio-économique et Territoriale</h3>
                         <p class="skill-paragraph">Expertise dans l'analyse des dynamiques urbaines et territoriales, avec une approche combinant méthodologies qualitatives (enquêtes, entretiens) et quantitatives (statistiques spatiales). Expérience pratique acquise lors de stages en agence d'urbanisme et collectivité territoriale.</p>
-                        <img src="emile-durkheim.jpg" alt="Exemple d'analyse territoriale" class="skill-image">
+                        <div class="image-container">
+                            <img src="emile-durkheim.jpg" alt="Exemple d'analyse territoriale">
+                            <img src="urban-typology.jpg" alt="Typologie urbaine">
+                        </div>
                     </div>
                 </div>
             </div>
