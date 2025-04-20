@@ -140,7 +140,7 @@
             color: #1557b0;
         }
 
-        .creations-content iframe {
+        .creations-content .chart-iframe {
             width: 100% !important;
             height: 600px !important;
             border: none;
@@ -275,13 +275,17 @@
             margin-bottom: 20px;
         }
 
-        .central-bubble .long-text img {
-            width: 100%;
-            max-width: 500px;
+        .central-bubble .long-text .image-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .central-bubble .long-text .image-container img {
+            max-width: 48%;
             height: auto;
             border-radius: 10px;
-            margin: 20px auto;
-            display: block;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
@@ -407,6 +411,11 @@
                 padding: 20px;
             }
             
+            .central-bubble .long-text .image-container img {
+                max-width: 100%;
+                margin-bottom: 10px;
+            }
+            
             .skill-bubble {
                 width: 120px;
                 height: 120px;
@@ -434,7 +443,7 @@
                 right: 10%;
             }
 
-            .creations-content iframe {
+            .creations-content .chart-iframe {
                 height: 400px !important;
             }
         }
@@ -469,8 +478,9 @@
                 font-size: 1.5rem;
             }
             
-            .central-bubble .long-text img {
-                max-width: 300px;
+            .central-bubble .long-text .image-container img {
+                max-width: 100%;
+                margin-bottom: 10px;
             }
             
             .skill-bubble {
@@ -485,7 +495,7 @@
                 height: 200px;
             }
 
-            .creations-content iframe {
+            .creations-content .chart-iframe {
                 height: 300px !important;
             }
         }
@@ -552,7 +562,7 @@
                 Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l'électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Voici l'analyse graphique qui illustre cette relation :
             </p>
             
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive" style="width: 100%; height: 800px;"></iframe>
+            <iframe class="chart-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive"></iframe>
             
             <p>
                 Ce graphique montre une corrélation négative forte (R² = 0,989), ce qui signifie qu'une augmentation du pourcentage de véhicules électriques dans le parc automobile entraîne une réduction significative des émissions de CO₂. Toutefois, grâce à l'outil du Calculateur Carbone, on voit que cette solution ne suffit pas à faire du mode de vie rurbain un mode de vie durable.
@@ -565,7 +575,7 @@
             
             <video autoplay muted loop controls>
                 <source src="cartographie3D.mov" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture de vidéos.
+                Votre navigateur ne supporte pas\
             </video>
             
             <div class="legend">
@@ -624,8 +634,10 @@
                     </ul>
                     <h3>Un événement marquant et porteur de sens</h3>
                     <p>La table ronde a permis de croiser des parcours de vie, des approches militantes et des initiatives concrètes pour penser l’accès à la culture comme un droit fondamental, y compris derrière les murs des prisons. En tant qu’animateur de ce débat, j’ai veillé à faire dialoguer ces voix singulières tout en gardant un fil conducteur accessible pour le public, favorisant les échanges et la réflexion.</p>
-                    <img src="table_ronde_1.JPG" alt="Photo de la table ronde 1">
-                    <img src="table_ronde_2.JPG" alt="Photo de la table ronde 2">
+                    <div class="image-container">
+                        <img src="table_ronde_1.JPG" alt="Photo de la table ronde 1">
+                        <img src="table_ronde_2.JPG" alt="Photo de la table ronde 2">
+                    </div>
                 </div>
             </div>
             
