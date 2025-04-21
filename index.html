@@ -150,6 +150,17 @@
             display: block;
         }
 
+        .creations-content .looker-iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 900px;
+            border: none;
+            border-radius: 10px;
+            margin: 20px auto;
+            background-color: white;
+            display: block;
+        }
+
         .creations-content img, .creations-content video {
             max-width: 100%;
             border-radius: 10px;
@@ -221,6 +232,19 @@
 
         .central-bubble:hover {
             transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .central-bubble:not(.expanded) {
+            animation: bounce-central 2s infinite;
+        }
+
+        @keyframes bounce-central {
+            0%, 100% {
+                transform: translate(-50%, -50%);
+            }
+            50% {
+                transform: translate(-50%, calc(-50% - 5px));
+            }
         }
 
         .central-bubble.expanded {
@@ -336,6 +360,34 @@
             transform: translateX(-50%);
         }
 
+        .skill-bubble[data-skill="sig"]:not(.expanded),
+        .skill-bubble[data-skill="analyse"]:not(.expanded) {
+            animation: bounce-x 2s infinite;
+        }
+
+        @keyframes bounce-x {
+            0%, 100% {
+                transform: translateX(-50%);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .skill-bubble[data-skill="langues"]:not(.expanded),
+        .skill-bubble[data-skill="visualisation"]:not(.expanded) {
+            animation: bounce-y 2s infinite;
+        }
+
+        @keyframes bounce-y {
+            0%, 100% {
+                transform: translateY(-50%);
+            }
+            50% {
+                transform: translateY(calc(-50% - 5px));
+            }
+        }
+
         .skill-bubble.expanded {
             width: 300px;
             height: 300px;
@@ -415,6 +467,24 @@
             height: auto;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .interactive-hint {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.7rem;
+            font-family: 'Shrikhand', cursive;
+            color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2px 5px;
+            border-radius: 3px;
+            display: block;
+        }
+
+        .central-bubble.expanded .interactive-hint,
+        .skill-bubble.expanded .interactive-hint {
+            display: none;
         }
 
         .calculator-preview {
@@ -502,6 +572,10 @@
                 width: 510px;
                 height: 360px;
             }
+
+            .creations-content .looker-iframe {
+                height: 600px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -574,6 +648,10 @@
             .creations-content .chart-iframe {
                 width: 100%;
                 height: 300px;
+            }
+
+            .creations-content .looker-iframe {
+                height: 500px;
             }
         }
     </style>
@@ -657,15 +735,15 @@
             
             <div class="legend">
                 <div class="legend-item">
-                    <img class="legend-color" src="legendebleu.png" alt="Carré bleu pour Résidentiel">
+                    <div class="legend-color" style="background-color: #1a73e8;"></div>
                     <span class="legend-text">Résidentiel</span>
                 </div>
                 <div class="legend-item">
-                    <img class="legend-color" src="legendevertfonce.png" alt="Carré vert foncé pour Commerce">
+                    <div class="legend-color" style="background-color: #0b6623;"></div>
                     <span class="legend-text">Commerce</span>
                 </div>
                 <div class="legend-item">
-                    <img class="legend-color" src="legendevertclair.png" alt="Carré vert clair pour Agricole">
+                    <div class="legend-color" style="background-color: #4CAF50;"></div>
                     <span class="legend-text">Agricole</span>
                 </div>
             </div>
@@ -685,6 +763,10 @@
                 <source src="cartographiecreations.mov" type="video/mp4">
                 Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
+
+            <h3>Analyse des émissions de CO₂ en Europe</h3>
+            <iframe class="looker-iframe" src="https://lookerstudio.google.com/embed/reporting/88ef1b09-3975-4195-97b4-14f57f97abab/page/0FgHF" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+            <p class="skill-paragraph">Ce Dashboard montre qu’un pays où les voitures neuves émettent peu de CO₂ n’est pas nécessairement un pays où les émissions par habitant liées au transport sont faibles. Cela souligne que les efforts technologiques (comme l’achat de véhicules plus propres) ont un impact limité si les comportements de mobilité (usage de la voiture, recours à l’avion, distances parcourues) ne changent pas profondément.</p>
         </div>
     </section>
 
@@ -698,6 +780,7 @@
             <!-- Bulle Centrale -->
             <div class="central-bubble" id="centralBubble">
                 <span class="short-text">Institut Universitaire<br>de Technologie<br>Bordeaux Montaigne</span>
+                <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
                     <h3>Accès à la culture en milieu carcéral : une table ronde engagée lors du Festisol</h3>
                     <p>Dans le cadre du <strong>Festisol (Festival des Solidarités)</strong>, nous avons mis en place au sein de notre IUT une commission thématique intitulée <strong>"Évasion culturelle"</strong>, dont l'objectif central était de promouvoir l'accès à la culture en milieu carcéral. Cette initiative est née de la conviction que la culture peut être un puissant levier d’émancipation, de reconstruction personnelle et de réinsertion sociale. Elle permet aussi d’éviter que la prison ne devienne une école de la récidive, en offrant des perspectives, des outils d’expression et des chemins de transformation individuelle.</p>
@@ -721,6 +804,7 @@
             <!-- Bulles Satellites -->
             <div class="skill-bubble" data-skill="sig">
                 <span class="short-text">SIG et représentation graphique</span>
+                <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
                     <div class="bubble-content">
                         <h3>SIG et Représentation Graphique</h3>
@@ -732,6 +816,7 @@
             
             <div class="skill-bubble" data-skill="langues">
                 <span class="short-text">Langues et langages de programmation</span>
+                <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
                     <div class="bubble-content">
                         <h3>Langues et langages de programmation</h3>
@@ -757,6 +842,7 @@
             
             <div class="skill-bubble" data-skill="visualisation">
                 <span class="short-text">Visualisation de données</span>
+                <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
                     <div class="bubble-content">
                         <h3>Visualisation et Analyse de Données</h3>
@@ -769,6 +855,7 @@
             
             <div class="skill-bubble" data-skill="analyse">
                 <span class="short-text">Analyse territoriale</span>
+                <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
                     <div class="bubble-content">
                         <h3>Analyse Socio-économique et Territoriale</h3>
