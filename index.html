@@ -436,10 +436,14 @@
             padding-top: 280px; /* Espacement très important */
         }
 
-        /* Espacement très grand pour Visualisation et Analyse */
-        .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3,
-        .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
+        /* Espacement très grand pour Visualisation */
+        .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
             padding-top: 230px; /* Espacement très grand */
+        }
+
+        /* Espacement pour Analyse */
+        .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
+            padding-top: 330px; /* Espacement très grand +100px */
         }
 
         .skill-bubble .long-text .bubble-content .skill-paragraph {
@@ -572,10 +576,14 @@
                 padding-top: 180px; /* Espacement adapté pour tablettes */
             }
 
-            /* Espacement adapté pour Visualisation et Analyse */
-            .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3,
-            .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
+            /* Espacement adapté pour Visualisation */
+            .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
                 padding-top: 180px; /* Espacement adapté pour tablettes */
+            }
+
+            /* Espacement adapté pour Analyse */
+            .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
+                padding-top: 280px; /* Espacement adapté pour tablettes */
             }
 
             .skill-bubble .long-text .bubble-content .sheets-iframe {
@@ -648,10 +656,14 @@
                 padding-top: 180px; /* Espacement adapté pour mobiles */
             }
 
-            /* Espacement adapté pour Visualisation et Analyse */
-            .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3,
-            .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
+            /* Espacement adapté pour Visualisation */
+            .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
                 padding-top: 180px; /* Espacement adapté pour mobiles */
+            }
+
+            /* Espacement adapté pour Analyse */
+            .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
+                padding-top: 280px; /* Espacement adapté pour mobiles */
             }
 
             .skill-bubble .long-text .bubble-content .sheets-iframe {
@@ -773,23 +785,27 @@
             <h3>Lecture réglementaire et écologique d’un territoire à travers QGIS (animation cartographique)</h3>
             <p>
                 L’animation suivante illustre ma capacité à mobiliser des données simples – telles que les emprises bâties, les infrastructures, les espaces naturels protégés ou les zones de protection patrimoniale – pour construire une lecture fine et réglementaire d’un territoire à l’aide de QGIS.<br><br>
-                Elle intègre notamment la visualisation de certaines normes du Plan Local d’Urbanisme (PLU), comme les haies protégées, les espaces verts à préserver ou les périmètres liés aux monuments historiques. Ces éléments traduisent les contraintes réglementaires locales qui orientent les choix d’aménagement et structurent les dynamiques urbaines et rurales.<br><br>
-                Cette approche permet également de situer un projet dans son contexte territorial, comme en témoigne l’introduction de l’animation avec la carte des parcs touristiques alentours, utilisée ici pour étudier l’implantation potentielle d’un nouveau parc. Ce croisement entre données réglementaires, environnementales et fonctionnelles est fondamental pour évaluer la faisabilité d’un projet et anticiper ses interactions avec le territoire.<br><br>
-                Maîtriser ces visualisations constitue ainsi une compétence essentielle pour tout travail de diagnostic, de planification ou de conception territoriale.
+                Elle intègre notamment la visualisation de certaines normes du Plan Local d’Urbanisme (PLU), comme les haies protégées, les espaces verts à préserver ou les périmètres liés aux monuments historiques. Ces éléments traduisent les contraintes réglementaires locales qui orientent les choix d’aménagement et structurent les dynamiques urbaines et rurales.
             </p>
             <video autoplay muted loop controls>
                 <source src="cartographiecreations.mov" type="video/mp4">
                 Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
+            <p>
+                Cette approche permet également de situer un projet dans son contexte territorial, comme en témoigne l’introduction de l’animation avec la carte des parcs touristiques alentours, utilisée ici pour étudier l’implantation potentielle d’un nouveau parc. Ce croisement entre données réglementaires, environnementales et fonctionnelles est fondamental pour évaluer la faisabilité d’un projet et anticiper ses interactions avec le territoire.<br><br>
+                Maîtriser ces visualisations constitue ainsi une compétence essentielle pour tout travail de diagnostic, de planification ou de conception territoriale.
+            </p>
 
             <h3>Analyse des émissions de CO₂ dans le secteur des transports en Europe (2023)</h3>
             <p class="skill-paragraph">
                 Ce Dashboard interactif, réalisé sous Looker Studio à partir de données de l’Agence européenne pour l’environnement, de la Banque mondiale et de l’inventaire européen des gaz à effet de serre, propose une lecture critique des dynamiques de décarbonation du secteur des transports à l’échelle européenne. Il permet de visualiser la complexité des facteurs en jeu derrière les émissions de CO₂ : électrification du parc automobile, usage de l’avion, distances parcourues ou encore organisation territoriale.<br><br>
-                L’outil montre notamment que les pays où les véhicules neufs sont les plus propres ne sont pas nécessairement ceux où les émissions par habitant sont les plus faibles. À l’inverse, certains pays avec un parc automobile encore polluant enregistrent des émissions par habitant relativement faibles, du fait de comportements de mobilité plus sobres ou d’une moindre dépendance à l’aviation. Il est possible de filtrer dynamiquement le graphique du bas du Dashboard – comparant les émissions moyennes des véhicules neufs (en orange) aux émissions de CO₂ par habitant (en bleu) – afin de visualiser sur la carte les pays concernés par ces écarts.<br><br>
+                L’outil montre notamment que les pays où les véhicules neufs sont les plus propres ne sont pas nécessairement ceux où les émissions par habitant sont les plus faibles. À l’inverse, certains pays avec un parc automobile encore polluant enregistrent des émissions par habitant relativement faibles, du fait de comportements de mobilité plus sobres ou d’une moindre dépendance à l’aviation. Il est possible de filtrer dynamiquement le graphique du bas du Dashboard – comparant les émissions moyennes des véhicules neufs (en orange) aux émissions de CO₂ par habitant (en bleu) – afin de visualiser sur la carte les pays concernés par ces écarts.
+            </p>
+            <iframe class="looker-iframe" src="https://lookerstudio.google.com/embed/reporting/88ef1b09-3975-4195-97b4-14f57f97abab/page/0FgHF" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+            <p class="skill-paragraph">
                 Cette prise de recul à l’échelle européenne vient compléter l’analyse territoriale des mobilités pendulaires menée précédemment. Alors que les cartes interactives 3D exploraient les effets de l’urbanisation et de la localisation des activités sur les flux quotidiens et leur impact environnemental, ce Dashboard met en évidence que les réponses techniques seules (comme l’achat de véhicules électriques) ne suffisent pas si elles ne sont pas accompagnées de transformations plus structurelles : aménagements urbains, accessibilité des services, et évolution des usages.<br><br>
                 Il souligne ainsi la nécessité d’une approche systémique pour réellement réduire les émissions d’un des secteurs les plus polluants d’Europe.
             </p>
-            <iframe class="looker-iframe" src="https://lookerstudio.google.com/embed/reporting/88ef1b09-3975-4195-97b4-14f57f97abab/page/0FgHF" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
         </div>
     </section>
 
@@ -831,29 +847,34 @@
                 <div class="long-text">
                     <div class="bubble-content">
                         <h3>SIG et Représentation Graphique</h3>
-                        <p class="skill-paragraph">Maîtrise avancée de QGIS pour la création de cartes thématiques et le géotraitement, ainsi que de Kepler.gl pour la visualisation de données géospatiales. Expérience avec ArcGIS (niveau intermédiaire) et Blender pour la modélisation 3D cartographique.</p>
+                        <p class="skill-paragraph">
+                            Maîtrise avancée de QGIS pour la création de cartes thématiques, le géotraitement et l'analyse spatiale, ainsi que de Kepler.gl pour la visualisation de données géospatiales. Ces outils me permettent de transformer des données complexes en représentations visuelles claires et informatives.<br><br>
+                            L'exemple de carte présenté ci-dessous illustre les inégalités de répartition de la population dans la Vienne. La taille des communes est proportionnelle à leur population, ce qui permet de visualiser de manière frappante les disparités en termes de moyens communaux, notamment dans les zones rurales où la densité est plus faible. Cette approche aide à mieux comprendre les enjeux d'équité territoriale et à proposer des solutions adaptées.
+                        </p>
                         <img src="cartopopulation.png" alt="Exemple de cartographie" class="skill-image">
                     </div>
                 </div>
             </div>
             
             <div class="skill-bubble" data-skill="langues">
-                <span class="short-text">Langues et langages de programmation</span>
+                <span class="short-text">Langues et outils numériques</span>
                 <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
                     <div class="bubble-content">
-                        <h3>Langues et langages de programmation</h3>
+                        <h3>Langues et Outils Numériques</h3>
+                        <p class="skill-paragraph"><strong>Langues</strong></p>
                         <ul>
-                            <li>Anglais : Courant (Certification Cambridge C1)</li>
-                            <li>Espagnol : Niveau B2</li>
                             <li>Français : Langue maternelle</li>
+                            <li>Anglais : Niveau B2+ – Certificat Cambridge (expression orale et compréhension écrite validées à un niveau professionnel C1)</li>
+                            <li>Allemand : Niveau B1</li>
+                            <li>Espagnol : Niveau B1</li>
                         </ul>
-                        <p class="skill-paragraph">Le certificat Cambridge C1 atteste que mon expression orale et ma compréhension écrite en anglais ont toutes deux été évaluées au niveau C1, démontrant une maîtrise de la langue à un niveau professionnel.</p>
-                        <p><strong>Programmation :</strong></p>
+                        <p class="skill-paragraph"><strong>Langages et outils numériques</strong></p>
                         <ul>
-                            <li>HTML/CSS (création de sites web comme ce portfolio)</li>
-                            <li>Python (analyse de données, scripts d'automatisation)</li>
-                            <li>R (statistiques et visualisation de données)</li>
+                            <li>HTML/CSS : Création de sites web (ex. : ce portfolio)</li>
+                            <li>Looker Studio : Visualisation de données et création de dashboards interactifs</li>
+                            <li>Google Sheets/Excel : Nettoyage, structuration et analyse de données à grande échelle</li>
+                            <li>QGIS / Kepler.gl : Cartographie interactive et analyse spatiale</li>
                         </ul>
                         <div class="image-container">
                             <img src="cambridge_cert_1.jpg" alt="Certificat Cambridge C1 - Partie 1">
