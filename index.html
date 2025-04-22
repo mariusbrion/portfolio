@@ -41,6 +41,13 @@
             object-fit: cover;
         }
 
+        /* Réduire la qualité vidéo sur mobile pour améliorer le chargement */
+        @media (max-width: 768px) {
+            .video-background video {
+                object-fit: contain;
+            }
+        }
+
         .name {
             position: absolute;
             top: 20px;
@@ -389,13 +396,27 @@
         }
 
         .skill-bubble.expanded {
-            width: 300px;
-            height: 300px;
+            width: 500px;
+            height: 500px;
             border-radius: 20px;
             z-index: 20;
             transform: scale(1) !important;
             overflow-y: auto;
-            padding: 15px;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .skill-bubble.expanded {
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skill-bubble.expanded {
+                width: 300px;
+                height: 300px;
+            }
         }
 
         .skill-bubble .short-text {
@@ -404,8 +425,8 @@
 
         .skill-bubble .long-text {
             display: none;
-            font-size: 0.8rem;
-            padding: 15px;
+            font-size: 0.9rem;
+            padding: 20px;
             min-height: 100%;
         }
 
@@ -425,25 +446,22 @@
 
         .skill-bubble .long-text .bubble-content h3 {
             font-family: 'Shrikhand', cursive;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
             text-align: center;
             padding-top: 40px; /* Espacement standard pour SIG */
         }
 
-        /* Espacement pour Langues */
         .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
-            padding-top: 280px; /* Espacement très important */
+            padding-top: 200px;
         }
 
-        /* Espacement très grand pour Visualisation */
         .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
-            padding-top: 230px; /* Espacement très grand */
+            padding-top: 150px;
         }
 
-        /* Espacement pour Analyse */
         .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
-            padding-top: 330px; /* Espacement très grand +100px */
+            padding-top: 250px;
         }
 
         .skill-bubble .long-text .bubble-content .skill-paragraph {
@@ -546,11 +564,6 @@
                 font-size: 0.8rem;
             }
             
-            .skill-bubble.expanded {
-                width: 250px;
-                height: 250px;
-            }
-            
             .skill-bubble[data-skill="sig"] {
                 top: 10%;
             }
@@ -568,22 +581,19 @@
             }
 
             .skill-bubble .long-text .bubble-content h3 {
-                padding-top: 30px; /* Espacement standard pour tablettes */
+                padding-top: 30px;
             }
 
-            /* Espacement adapté pour Langues */
             .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
-                padding-top: 180px; /* Espacement adapté pour tablettes */
+                padding-top: 150px;
             }
 
-            /* Espacement adapté pour Visualisation */
             .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
-                padding-top: 180px; /* Espacement adapté pour tablettes */
+                padding-top: 120px;
             }
 
-            /* Espacement adapté pour Analyse */
             .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
-                padding-top: 280px; /* Espacement adapté pour tablettes */
+                padding-top: 200px;
             }
 
             .skill-bubble .long-text .bubble-content .sheets-iframe {
@@ -641,29 +651,21 @@
                 font-size: 0.7rem;
                 padding: 10px;
             }
-            
-            .skill-bubble.expanded {
-                width: 200px;
-                height: 200px;
-            }
 
             .skill-bubble .long-text .bubble-content h3 {
-                padding-top: 30px; /* Espacement standard pour mobiles */
+                padding-top: 20px;
             }
 
-            /* Espacement adapté pour Langues */
             .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
-                padding-top: 180px; /* Espacement adapté pour mobiles */
+                padding-top: 120px;
             }
 
-            /* Espacement adapté pour Visualisation */
             .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
-                padding-top: 180px; /* Espacement adapté pour mobiles */
+                padding-top: 100px;
             }
 
-            /* Espacement adapté pour Analyse */
             .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
-                padding-top: 280px; /* Espacement adapté pour mobiles */
+                padding-top: 180px;
             }
 
             .skill-bubble .long-text .bubble-content .sheets-iframe {
@@ -690,7 +692,7 @@
     <!-- Section d'accueil -->
     <section class="home-section">
         <div class="video-background">
-            <video autoplay muted loop>
+            <video autoplay muted loop preload="auto" playsinline poster="background-poster.jpg">
                 <source src="https://videos.pexels.com/video-files/20046744/20046744-uhd_3840_2160_60fps.mp4" type="video/mp4">
                 Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
@@ -848,7 +850,7 @@
                     <div class="bubble-content">
                         <h3>SIG et Représentation Graphique</h3>
                         <p class="skill-paragraph">
-                            Maîtrise avancée de QGIS pour la création de cartes thématiques, le géotraitement et l'analyse spatiale, ainsi que de Kepler.gl pour la visualisation de données géospatiales. Ces outils me permettent de transformer des données complexes en représentations visuelles claires et informatives.<br><br>
+                            Maîtrise avancée de QGIS pour la création de cartes thématiques, le géotraitement et l'analyse spatiale, ainsi que de Kepler.gl pour la visualisation de données géospatiales. Ces outils me permettent de transformer des données complexes en représentations visuelles claires et informatives.<   <br><br>
                             L'exemple de carte présenté ci-dessous illustre les inégalités de répartition de la population dans la Vienne. La taille des communes est proportionnelle à leur population, ce qui permet de visualiser de manière frappante les disparités en termes de moyens communaux, notamment dans les zones rurales où la densité est plus faible. Cette approche aide à mieux comprendre les enjeux d'équité territoriale et à proposer des solutions adaptées.
                         </p>
                         <img src="cartopopulation.png" alt="Exemple de cartographie" class="skill-image">
