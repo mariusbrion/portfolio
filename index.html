@@ -453,15 +453,15 @@
         }
 
         .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
-            padding-top: 200px;
+            padding-top: 280px;
         }
 
         .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
-            padding-top: 150px;
+            padding-top: 100px;
         }
 
         .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
-            padding-top: 250px;
+            padding-top: 350px;
         }
 
         .skill-bubble .long-text .bubble-content .skill-paragraph {
@@ -496,6 +496,20 @@
 
         .skill-bubble .long-text .image-container img {
             max-width: 48%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-bubble[data-skill="langues"] .long-text .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-bubble[data-skill="langues"] .long-text .image-container img {
+            max-width: 80%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -634,15 +648,15 @@
             }
 
             .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
-                padding-top: 150px;
+                padding-top: 230px;
             }
 
             .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
-                padding-top: 120px;
+                padding-top: 70px;
             }
 
             .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
-                padding-top: 200px;
+                padding-top: 300px;
             }
 
             .skill-bubble .long-text .bubble-content .sheets-iframe {
@@ -718,15 +732,15 @@
             }
 
             .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
-                padding-top: 120px;
+                padding-top: 200px;
             }
 
             .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
-                padding-top: 100px;
+                padding-top: 50px;
             }
 
             .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
-                padding-top: 180px;
+                padding-top: 280px;
             }
 
             .skill-bubble .long-text .bubble-content .sheets-iframe {
@@ -783,7 +797,7 @@
             <a href="#about-section" class="box">À propos</a>
             <a href="#creations-section" class="box">Mes créations</a>
             <a href="#skills-section" class="box">Mes compétences</a>
-            <a href="#contact-section" class="box">Contact</a>
+            <a href="#me-contacter-section" class="box">Me contacter</a>
         </div>
     </section>
 
@@ -860,14 +874,14 @@
 
             <h3>Analyse des émissions de CO₂ dans le secteur des transports en Europe (2023)</h3>
             <p class="skill-paragraph">
-                Ce dashboard interactif a été réalisé à partir d’un croisement de données issues de l’<a href="https://co2cars.apps.eea.europa.eu/?source=%7B%22track_total_hits%22%3Atrue%2C%22query%22%3A%7B%22bool%22%3A%7B%22must%22%3A%5B%7B%22constant_score%22%3A%7B%22filter%22%3A%7B%22bool%22%3A%7B%22must%22%3A%5B%7B%22bool%22%3A%7B%22should%22%3A%5B%7B%22term%22%3A%7B%22year%22%3A2023%7D%7D%5D%7D%7D%2C%7B%22bool%22%3A%7B%22should%22%3A%5B%7B%22term%22%3A%7B%22scStatus%22%3A%22Final%22%7D%7D%5D%7D%7D%5D%7D%7D%7D%7D%5D%7D%7D%2C%22display_type%22%3A%22tabular%22%7D" target="_blank">Agence européenne pour l’environnement</a> – notamment les émissions moyennes de CO₂ des véhicules particuliers neufs et l’<a href="https://www.eea.europa.eu/en/analysis/maps-and-charts/greenhouse-gases-viewer-data-viewers" target="_blank">inventaire des émissions de gaz à effet de serre</a> – et de la <a href="https://donnees.banquemondiale.org/indicator/SP.POP.TOTL?end=2023&name_desc=false&start=2023&view=map&year=1960" target="_blank">Banque mondiale</a>, pour les données démographiques. L’ensemble de ces données a été agrégé et structuré via Google Sheets, avant d’être visualisé dans Looker Studio.<br><br>
+                Ce dashboard interactif a été réalisé à partir d’un croisement de données issues de l’Agence européenne pour l’environnement – notamment les <a href="https://co2cars.apps.eea.europa.eu/?source=%7B%22track_total_hits%22%3Atrue%2C%22query%22%3A%7B%22bool%22%3A%7B%22must%22%3A%5B%7B%22constant_score%22%3A%7B%22filter%22%3A%7B%22bool%22%3A%7B%22must%22%3A%5B%7B%22bool%22%3A%7B%22should%22%3A%5B%7B%22term%22%3A%7B%22year%22%3A2023%7D%7D%5D%7D%7D%2C%7B%22bool%22%3A%7B%22should%22%3A%5B%7B%22term%22%3A%7B%22scStatus%22%3A%22Final%22%7D%7D%5D%7D%7D%5D%7D%7D%7D%7D%5D%7D%7D%2C%22display_type%22%3A%22tabular%22%7D" target="_blank">émissions moyennes de CO₂ des véhicules particuliers neufs</a> et l’<a href="https://www.eea.europa.eu/en/analysis/maps-and-charts/greenhouse-gases-viewer-data-viewers" target="_blank">inventaire des émissions de gaz à effet de serre</a> – et de la Banque mondiale, pour les <a href="https://donnees.banquemondiale.org/indicator/SP.POP.TOTL?end=2023&name_desc=false&start=2023&view=map&year=1960" target="_blank">données démographiques</a>. L’ensemble de ces données a été agrégé et structuré via Google Sheets, avant d’être visualisé dans Looker Studio.<br><br>
                 La carte européenne en 3D illustre, par des barres verticales, les émissions de CO₂ par habitant liées au secteur des transports, tandis que la couleur des pays reflète les émissions moyennes des nouveaux véhicules particuliers vendus. Cette représentation est complétée par un indicateur de la moyenne européenne, et un graphique croisé qui compare, pour chaque pays, les émissions des véhicules neufs (en orange) avec les émissions globales par habitant (en bleu).<br><br>
                 L’objectif de cette visualisation est de proposer une lecture critique des dynamiques de décarbonation à l’échelle européenne. Elle met en évidence l’absence de corrélation directe entre la performance environnementale des véhicules neufs et les émissions globales du secteur des transports par habitant. Certains pays, malgré des ventes de véhicules neufs parmi les moins émetteurs, conservent des niveaux élevés d’émissions globales, tandis que d’autres, avec un parc automobile techniquement plus polluant, affichent de meilleures performances globales.<br><br>
-                Cela souligne que l’électrification, encore marginale à l’échelle des flottes nationales, ne suffit pas à infléchir significativement les tendances, et que d’autres facteurs pèsent davantage dans la balance : accessibilité des services, aménagement du territoire, modes de vie, distances parcourues ou encore part modale de l’aviation.<br><br>
-                Grâce aux filtres dynamiques intégrés à la courbe comparant les émissions des nouveaux véhicules vendus (en orange) avec les émissions du secteur des transports par habitant (en bleu), vous pouvez sélectionner directement à la souris un ensemble de pays (en restant appuyé sur la courbe bleue et en faisant glisser, vous pouvez sélectionner quelques pays sur qui réduire l’analyse). Il est ainsi possible, par exemple, de mettre en évidence ceux dont les nouveaux véhicules sont les plus polluants, et d’observer instantanément leur localisation sur la carte ainsi que leur niveau moyen d’émissions. Cette interaction facilite l’exploration des contrastes et illustre la diversité des dynamiques territoriales dans la transition des mobilités.
+                Cela souligne que l’électrification, encore marginale à l’échelle des flottes nationales, ne suffit pas à infléchir significativement les tendances, et que d’autres facteurs pèsent davantage dans la balance : accessibilité des services, aménagement du territoire, modes de vie, distances parcourues ou encore part modale de l’aviation.
             </p>
             <iframe class="looker-iframe" src="https://lookerstudio.google.com/embed/reporting/88ef1b09-3975-4195-97b4-14f57f97abab/page/0FgHF" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
             <p class="skill-paragraph">
+                Grâce aux filtres dynamiques intégrés à la courbe comparant les émissions des nouveaux véhicules vendus (en orange) avec les émissions du secteur des transports par habitant (en bleu), vous pouvez sélectionner directement à la souris un ensemble de pays (en restant appuyé sur la courbe bleue et en faisant glisser, vous pouvez sélectionner quelques pays sur qui réduire l’analyse). Il est ainsi possible, par exemple, de mettre en évidence ceux dont les nouveaux véhicules sont les plus polluants, et d’observer instantanément leur localisation sur la carte ainsi que leur niveau moyen d’émissions. Cette interaction facilite l’exploration des contrastes et illustre la diversité des dynamiques territoriales dans la transition des mobilités.<br><br>
                 Cette prise de recul à l’échelle européenne vient compléter l’analyse territoriale des mobilités pendulaires menée précédemment. Alors que les cartes interactives 3D exploraient les effets de l’urbanisation et de la localisation des activités sur les flux quotidiens et leur impact environnemental, ce Dashboard met en évidence que les réponses techniques seules (comme l’achat de véhicules électriques) ne suffisent pas si elles ne sont pas accompagnées de transformations plus structurelles : aménagements urbains, accessibilité des services, et évolution des usages.<br><br>
                 Il souligne ainsi la nécessité d’une approche systémique pour réellement réduire les émissions d’un des secteurs les plus polluants d’Europe.
             </p>
@@ -946,7 +960,7 @@
                             <li>Français : Langue maternelle</li>
                             <li>Anglais : Niveau B2+ – Certificat Cambridge (expression orale et compréhension écrite validées à un niveau professionnel C1)</li>
                             <li>Allemand : Niveau B1</li>
-                            <li>Esp prématuréagnol : Niveau B1</li>
+                            <li>Espagnol : Niveau B1</li>
                         </ul>
                         <p class="skill-paragraph"><strong>Langages et outils numériques</strong></p>
                         <ul>
@@ -1000,8 +1014,8 @@
         </div>
     </section>
 
-    <!-- Section "Contact et Remerciements" -->
-    <section id="contact-section" class="contact-section">
+    <!-- Section "Me contacter" -->
+    <section id="me-contacter-section" class="contact-section">
         <div class="contact-content">
             <h2>Merci pour votre visite</h2>
             <p>
