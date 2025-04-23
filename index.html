@@ -108,14 +108,14 @@
             background-color: rgba(255, 255, 255, 0.4);
         }
 
-        .about-section, .creations-section, .skills-section {
+        .about-section, .creations-section, .skills-section, .contact-section {
             background-color: #f0f4f8;
             padding: 60px 20px;
             text-align: center;
             color: #333;
         }
 
-        .about-content, .creations-content, .skills-content {
+        .about-content, .creations-content, .skills-content, .contact-content {
             max-width: 800px;
             margin: 0 auto;
             font-family: 'Times New Roman', serif;
@@ -124,7 +124,7 @@
             text-align: justify;
         }
 
-        .about-content h2, .creations-content h2, .skills-content h2 {
+        .about-content h2, .creations-content h2, .skills-content h2, .contact-content h2 {
             font-size: 2.5rem;
             font-family: 'Shrikhand', cursive;
             margin-bottom: 20px;
@@ -132,18 +132,18 @@
             text-align: center;
         }
 
-        .about-content p, .creations-content p, .skills-content p {
+        .about-content p, .creations-content p, .skills-content p, .contact-content p {
             margin-bottom: 20px;
             color: #333;
         }
 
-        .about-content a, .creations-content a {
+        .about-content a, .creations-content a, .contact-content a {
             color: #1a73e8;
             text-decoration: none;
             font-weight: bold;
         }
 
-        .about-content a:hover, .creations-content a:hover {
+        .about-content a:hover, .creations-content a:hover, .contact-content a:hover {
             color: #1557b0;
         }
 
@@ -527,6 +527,55 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
+        .contact-section {
+            background-color: #f0f4f8;
+            padding: 60px 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            font-family: 'Shrikhand', cursive;
+            margin-bottom: 20px;
+            color: #1a73e8;
+            text-align: center;
+        }
+
+        .contact-content p {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .contact-links {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-link {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #1557b0;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -608,6 +657,18 @@
             .creations-content .looker-iframe {
                 height: 500px;
             }
+
+            .contact-content h2 {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                font-size: 1rem;
+            }
+
+            .contact-link {
+                font-size: 1.1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -685,6 +746,18 @@
             .creations-content .looker-iframe {
                 height: 400px;
             }
+
+            .contact-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-content {
+                font-size: 0.9rem;
+            }
+
+            .contact-link {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -710,6 +783,7 @@
             <a href="#about-section" class="box">À propos</a>
             <a href="#creations-section" class="box">Mes créations</a>
             <a href="#skills-section" class="box">Mes compétences</a>
+            <a href="#contact-section" class="box">Contact</a>
         </div>
     </section>
 
@@ -784,6 +858,20 @@
                 Ce travail cartographique complète le calculateur carbone développé en parallèle, en illustrant sur un support spatial concret les effets territoriaux et écologiques des mobilités pendulaires. L'impact environnemental est estimé à travers un indice économique fondé sur le coût social du carbone par tonne de CO₂, tel que défini par l'<a href="https://www.insee.fr/fr/statistiques/8276271?sommaire=8071406" target="_blank">INSEE dans son étude de 2023</a>.
             </p>
 
+            <h3>Analyse des émissions de CO₂ dans le secteur des transports en Europe (2023)</h3>
+            <p class="skill-paragraph">
+                Ce dashboard interactif a été réalisé à partir d’un croisement de données issues de l’<a href="https://co2cars.apps.eea.europa.eu/?source=%7B%22track_total_hits%22%3Atrue%2C%22query%22%3A%7B%22bool%22%3A%7B%22must%22%3A%5B%7B%22constant_score%22%3A%7B%22filter%22%3A%7B%22bool%22%3A%7B%22must%22%3A%5B%7B%22bool%22%3A%7B%22should%22%3A%5B%7B%22term%22%3A%7B%22year%22%3A2023%7D%7D%5D%7D%7D%2C%7B%22bool%22%3A%7B%22should%22%3A%5B%7B%22term%22%3A%7B%22scStatus%22%3A%22Final%22%7D%7D%5D%7D%7D%5D%7D%7D%7D%7D%5D%7D%7D%2C%22display_type%22%3A%22tabular%22%7D" target="_blank">Agence européenne pour l’environnement</a> – notamment les émissions moyennes de CO₂ des véhicules particuliers neufs et l’<a href="https://www.eea.europa.eu/en/analysis/maps-and-charts/greenhouse-gases-viewer-data-viewers" target="_blank">inventaire des émissions de gaz à effet de serre</a> – et de la <a href="https://donnees.banquemondiale.org/indicator/SP.POP.TOTL?end=2023&name_desc=false&start=2023&view=map&year=1960" target="_blank">Banque mondiale</a>, pour les données démographiques. L’ensemble de ces données a été agrégé et structuré via Google Sheets, avant d’être visualisé dans Looker Studio.<br><br>
+                La carte européenne en 3D illustre, par des barres verticales, les émissions de CO₂ par habitant liées au secteur des transports, tandis que la couleur des pays reflète les émissions moyennes des nouveaux véhicules particuliers vendus. Cette représentation est complétée par un indicateur de la moyenne européenne, et un graphique croisé qui compare, pour chaque pays, les émissions des véhicules neufs (en orange) avec les émissions globales par habitant (en bleu).<br><br>
+                L’objectif de cette visualisation est de proposer une lecture critique des dynamiques de décarbonation à l’échelle européenne. Elle met en évidence l’absence de corrélation directe entre la performance environnementale des véhicules neufs et les émissions globales du secteur des transports par habitant. Certains pays, malgré des ventes de véhicules neufs parmi les moins émetteurs, conservent des niveaux élevés d’émissions globales, tandis que d’autres, avec un parc automobile techniquement plus polluant, affichent de meilleures performances globales.<br><br>
+                Cela souligne que l’électrification, encore marginale à l’échelle des flottes nationales, ne suffit pas à infléchir significativement les tendances, et que d’autres facteurs pèsent davantage dans la balance : accessibilité des services, aménagement du territoire, modes de vie, distances parcourues ou encore part modale de l’aviation.<br><br>
+                Grâce aux filtres dynamiques intégrés à la courbe comparant les émissions des nouveaux véhicules vendus (en orange) avec les émissions du secteur des transports par habitant (en bleu), vous pouvez sélectionner directement à la souris un ensemble de pays (en restant appuyé sur la courbe bleue et en faisant glisser, vous pouvez sélectionner quelques pays sur qui réduire l’analyse). Il est ainsi possible, par exemple, de mettre en évidence ceux dont les nouveaux véhicules sont les plus polluants, et d’observer instantanément leur localisation sur la carte ainsi que leur niveau moyen d’émissions. Cette interaction facilite l’exploration des contrastes et illustre la diversité des dynamiques territoriales dans la transition des mobilités.
+            </p>
+            <iframe class="looker-iframe" src="https://lookerstudio.google.com/embed/reporting/88ef1b09-3975-4195-97b4-14f57f97abab/page/0FgHF" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+            <p class="skill-paragraph">
+                Cette prise de recul à l’échelle européenne vient compléter l’analyse territoriale des mobilités pendulaires menée précédemment. Alors que les cartes interactives 3D exploraient les effets de l’urbanisation et de la localisation des activités sur les flux quotidiens et leur impact environnemental, ce Dashboard met en évidence que les réponses techniques seules (comme l’achat de véhicules électriques) ne suffisent pas si elles ne sont pas accompagnées de transformations plus structurelles : aménagements urbains, accessibilité des services, et évolution des usages.<br><br>
+                Il souligne ainsi la nécessité d’une approche systémique pour réellement réduire les émissions d’un des secteurs les plus polluants d’Europe.
+            </p>
+
             <h3>Lecture réglementaire et écologique d’un territoire à travers QGIS (animation cartographique)</h3>
             <p>
                 L’animation suivante illustre ma capacité à mobiliser des données simples – telles que les emprises bâties, les infrastructures, les espaces naturels protégés ou les zones de protection patrimoniale – pour construire une lecture fine et réglementaire d’un territoire à l’aide de QGIS.<br><br>
@@ -796,17 +884,6 @@
             <p>
                 Cette approche permet également de situer un projet dans son contexte territorial, comme en témoigne l’introduction de l’animation avec la carte des parcs touristiques alentours, utilisée ici pour étudier l’implantation potentielle d’un nouveau parc. Ce croisement entre données réglementaires, environnementales et fonctionnelles est fondamental pour évaluer la faisabilité d’un projet et anticiper ses interactions avec le territoire.<br><br>
                 Maîtriser ces visualisations constitue ainsi une compétence essentielle pour tout travail de diagnostic, de planification ou de conception territoriale.
-            </p>
-
-            <h3>Analyse des émissions de CO₂ dans le secteur des transports en Europe (2023)</h3>
-            <p class="skill-paragraph">
-                Ce Dashboard interactif, réalisé sous Looker Studio à partir de données de l’Agence européenne pour l’environnement, de la Banque mondiale et de l’inventaire européen des gaz à effet de serre, propose une lecture critique des dynamiques de décarbonation du secteur des transports à l’échelle européenne. Il permet de visualiser la complexité des facteurs en jeu derrière les émissions de CO₂ : électrification du parc automobile, usage de l’avion, distances parcourues ou encore organisation territoriale.<br><br>
-                L’outil montre notamment que les pays où les véhicules neufs sont les plus propres ne sont pas nécessairement ceux où les émissions par habitant sont les plus faibles. À l’inverse, certains pays avec un parc automobile encore polluant enregistrent des émissions par habitant relativement faibles, du fait de comportements de mobilité plus sobres ou d’une moindre dépendance à l’aviation. Il est possible de filtrer dynamiquement le graphique du bas du Dashboard – comparant les émissions moyennes des véhicules neufs (en orange) aux émissions de CO₂ par habitant (en bleu) – afin de visualiser sur la carte les pays concernés par ces écarts.
-            </p>
-            <iframe class="looker-iframe" src="https://lookerstudio.google.com/embed/reporting/88ef1b09-3975-4195-97b4-14f57f97abab/page/0FgHF" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-            <p class="skill-paragraph">
-                Cette prise de recul à l’échelle européenne vient compléter l’analyse territoriale des mobilités pendulaires menée précédemment. Alors que les cartes interactives 3D exploraient les effets de l’urbanisation et de la localisation des activités sur les flux quotidiens et leur impact environnemental, ce Dashboard met en évidence que les réponses techniques seules (comme l’achat de véhicules électriques) ne suffisent pas si elles ne sont pas accompagnées de transformations plus structurelles : aménagements urbains, accessibilité des services, et évolution des usages.<br><br>
-                Il souligne ainsi la nécessité d’une approche systémique pour réellement réduire les émissions d’un des secteurs les plus polluants d’Europe.
             </p>
         </div>
     </section>
@@ -850,7 +927,7 @@
                     <div class="bubble-content">
                         <h3>SIG et Représentation Graphique</h3>
                         <p class="skill-paragraph">
-                            Maîtrise avancée de QGIS pour la création de cartes thématiques, le géotraitement et l'analyse spatiale, ainsi que de Kepler.gl pour la visualisation de données géospatiales. Ces outils me permettent de transformer des données complexes en représentations visuelles claires et informatives.<   <br><br>
+                            Maîtrise avancée de QGIS pour la création de cartes thématiques, le géotraitement et l'analyse spatiale, ainsi que de Kepler.gl pour la visualisation de données géospatiales. Ces outils me permettent de transformer des données complexes en représentations visuelles claires et informatives.<br><br>
                             L'exemple de carte présenté ci-dessous illustre les inégalités de répartition de la population dans la Vienne. La taille des communes est proportionnelle à leur population, ce qui permet de visualiser de manière frappante les disparités en termes de moyens communaux, notamment dans les zones rurales où la densité est plus faible. Cette approche aide à mieux comprendre les enjeux d'équité territoriale et à proposer des solutions adaptées.
                         </p>
                         <img src="cartopopulation.png" alt="Exemple de cartographie" class="skill-image">
@@ -869,7 +946,7 @@
                             <li>Français : Langue maternelle</li>
                             <li>Anglais : Niveau B2+ – Certificat Cambridge (expression orale et compréhension écrite validées à un niveau professionnel C1)</li>
                             <li>Allemand : Niveau B1</li>
-                            <li>Espagnol : Niveau B1</li>
+                            <li>Esp prématuréagnol : Niveau B1</li>
                         </ul>
                         <p class="skill-paragraph"><strong>Langages et outils numériques</strong></p>
                         <ul>
@@ -919,6 +996,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section "Contact et Remerciements" -->
+    <section id="contact-section" class="contact-section">
+        <div class="contact-content">
+            <h2>Merci pour votre visite</h2>
+            <p>
+                Merci d’avoir pris le temps de parcourir mon portfolio. J’espère que ces projets et analyses ont su refléter mon engagement pour les territoires durables, ma curiosité intellectuelle et ma capacité à mobiliser les outils d’analyse pour comprendre les dynamiques urbaines.<br><br>
+                Si vous souhaitez échanger, me poser une question ou discuter d’une opportunité, n’hésitez pas à me contacter. Vous pouvez également télécharger mon CV ci-dessous pour obtenir une vue d’ensemble de mon parcours.
+            </p>
+            <div class="contact-links">
+                <p><a href="CV-Marius-Brion.pdf" target="_blank" class="contact-link">👉 Télécharger mon CV</a></p>
+                <p><a href="mailto:marius.brion@icloud.com" class="contact-link">📬 Me contacter</a></p>
             </div>
         </div>
     </section>
