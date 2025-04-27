@@ -335,7 +335,7 @@
             padding: 15px;
             box-shadow: 0 0 20px rgba(26, 115, 232, 0.3);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all: 0.3s ease;
             z-index: 5;
         }
 
@@ -453,15 +453,15 @@
         }
 
         .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
-            padding-top: 1080px; /* 680 + 400 */
+            padding-top: 1040px; /* 1080 - 40 */
         }
 
         .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
-            padding-top: 45px; /* 70 - 25 */
+            padding-top: 30px; /* 45 - 15 */
         }
 
         .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
-            padding-top: 325px; /* 335 - 10 */
+            padding-top: 325px; /* unchanged */
         }
 
         .skill-bubble .long-text .bubble-content .skill-paragraph {
@@ -648,15 +648,15 @@
             }
 
             .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
-                padding-top: 1030px; /* 630 + 400 */
+                padding-top: 990px; /* 1030 - 40 */
             }
 
             .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
-                padding-top: 15px; /* 40 - 25 */
+                padding-top: 0px; /* 15 - 15 */
             }
 
             .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
-                padding-top: 275px; /* 285 - 10 */
+                padding-top: 275px; /* unchanged */
             }
 
             .skill-bubble .long-text .bubble-content .sheets-iframe {
@@ -732,15 +732,15 @@
             }
 
             .skill-bubble[data-skill="langues"] .long-text .bubble-content h3 {
-                padding-top: 1000px; /* 600 + 400 */
+                padding-top: 960px; /* 1000 - 40 */
             }
 
             .skill-bubble[data-skill="visualisation"] .long-text .bubble-content h3 {
-                padding-top: 0px; /* 20 - 25, minimum 0 */
+                padding-top: 0px; /* unchanged, already 0 */
             }
 
             .skill-bubble[data-skill="analyse"] .long-text .bubble-content h3 {
-                padding-top: 255px; /* 265 - 10 */
+                padding-top: 255px; /* unchanged */
             }
 
             .skill-bubble .long-text .bubble-content .sheets-iframe {
@@ -831,7 +831,7 @@
             <img src="calculateur.png" alt="Capture d'écran du Calculateur Carbone" class="calculator-preview">
             
             <p>
-                Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l'électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Voici l'analyse graphique qui illustre cette relation :
+                Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l’électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Les données utilisées proviennent de l'<a href="https://ufe-electricite.fr/watt-the-carte/emissions-de-co2-en-france/parc-automobile/" target="_blank">Union Française de l'Électricité (UFE)</a>. Voici l’analyse graphique qui illustre cette relation :
             </p>
             
             <iframe class="chart-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive&embedded=true"></iframe>
