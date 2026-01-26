@@ -116,7 +116,7 @@
         }
 
         .about-content, .creations-content, .skills-content, .contact-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             font-family: 'Times New Roman', serif;
             font-size: 1.1rem;
@@ -147,62 +147,161 @@
             color: #1557b0;
         }
 
-        /* --- STYLES CRÉATIONS MODULAIRES --- */
-        .creations-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
+        /* --- STYLES CRÉATIONS (MODE GRILLE & DÉTAIL) --- */
+        .section-fade {
+            animation: fadeIn 0.5s ease-out;
         }
 
-        .nav-btn {
-            background-color: white;
-            border: 2px solid #1a73e8;
-            border-radius: 25px;
-            padding: 10px 20px;
-            font-family: 'Shrikhand', cursive;
-            color: #1a73e8;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .creations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .creation-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 2rem;
+            padding: 40px 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
         }
 
-        .nav-btn:hover, .nav-btn.active {
-            background-color: #1a73e8;
-            color: white;
+        .creation-card:hover {
+            border-color: #1a73e8;
+            box-shadow: 0 15px 30px rgba(26, 115, 232, 0.1);
+            transform: translateY(-5px);
         }
 
-        #creations-display {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            min-height: 200px;
-            position: relative;
+        .creation-card .emoji {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
         }
 
-        #creations-display.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .creation-card:hover .emoji {
+            transform: scale(1.15);
+        }
+
+        .creation-card h3 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 1.4rem;
+            color: #1a73e8;
+            margin: 0;
+        }
+
+        #detail-view { display: none; }
+        #detail-view.active { display: block; }
+
+        .detail-header {
+            background: white;
+            border-radius: 2rem;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid #e2e8f0;
+        }
+
+        .active-title-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .active-title-group h2 {
+            margin: 0 !important;
+            text-align: left !important;
+        }
+
+        .btn-back {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 2rem;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .btn-back:hover { color: #1a73e8; }
+
+        #active-content {
+            background: white;
+            border-radius: 2rem;
+            padding: 40px;
+            border: 2px solid #f1f5f9;
+            min-height: 400px;
+            text-align: justify;
+        }
+
+        .other-nav {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .other-nav-title {
+            font-family: 'Shrikhand', cursive;
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .other-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .nav-card-small {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 1.5rem;
+            border: 2px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Shrikhand', cursive;
+            color: #475569;
+            font-size: 1rem;
+        }
+
+        .nav-card-small:hover {
+            border-color: #1a73e8;
+            color: #1a73e8;
+            transform: scale(1.02);
         }
 
         .loader {
             border: 4px solid #f3f3f3;
             border-top: 4px solid #1a73e8;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             animation: spin 1s linear infinite;
-            margin: 20px auto;
+            margin: 50px auto;
             display: none;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* --- STYLES COMPÉTENCES (BULLES INTERACTIVES) --- */
+        /* --- STYLES COMPÉTENCES (BULLES ORIGINALES) --- */
         .skills-container {
             position: relative;
             width: 100%;
@@ -213,34 +312,21 @@
 
         .central-bubble {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
+            width: 200px; height: 200px;
             background-color: #1a73e8;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: 'Shrikhand', cursive;
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 20px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-family: 'Shrikhand', cursive; font-size: 1.2rem;
+            text-align: center; padding: 20px;
             box-shadow: 0 0 30px rgba(26, 115, 232, 0.5);
-            z-index: 10;
-            cursor: pointer;
-            transition: all 0.5s ease;
+            z-index: 10; cursor: pointer; transition: all 0.5s ease;
         }
 
-        .central-bubble:hover {
-            transform: translate(-50%, -50%) scale(1.05);
-        }
+        .central-bubble:hover { transform: translate(-50%, -50%) scale(1.05); }
 
-        .central-bubble:not(.expanded) {
-            animation: bounce-central 2s infinite;
-        }
+        .central-bubble:not(.expanded) { animation: bounce-central 2s infinite; }
 
         @keyframes bounce-central {
             0%, 100% { transform: translate(-50%, -50%); }
@@ -248,42 +334,30 @@
         }
 
         .central-bubble.expanded {
-            width: 90vw;
-            height: 90vh;
-            max-width: 1200px;
-            max-height: 800px;
-            border-radius: 20px;
-            background-color: #1557b0;
+            width: 90vw; height: 90vh; max-width: 1200px; max-height: 800px;
+            border-radius: 20px; background-color: #1557b0;
             transform: translate(-50%, -50%) scale(1);
-            z-index: 30;
-            overflow-y: auto;
-            padding: 40px;
-            display: block;
+            z-index: 30; overflow-y: auto; padding: 40px; display: block;
         }
 
-        .short-text { display: block; }
-        .long-text { display: none; }
+        .central-bubble .short-text { display: block; }
+        .central-bubble .long-text { display: none; font-family: 'Times New Roman', serif; font-size: 1.1rem; line-height: 1.6; color: white; text-align: justify; }
 
-        .expanded .short-text { display: none; }
-        .expanded .long-text { display: block; }
+        .central-bubble.expanded .short-text { display: none; }
+        .central-bubble.expanded .long-text { display: block; }
+
+        .central-bubble .long-text h3 { font-family: 'Shrikhand', cursive; font-size: 2rem; margin-bottom: 20px; text-align: center; }
+        .central-bubble .long-text p { margin-bottom: 20px; }
+        .central-bubble .long-text ul { list-style-type: disc; padding-left: 20px; margin-bottom: 20px; }
 
         .skill-bubble {
             position: absolute;
-            width: 150px;
-            height: 150px;
-            background-color: #1a73e8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 15px;
+            width: 150px; height: 150px;
+            background-color: #1a73e8; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 0.9rem; text-align: center; padding: 15px;
             box-shadow: 0 0 20px rgba(26, 115, 232, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 5;
+            cursor: pointer; transition: all 0.3s ease; z-index: 5;
         }
 
         .skill-bubble:hover { transform: scale(1.1); }
@@ -294,59 +368,39 @@
         .skill-bubble[data-skill="analyse"] { bottom: 12%; left: 50%; transform: translateX(-50%); }
 
         .skill-bubble.expanded {
-            width: 500px;
-            height: 500px;
-            border-radius: 20px;
-            z-index: 20;
-            transform: scale(1) !important;
-            overflow-y: auto;
-            padding: 20px;
+            width: 500px; height: 500px; border-radius: 20px; z-index: 20;
+            transform: scale(1) !important; overflow-y: auto; padding: 20px;
         }
 
+        .skill-bubble .short-text { display: block; }
+        .skill-bubble .long-text { display: none; font-size: 0.9rem; padding: 20px; min-height: 100%; }
+        .skill-bubble.expanded .short-text { display: none; }
+        .skill-bubble.expanded .long-text { display: block; }
+
+        .skill-paragraph { margin-bottom: 20px; text-align: justify; }
+        .skill-image { width: 80%; height: auto; border-radius: 5px; margin: 10px auto; display: block; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+
+        .image-container { display: flex; justify-content: space-between; flex-wrap: wrap; margin: 20px 0; }
+        .image-container img { max-width: 48%; height: auto; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); }
+
         .interactive-hint {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 0.7rem;
-            font-family: 'Shrikhand', cursive;
-            color: rgba(255, 255, 255, 0.8);
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 2px 5px;
-            border-radius: 3px;
+            position: absolute; top: 10px; right: 10px; font-size: 0.7rem; font-family: 'Shrikhand', cursive;
+            color: rgba(255, 255, 255, 0.8); background-color: rgba(0, 0, 0, 0.3); padding: 2px 5px; border-radius: 3px;
         }
 
         .expanded .interactive-hint { display: none; }
 
-        /* Styles médias réutilisés pour composants et bulles */
+        /* Iframe standards */
         .chart-iframe, .looker-iframe, .sheets-iframe {
-            width: 100%;
-            border: none;
-            border-radius: 10px;
-            margin: 20px auto;
-            background-color: white;
-            display: block;
+            width: 100%; border: none; border-radius: 10px; margin: 20px auto;
+            background-color: white; display: block;
         }
-
-        .skill-image, .image-container img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .image-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-
-        .image-container img { max-width: 48%; }
 
         /* Responsive */
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             .skills-container { height: 800px; }
+            .creations-grid { grid-template-columns: 1fr 1fr; }
             .skill-bubble.expanded { width: 90vw; height: 400px; }
         }
     </style>
@@ -366,7 +420,7 @@
         <div class="box-container">
             <a href="#about-section" class="box">À propos</a>
             <a href="#creations-section" class="box">Mes créations</a>
-            <a href="#skills-section" class="box">Compétences</a>
+            <a href="#skills-section" class="box">Mes compétences</a>
             <a href="#me-contacter-section" class="box">Me contacter</a>
         </div>
     </section>
@@ -384,19 +438,48 @@
         </div>
     </section>
 
-    <!-- Section "Mes créations" (MODULAIRE) -->
+    <!-- Section "Mes créations" (SYSTÈME MODULAIRE CONSERVÉ) -->
     <section id="creations-section" class="creations-section">
         <div class="creations-content">
             <h2>Mes créations</h2>
-            <nav class="creations-nav">
-                <button class="nav-btn" onclick="loadComponent('urbanisme3D', this)">Urbanisme 3D</button>
-                <button class="nav-btn" onclick="loadComponent('analysespatiale', this)">Analyse Spatiale</button>
-                <button class="nav-btn" onclick="loadComponent('engagementcitoyen', this)">Engagement Citoyen</button>
-                <button class="nav-btn" onclick="loadComponent('manipulationdonnes', this)">Données</button>
-            </nav>
-            <div id="loader" class="loader"></div>
-            <div id="creations-display">
-                <p style="text-align: center; font-style: italic;">Sélectionnez une catégorie pour explorer mes travaux.</p>
+
+            <!-- VUE GRILLE -->
+            <div id="grid-view" class="creations-grid section-fade">
+                <div class="creation-card" onclick="openCreation('urbanisme3D')">
+                    <span class="emoji">🏛️</span>
+                    <h3>Urbanisme & 3D</h3>
+                </div>
+                <div class="creation-card" onclick="openCreation('analysespatiale')">
+                    <span class="emoji">🗺️</span>
+                    <h3>Analyse Spatiale</h3>
+                </div>
+                <div class="creation-card" onclick="openCreation('engagementcitoyen')">
+                    <span class="emoji">🤝</span>
+                    <h3>Engagement Citoyen</h3>
+                </div>
+                <div class="creation-card" onclick="openCreation('manipulationdonnes')">
+                    <span class="emoji">📊</span>
+                    <h3>Données</h3>
+                </div>
+            </div>
+
+            <!-- VUE DÉTAILLÉE -->
+            <div id="detail-view" class="section-fade">
+                <div class="detail-header">
+                    <div class="active-title-group">
+                        <span id="active-emoji" style="font-size: 3rem;"></span>
+                        <h2 id="active-title"></h2>
+                    </div>
+                    <button class="btn-back" onclick="closeCreation()">×</button>
+                </div>
+
+                <div id="loader" class="loader"></div>
+                <div id="active-content"></div>
+
+                <div class="other-nav">
+                    <p class="other-nav-title">Découvrir une autre catégorie</p>
+                    <div id="other-grid" class="other-grid"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -411,15 +494,17 @@
                 <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
                     <h3>Accès à la culture en milieu carcéral : une table ronde engagée lors du Festisol</h3>
-                    <p>Dans le cadre du <strong>Festisol (Festival des Solidarités)</strong>, nous avons mis en place au sein de notre IUT une commission thématique intitulée <strong>"Évasion culturelle"</strong>. J’ai eu la responsabilité de concevoir, organiser et animer une table ronde publique consacrée à cette thématique.</p>
+                    <p>Dans le cadre du <strong>Festisol (Festival des Solidarités)</strong>, nous avons mis en place au sein de notre IUT une commission thématique intitulée <strong>"Évasion culturelle"</strong>, dont l'objectif central était de promouvoir l'accès à la culture en milieu carcéral. Cette initiative est née de la conviction que la culture peut être un puissant levier d’émancipation, de reconstruction personnelle et de réinsertion sociale.</p>
+                    <p>En tant que membre actif de cette commission, j’ai eu la responsabilité de concevoir, organiser et animer une table ronde publique consacrée à cette thématique. Cet événement a rassemblé plus d’une centaine de personnes, principalement des étudiant·e·s et des enseignant·e·s de l’IUT.</p>
+                    <h3>Des intervenants aux parcours forts et inspirants</h3>
                     <ul>
-                        <li><strong>David Desclos</strong>, ancien détenu devenu humoriste.</li>
-                        <li><strong>Corentin Blanchard</strong>, fondateur d'association culturelle.</li>
-                        <li><strong>Sarah Erasmi</strong>, intervenante en milieu pénitentiaire.</li>
+                        <li><strong>David Desclos</strong>, ancien détenu multirécidiviste, aujourd’hui humoriste.</li>
+                        <li><strong>Corentin Blanchard</strong>, fondateur d’une association dédiée à l’accès à la culture.</li>
+                        <li><strong>Sarah Erasmi</strong>, membre de l’association France Amérique Latine.</li>
                     </ul>
                     <div class="image-container">
-                        <img src="table_ronde_1.JPG" alt="Table ronde 1">
-                        <img src="table_ronde_2.JPG" alt="Table ronde 2">
+                        <img src="table_ronde_1.JPG" alt="Photo de la table ronde 1">
+                        <img src="table_ronde_2.JPG" alt="Photo de la table ronde 2">
                     </div>
                 </div>
             </div>
@@ -429,9 +514,11 @@
                 <span class="short-text">SIG et représentation graphique</span>
                 <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
-                    <h3>SIG et Représentation Graphique</h3>
-                    <p>Maîtrise avancée de QGIS pour la création de cartes thématiques, le géotraitement et l'analyse spatiale. Exemple : carte des inégalités de répartition de la population dans la Vienne.</p>
-                    <img src="cartopopulation.png" alt="Cartographie population" class="skill-image">
+                    <div class="bubble-content">
+                        <h3>SIG et Représentation Graphique</h3>
+                        <p class="skill-paragraph">Maîtrise avancée de QGIS pour la création de cartes thématiques, le géotraitement et l'analyse spatiale. L'exemple ci-dessous illustre les inégalités de répartition de la population dans la Vienne.</p>
+                        <img src="cartopopulation.png" alt="Exemple de cartographie" class="skill-image">
+                    </div>
                 </div>
             </div>
             
@@ -440,11 +527,13 @@
                 <span class="short-text">Langues et outils numériques</span>
                 <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
-                    <h3>Langues et Outils Numériques</h3>
-                    <p>Anglais niveau B2+ (Cambridge), Allemand et Espagnol B1. Maîtrise de HTML/CSS, Looker Studio et Excel.</p>
-                    <div class="image-container">
-                        <img src="cambridge_cert_1.jpg" alt="Cambridge 1">
-                        <img src="cambridge_cert_2.jpg" alt="Cambridge 2">
+                    <div class="bubble-content">
+                        <h3>Langues et Outils Numériques</h3>
+                        <p class="skill-paragraph">Anglais B2+ (Cambridge C1), Allemand et Espagnol B1. Maîtrise de HTML/CSS, Looker Studio, Google Sheets/Excel et QGIS.</p>
+                        <div class="image-container">
+                            <img src="cambridge_cert_1.jpg" alt="Certificat Cambridge 1">
+                            <img src="cambridge_cert_2.jpg" alt="Certificat Cambridge 2">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -454,9 +543,11 @@
                 <span class="short-text">Visualisation de données</span>
                 <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
-                    <h3>Visualisation et Analyse de Données</h3>
-                    <p>Capacité à structurer des données européennes via Google Sheets pour restituer des contrastes territoriaux.</p>
-                    <iframe class="sheets-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTyCeQoxzkmSvx91E2jDk8VusqqxZAr6vvw6yBK4_gWB4NchnvDabFbZuJ3NlcWXCq8jv5QGznFqOmt/pubhtml?widget=true&headers=false" height="300"></iframe>
+                    <div class="bubble-content">
+                        <h3>Visualisation et Analyse de Données</h3>
+                        <p class="skill-paragraph">Capacité à structurer et analyser des données européennes via Google Sheets avant de les restituer visuellement dans Looker Studio.</p>
+                        <iframe class="sheets-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTyCeQoxzkmSvx91E2jDk8VusqqxZAr6vvw6yBK4_gWB4NchnvDabFbZuJ3NlcWXCq8jv5QGznFqOmt/pubhtml?widget=true&headers=false" frameborder="0" height="300"></iframe>
+                    </div>
                 </div>
             </div>
             
@@ -465,21 +556,27 @@
                 <span class="short-text">Analyse territoriale</span>
                 <span class="interactive-hint">Cliquer !</span>
                 <div class="long-text">
-                    <h3>Analyse Socio-économique</h3>
-                    <p>Lecture rigoureuse des structures sociales (Durkheim) et des formes urbaines (Jon Lang) pour décrypter la complexité des territoires.</p>
-                    <div class="image-container">
-                        <img src="emile-durkheim.jpg" alt="Durkheim">
-                        <img src="urban-typology.jpg" alt="Urban Typology">
+                    <div class="bubble-content">
+                        <h3>Analyse Socio-économique et Territoriale</h3>
+                        <p class="skill-paragraph">Lecture rigoureuse des structures sociales (Durkheim) et des formes urbaines (Jon Lang) pour décrypter la complexité des territoires.</p>
+                        <div class="image-container">
+                            <img src="emile-durkheim.jpg" alt="Durkheim">
+                            <img src="urban-typology.jpg" alt="Typologie urbaine">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section "Me contacter" -->
+    <!-- Section "Me contacter" (RESTAURÉE) -->
     <section id="me-contacter-section" class="contact-section">
         <div class="contact-content">
             <h2>Merci pour votre visite</h2>
+            <p>
+                Merci d’avoir pris le temps de parcourir mon portfolio. J’espère que ces projets et analyses ont su refléter mon engagement pour les territoires durables, ma curiosité intellectuelle et ma capacité à mobiliser les outils d’analyse pour comprendre les dynamiques urbaines.<br><br>
+                Si vous souhaitez échanger, me poser une question ou discuter d’une opportunité, n’hésitez pas à me contacter. Vous pouvez également télécharger mon CV ci-dessous pour obtenir une vue d’ensemble de mon parcours.
+            </p>
             <div class="contact-links">
                 <p><a href="CV-Marius-Brion.pdf" target="_blank" class="box" style="display:inline-flex; width:auto; color:white;">👉 Télécharger mon CV</a></p>
                 <p><a href="mailto:marius.brion@icloud.com" class="box" style="display:inline-flex; width:auto; color:white;">📬 Me contacter</a></p>
@@ -488,57 +585,83 @@
     </section>
 
     <script>
-        // Gestion du chargement dynamique des créations
-        async function loadComponent(name, btn) {
-            const display = document.getElementById('creations-display');
+        const categories = [
+            { id: 'urbanisme3D', title: "Urbanisme & 3D", emoji: "🏛️" },
+            { id: 'analysespatiale', title: "Analyse Spatiale", emoji: "🗺️" },
+            { id: 'engagementcitoyen', title: "Engagement Citoyen", emoji: "🤝" },
+            { id: 'manipulationdonnes', title: "Données", emoji: "📊" }
+        ];
+
+        // Logique de chargement des créations
+        async function openCreation(id) {
+            const gridView = document.getElementById('grid-view');
+            const detailView = document.getElementById('detail-view');
+            const content = document.getElementById('active-content');
             const loader = document.getElementById('loader');
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            if(btn) btn.classList.add('active');
-            display.classList.remove('visible');
+            const cat = categories.find(c => c.id === id);
             
-            setTimeout(async () => {
-                loader.style.display = 'block';
-                display.innerHTML = '';
-                try {
-                    const response = await fetch(`./components/${name}.html`);
-                    if (!response.ok) throw new Error();
-                    const html = await response.text();
-                    display.innerHTML = html;
-                    loader.style.display = 'none';
-                    display.classList.add('visible');
-                } catch (e) {
-                    loader.style.display = 'none';
-                    display.innerHTML = `<p style="color:red; text-align:center;">Erreur lors du chargement.</p>`;
-                    display.classList.add('visible');
-                }
-            }, 300);
+            document.getElementById('active-emoji').innerText = cat.emoji;
+            document.getElementById('active-title').innerText = cat.title;
+            
+            gridView.style.display = 'none';
+            detailView.classList.add('active');
+            loader.style.display = 'block';
+            content.innerHTML = '';
+
+            const others = categories.filter(c => c.id !== id);
+            document.getElementById('other-grid').innerHTML = others.map(c => `
+                <div class="nav-card-small" onclick="openCreation('${c.id}')">
+                    <span>${c.emoji}</span>
+                    <span>${c.title}</span>
+                </div>
+            `).join('');
+
+            try {
+                const response = await fetch(`./components/${id}.html`);
+                if (!response.ok) throw new Error();
+                const html = await response.text();
+                content.innerHTML = html;
+            } catch (e) {
+                content.innerHTML = `<p style="text-align:center; color:red;">Erreur de chargement du composant.</p>`;
+            } finally {
+                loader.style.display = 'none';
+                window.scrollTo({ top: document.getElementById('creations-section').offsetTop - 20, behavior: 'smooth' });
+            }
         }
 
-        // Gestion de l'interactivité des bulles de compétences
+        function closeCreation() {
+            document.getElementById('grid-view').style.display = 'grid';
+            document.getElementById('detail-view').classList.remove('active');
+            window.scrollTo({ top: document.getElementById('creations-section').offsetTop - 20, behavior: 'smooth' });
+        }
+
+        // Logique des bulles de compétences
         document.addEventListener('DOMContentLoaded', function() {
             const centralBubble = document.getElementById('centralBubble');
             const skillBubbles = document.querySelectorAll('.skill-bubble');
             
-            centralBubble.addEventListener('click', (e) => {
+            centralBubble.addEventListener('click', function(e) {
                 e.stopPropagation();
                 centralBubble.classList.toggle('expanded');
                 if (centralBubble.classList.contains('expanded')) {
-                    skillBubbles.forEach(b => b.classList.remove('expanded'));
+                    skillBubbles.forEach(bubble => bubble.classList.remove('expanded'));
                 }
             });
-
+            
             skillBubbles.forEach(bubble => {
-                bubble.addEventListener('click', (e) => {
+                bubble.addEventListener('click', function(e) {
                     e.stopPropagation();
                     skillBubbles.forEach(b => { if (b !== bubble) b.classList.remove('expanded'); });
                     centralBubble.classList.remove('expanded');
                     bubble.classList.toggle('expanded');
                 });
             });
-
-            document.addEventListener('click', () => {
-                centralBubble.classList.remove('expanded');
-                skillBubbles.forEach(b => b.classList.remove('expanded'));
+            
+            document.addEventListener('click', function(e) {
+                if (!centralBubble.contains(e.target) && !Array.from(skillBubbles).some(bubble => bubble.contains(e.target))) {
+                    centralBubble.classList.remove('expanded');
+                    skillBubbles.forEach(bubble => bubble.classList.remove('expanded'));
+                }
             });
         });
     </script>
