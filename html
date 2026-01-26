@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Marius Brion</title>
+    <!-- Ajout de la police Shrikhand depuis Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            scroll-behavior: smooth; /* Défilement fluide */
+        }
+
+        /* Section d'accueil */
+        .home-section {
+            position: relative;
+            height: 100vh; /* Pleine hauteur de l'écran */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-background iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Nom en haut à gauche */
+        .name {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.5rem; /* Taille de police réduite */
+            font-weight: bold;
+            color: white;
+            z-index: 2;
+            font-family: 'Shrikhand', cursive; /* Police Shrikhand */
+        }
+
+        /* Titre avec retour à la ligne et police Shrikhand */
+        h1 {
+            font-size: 3rem; /* Taille de police réduite */
+            margin: 0;
+            font-weight: normal;
+            font-family: 'Shrikhand', cursive; /* Police Shrikhand */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre pour améliorer la lisibilité */
+            text-align: center;
+            line-height: 1.2; /* Espacement entre les lignes */
+        }
+
+        h1 br {
+            display: block; /* Forcer le retour à la ligne */
+        }
+
+        /* Conteneur des boîtes */
+        .box-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espace entre les boîtes */
+            z-index: 2;
+        }
+
+        /* Style des boîtes */
+        .box {
+            background-color: rgba(255, 255, 255, 0.2); /* Fond semi-transparent */
+            border: 2px solid white;
+            border-radius: 15px; /* Contours arrondis */
+            padding: 10px 20px; /* Padding réduit */
+            width: 150px; /* Largeur des boîtes */
+            text-align: center;
+            font-family: 'Shrikhand', cursive;
+            font-size: 1.2rem;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px; /* Hauteur fixe pour aplatir les boîtes */
+            text-decoration: none; /* Supprimer le soulignement des liens */
+        }
+
+        .box:hover {
+            background-color: rgba(255, 255, 255, 0.4); /* Effet au survol */
+        }
+
+        /* Sections supplémentaires */
+        .about-section, .creations-section {
+            background-color: #1e1e1e; /* Fond sombre */
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about-content, .creations-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: white;
+        }
+
+        .about-content h2, .creations-content h2 {
+            font-size: 2.5rem;
+            font-family: 'Shrikhand', cursive;
+            margin-bottom: 20px;
+        }
+
+        .about-content p, .creations-content p {
+            margin-bottom: 20px;
+        }
+
+        .about-content .highlight, .creations-content .highlight {
+            color: #ffcc00; /* Couleur d'accentuation */
+            font-weight: bold;
+        }
+
+        .creations-content a {
+            color: #ffcc00; /* Couleur des liens */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .creations-content a:hover {
+            text-decoration: underline; /* Soulignement au survol */
+        }
+    </style>
+</head>
+<body>
+    <!-- Section d'accueil -->
+    <section class="home-section">
+        <div class="video-background">
+            <!-- Intégration de la vidéo Streamable -->
+            <iframe src="https://streamable.com/e/72lhpr?autoplay=1&muted=1&loop=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+
+        <!-- Nom en haut à gauche -->
+        <div class="name">Marius Brion</div>
+
+        <!-- Contenu centré -->
+        <div class="content">
+            <h1>
+                Étudiant en<br>Villes et Territoires Durables
+            </h1>
+        </div>
+
+        <!-- Boîtes en bas de la page -->
+        <div class="box-container">
+            <a href="#about-section" class="box">À propos</a>
+            <a href="#creations-section" class="box">Mes créations</a>
+            <div class="box">Mes compétences</div>
+        </div>
+    </section>
+
+    <!-- Section "À propos" -->
+    <section id="about-section" class="about-section">
+        <div class="about-content">
+            <h2>À propos de moi</h2>
+            <p>
+                Je suis étudiant en deuxième année de <span class="highlight">BUT Villes et Territoires Durables</span> à l'IUT Bordeaux Montaigne, avec une passion pour l’aménagement du territoire et l’urbanisme. Mon parcours académique, enrichi par des expériences professionnelles variées, m’a permis de développer des compétences concrètes dans ces domaines.
+            </p>
+            <p>
+                J’ai eu l’opportunité de réaliser un stage d’un mois au sein de l’agglomération du <span class="highlight">Grand Châtellerault</span>, où j’ai contribué aux initiatives du programme <span class="highlight">Action Cœur de Ville</span>, ainsi qu’un stage de deux mois à l’<span class="highlight">Agence des Territoires de la Vienne</span>, où j’ai travaillé sur des projets stratégiques d’aménagement territorial. Ces expériences m’ont conforté dans mon choix de poursuivre un master en urbanisme pour approfondir mes connaissances et relever les défis des villes de demain.
+            </p>
+            <p>
+                Curieux et motivé, je suis déterminé à m’investir dans des projets qui façonnent des territoires <span class="highlight">durables et inclusifs</span>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section "Mes créations" -->
+    <section id="creations-section" class="creations-section">
+        <div class="creations-content">
+            <h2>Mes créations</h2>
+            <p>
+                Voici l'un de mes projets récents : un <span class="highlight">Calculateur Carbone</span> qui permet de calculer le coût social de la création de logements en périphérie des villes, en prenant en compte l'impact d'un mode de vie dépendant de la voiture.
+            </p>
+            <p>
+                Ce projet a été conçu pour sensibiliser aux enjeux de l'étalement urbain et de la transition écologique. Vous pouvez explorer le calculateur en cliquant sur le lien ci-dessous :
+            </p>
+            <p>
+                <a href="https://mariusbrion.github.io/calculateur-carbone/" target="_blank">Accéder au Calculateur Carbone</a>
+            </p>
+        </div>
+    </section>
+</body>
+</html>
