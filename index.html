@@ -797,110 +797,18 @@
             <h2>À propos de moi</h2>
             <p>
                 Étudiant en deuxième année de BUT Villes et Territoires Durables à l'IUT Bordeaux Montaigne, je suis passionné par l'aménagement du territoire et l'urbanisme durable. Mon parcours académique, enrichi par des stages pratiques, m'a permis de développer une compréhension approfondie des enjeux urbains et environnementaux qui façonnent notre quotidien.<br><br>
-                Au cours de mon stage d'un mois à l'agglomération du <a href="https://www.grand-chatellerault.fr/" target="_blank">Grand Châtellerault</a>, j'ai activement contribué au programme Action Cœur de Ville, visant à revitaliser le centre-ville et à encourager un urbanisme plus inclusif. Mon stage de deux mois à l'<a href="https://www.at86.fr/" target="_blank">Agence des Territoires de la Vienne</a> m'a permis d'intervenir sur des projets stratégiques d'aménagement, avec un focus particulier sur la gestion des mobilités et le développement de territoires durables.<br><br>
+                Au cours de mon stage d'un mois à l'agglomération du <a href="https://www.grand-chatellerault.fr/" target="_blank">Grand Châtellerault</a>, j'ai activement contribué au programme Action Cœur de Ville, visant à revitaliser le centre-ville et à encourager un urbanisme plus inclusif. Mon stage de deux mois à l' <a href="https://www.at86.fr/" target="_blank">Agence des Territoires de la Vienne</a> m'a permis d'intervenir sur des projets stratégiques d'aménagement, avec un focus particulier sur la gestion des mobilités et le développement de territoires durables.<br><br>
                 Ces expériences professionnelles m'ont non seulement permis de comprendre les enjeux locaux, mais elles ont aussi renforcé mon désir de poursuivre un master en urbanisme pour approfondir mes compétences théoriques et pratiques, et contribuer à la construction de villes intelligentes et résilientes.<br><br>
                 Dynamique, curieux et profondément engagé, je cherche à m'investir dans des projets innovants qui allient développement territorial, transition énergétique et bien-être des citoyens. Mon objectif est de contribuer activement à l'évolution des territoires pour répondre aux défis contemporains, qu'il s'agisse de la gestion des mobilités, de la transition écologique ou de la revitalisation des espaces urbains.
             </p>
         </div>
     </section>
 
-    <!-- Section "Mes créations" -->
+    <!-- Section "Mes créations" (VIDÉE POUR REFONTE) -->
     <section id="creations-section" class="creations-section">
         <div class="creations-content">
             <h2>Mes créations</h2>
-            <p>
-                Parmi mes projets récents, j'ai développé un Calculateur Carbone qui estime le coût social de la création de logements en périphérie des villes, en mettant en lumière l'impact d'un mode de vie centré sur la voiture.
-            </p>
-            <p>
-                Le coût social du carbone représente l'ensemble des dommages économiques causés par les émissions de CO₂ : baisse des rendements agricoles (sécheresses, stress hydrique), dégradation de la santé publique (maladies respiratoires, vagues de chaleur), ainsi que les dégâts liés à la montée des eaux (inondations côtières, recul du trait de côte).
-            </p>
-            <p>
-                Ce projet vise à sensibiliser aux enjeux de l'étalement urbain et de la transition écologique, en illustrant l'impact des mobilités pendulaires (trajets quotidiens domicile-travail).
-            </p>
-            <p>
-                Découvrez le calculateur en cliquant sur le lien ci-dessous :
-            </p>
-            <p>
-                <a href="https://mariusbrion.github.io/calculateur-carbone/" target="_blank">Accéder au Calculateur Carbone</a>
-            </p>
-            
-            <img src="calculateur.png" alt="Capture d'écran du Calculateur Carbone" class="calculator-preview">
-            
-            <p>
-                Pour développer le Calculateur Carbone, je me suis appuyé sur une analyse de la corrélation linéaire entre l’électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Les données utilisées proviennent de l'<a href="https://ufe-electricite.fr/watt-the-carte/emissions-de-co2-en-france/parc-automobile/" target="_blank">Union Française de l'Électricité (UFE)</a>. Voici l’analyse graphique qui illustre cette relation :
-            </p>
-            
-            <iframe class="chart-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive&embedded=true"></iframe>
-            
-            <p>
-                Ce graphique montre une corrélation négative forte (R² = 0,989), ce qui signifie qu'une augmentation du pourcentage de véhicules électriques dans le parc automobile entraîne une réduction significative des émissions de CO₂. Toutefois, grâce à l'outil du Calculateur Carbone, on voit que cette solution ne suffit pas à faire du mode de vie <a href="https://fr.wikipedia.org/wiki/Rurbanisation" target="_blank">rurbain</a> un mode de vie durable.
-            </p>
-
-            <h3>Cartographie 3D des mobilités pendulaires</h3>
-            <p>
-                Voici une réalisation cartographique en 3D illustrant les mobilités pendulaires sur la ville de Châtellerault, avec les bâtiments colorés selon leur destination :
-            </p>
-            
-            <video autoplay muted loop controls>
-                <source src="cartographie3D.mov" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture de vidéos.
-            </video>
-            
-            <div class="legend">
-                <div class="legend-item">
-                    <div class="legend-color" style="background-color: #1a73e8;"></div>
-                    <span class="legend-text">Résidentiel</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background-color: #0b6623;"></div>
-                    <span class="legend-text">Commerce</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background-color: #4CAF50;"></div>
-                    <span class="legend-text">Agricole</span>
-                </div>
-            </div>
-            
-            <p>
-                Cette cartographie interactive 3D, réalisée à l'aide de QGIS, Kepler.gl, geojson.io et Excel, permet d'explorer les habitudes de mobilité domicile-travail en zone périurbaine. Elle met en lumière l'impact de la concentration des bâtiments à usage commercial (issus des données 3D de l'IGN) sur les flux pendulaires, en soulignant comment ces implantations influencent les dynamiques de déplacement quotidien. Les bâtiments sont représentés en 3D, avec une coloration selon leur usage principal : bleu pour les zones résidentielles, vert foncé pour les commerces et vert clair pour les espaces agricoles.
-            </p>
-            <p>
-                Ce travail cartographique complète le calculateur carbone développé en parallèle, en illustrant sur un support spatial concret les effets territoriaux et écologiques des mobilités pendulaires. L'impact environnemental est estimé à travers un indice économique fondé sur le coût social du carbone par tonne de CO₂, tel que défini par l'<a href="https://www.insee.fr/fr/statistiques/8276271?sommaire=8071406" target="_blank">INSEE dans son étude de 2023</a>.
-            </p>
-
-            <h3>Analyse des émissions de CO₂ dans le secteur des transports en Europe (2023)</h3>
-            <p class="skill-paragraph">
-                Ce dashboard interactif a été réalisé à partir d’un croisement de données issues de l’Agence européenne pour l’environnement – notamment les <a href="https://co2cars.apps.eea.europa.eu/?source=%7B%22track_total_hits%22%3Atrue%2C%22query%22%3A%7B%22bool%22%3A%7B%22must%22%3A%5B%7B%22constant_score%22%3A%7B%22filter%22%3A%7B%22bool%22%3A%7B%22must%22%3A%5B%7B%22bool%22%3A%7B%22should%22%3A%5B%7B%22term%22%3A%7B%22year%22%3A2023%7D%7D%5D%7D%7D%2C%7B%22bool%22%3A%7B%22should%22%3A%5B%7B%22term%22%3A%7B%22scStatus%22%3A%22Final%22%7D%7D%5D%7D%7D%5D%7D%7D%7D%5D%7D%7D%2C%22display_type%22%3A%22tabular%22%7D" target="_blank">émissions moyennes de CO₂ des véhicules particuliers neufs</a> et l’<a href="https://www.eea.europa.eu/en/analysis/maps-and-charts/greenhouse-gases-viewer-data-viewers" target="_blank">inventaire des émissions de gaz à effet de serre</a> – et de la Banque mondiale, pour les <a href="https://donnees.banquemondiale.org/indicator/SP.POP.TOTL?end=2023&name_desc=false&start=2023&view=map&year=1960" target="_blank">données démographiques</a>. L’ensemble de ces données a été agrégé et structuré via Google Sheets, avant d’être visualisé dans Looker Studio.<br><br>
-                La carte européenne en 3D illustre, par des barres verticales, les émissions de CO₂ par habitant liées au secteur des transports, tandis que la couleur des pays reflète les émissions moyennes des nouveaux véhicules particuliers vendus. Cette représentation est complétée par un indicateur de la moyenne européenne, et un graphique croisé qui compare, pour chaque pays, les émissions des véhicules neufs (en orange) avec les émissions globales par habitant (en bleu).<br><br>
-                L’objectif de cette visualisation est de proposer une lecture critique des dynamiques de décarbonation à l’échelle européenne. Elle met en évidence l’absence de corrélation directe entre la performance environnementale des véhicules neufs et les émissions globales du secteur des transports par habitant. Certains pays, malgré des ventes de véhicules neufs parmi les moins émetteurs, conservent des niveaux élevés d’émissions globales, tandis que d’autres, avec un parc automobile techniquement plus polluant, affichent de meilleures performances globales.<br><br>
-                Cela souligne que l’électrification, encore marginale à l’échelle des flottes nationales, ne suffit pas à infléchir significativement les tendances, et que d’autres facteurs pèsent davantage dans la balance : accessibilité des services, aménagement du territoire, modes de vie, distances parcourues ou encore part modale de l’aviation.
-            </p>
-            <iframe class="looker-iframe" src="https://lookerstudio.google.com/embed/reporting/88ef1b09-3975-4195-97b4-14f57f97abab/page/0FgHF" frameborder="0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-            <p class="skill-paragraph">
-                Grâce aux filtres dynamiques intégrés à la courbe comparant les émissions des nouveaux véhicules vendus (en orange) avec les émissions du secteur des transports par habitant (en bleu), vous pouvez sélectionner directement à la souris un ensemble de pays (en restant appuyé sur la courbe bleue et en faisant glisser, vous pouvez sélectionner quelques pays sur qui réduire l’analyse). Il est ainsi possible, par exemple, de mettre en évidence ceux dont les nouveaux véhicules sont les plus polluants, et d’observer instantanément leur localisation sur la carte ainsi que leur niveau moyen d’émissions. Cette interaction facilite l’exploration des contrastes et illustre la diversité des dynamiques territoriales dans la transition des mobilités.<br><br>
-                Cette prise de recul à l’échelle européenne vient compléter l’analyse territoriale des mobilités pendulaires menée précédemment. Alors que les cartes interactives 3D exploraient les effets de l’urbanisation et de la localisation des activités sur les flux quotidiens et leur impact environnemental, ce Dashboard met en évidence que les réponses techniques seules (comme l’achat de véhicules électriques) ne suffisent pas si elles ne sont pas accompagnées de transformations plus structurelles : aménagements urbains, accessibilité des services, et évolution des usages.<br><br>
-                Il souligne ainsi la nécessité d’une approche systémique pour réellement réduire les émissions d’un des secteurs les plus polluants d’Europe.
-            </p>
-
-            <h3>Lecture réglementaire et écologique d’un territoire à travers QGIS (animation cartographique)</h3>
-            <p>
-                L’animation suivante illustre ma capacité à mobiliser des données simples – telles que les emprises bâties, les infrastructures, les espaces naturels protégés ou les zones de protection patrimoniale – pour construire une lecture fine et réglementaire d’un territoire à l’aide de QGIS.<br><br>
-                Elle intègre notamment la visualisation de certaines normes du Plan Local d’Urbanisme (PLU), comme les haies protégées, les espaces verts à préserver ou les périmètres liés aux monuments historiques. Ces éléments traduisent les contraintes réglementaires locales qui orientent les choix d’aménagement et structurent les dynamiques urbaines et rurales.
-            </p>
-            <video autoplay muted loop controls>
-                <source src="cartographiecreations.mov" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture de vidéos.
-            </video>
-            <p>
-                Cette approche permet également de situer un projet dans son contexte territorial, comme en témoigne l’introduction de l’animation avec la carte des parcs touristiques alentours, utilisée ici pour étudier l’implantation potentielle d’un nouveau parc. Ce croisement entre données réglementaires, environnementales et fonctionnelles est fondamental pour évaluer la faisabilité d’un projet et anticiper ses interactions avec le territoire.<br><br>
-                Maîtriser ces visualisations constitue ainsi une compétence essentielle pour tout travail de diagnostic, de planification ou de conception territoriale.
-            </p>
-            <h3>
-                <a href="https://mariusbrion.github.io/visualisation/" target="_blank">Découvrez davantage de mes travaux et visualisations</a>
-            </h3>
-            <h3>
-                <a href="https://mariusbrion.github.io/galerie/" target="_blank">Explorer ma galerie</a>
-            </h3>
+            <!-- Contenu à ajouter ici -->
         </div>
     </section>
 
