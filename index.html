@@ -681,32 +681,35 @@
         }
 
         async function openCreation(id) {
+            const container = document.getElementById('creations-container'); // Le parent principal
             const gridView = document.getElementById('grid-view');
             const detailView = document.getElementById('detail-view');
             const content = document.getElementById('active-content');
-            const container = document.getElementById('creations-container');
             const lottieHeader = document.getElementById('active-lottie-header');
             const cat = categories.find(c => c.id === id);
-            
-            // 1. MISE À JOUR DE L'UI INITIALE
+
+            // --- ÉTAPE 1 : ON GÈLE LA HAUTEUR ---
+            // On capture la hauteur actuelle exacte en pixels
+            const currentHeight = container.offsetHeight;
+            // On force cette hauteur sur le conteneur.
+            container.style.height = `${currentHeight}px`;
+            // On empêche le débordement pendant la transition
+            container.style.overflow = 'hidden';
+
+            // --- ÉTAPE 2 : CHANGEMENT D'INTERFACE ---
             document.getElementById('active-title').innerText = cat.title;
             lottieHeader.innerHTML = `<dotlottie-wc src="${cat.lottie}" autoplay loop></dotlottie-wc>`;
             
-            // On bascule la vue immédiatement
             gridView.style.display = 'none';
             detailView.classList.add('active');
-            container.classList.add('wide');
             
-            // DÉPLOIEMENT DANS LA LONGUEUR MAXIMUM IMMÉDIATEMENT (6500px)
-            // Cela assure que la page est déjà extrêmement longue lors du scroll, évitant tout glitch
-            content.style.minHeight = '6500px';
-            content.style.opacity = '0.5';
-            content.innerHTML = '<p style="text-align:center; padding: 40px;">Chargement du projet...</p>';
+            // On élargit le conteneur (classe CSS)
+            container.classList.add('wide');
 
-            // 2. SCROLL IMMÉDIAT (Le conteneur est déjà très grand)
-            scrollToCreations();
+            // On met un loader temporaire
+            content.innerHTML = '<div style="height: 100%; display:flex; align-items:center; justify-content:center; padding: 50px;"><p>Chargement du projet...</p></div>';
 
-            // 3. MISE À JOUR DE LA NAVIGATION SECONDAIRE
+            // --- ÉTAPE 3 : NAVIGATION SECONDAIRE ---
             const others = categories.filter(c => c.id !== id);
             document.getElementById('other-grid').innerHTML = others.map(c => `
                 <div class="nav-card-small" onclick="openCreation('${c.id}')">
@@ -717,33 +720,56 @@
                 </div>
             `).join('');
 
-            // 4. FETCH SANS DÉLAI
+            // --- ÉTAPE 4 : SCROLL ---
+            scrollToCreations();
+
+            // --- ÉTAPE 5 : CHARGEMENT DU CONTENU ---
             try {
                 const response = await fetch(`./components/${id}.html`);
                 if (!response.ok) throw new Error();
                 const html = await response.text();
                 
-                // Injection et transition
+                // Injection directe.
                 content.innerHTML = html;
-                content.style.minHeight = '300px'; // Retour à la valeur normale après injection
+
+                // --- ÉTAPE 6 : LIBÉRATION ---
+                // On enlève la hauteur forcée pour que le conteneur s'adapte à la nouvelle taille
+                container.style.height = 'auto'; 
+                container.style.overflow = 'visible';
+                
+                // Petit effet d'apparition
                 anime({
                     targets: content,
-                    opacity: [0.5, 1],
-                    duration: 400,
+                    opacity: [0, 1],
+                    duration: 500,
                     easing: 'easeOutQuad'
                 });
+
             } catch (e) {
-                content.style.minHeight = '300px';
-                content.style.opacity = '1';
-                content.innerHTML = `<p style="text-align:center; color:#1a73e8; font-weight:bold; padding: 40px;">Contenu du projet "${cat.title}" à venir.</p>`;
+                content.innerHTML = `<p style="text-align:center; padding: 40px;">Contenu à venir.</p>`;
+                container.style.height = 'auto'; // Toujours libérer en cas d'erreur
+                container.style.overflow = 'visible';
             }
         }
 
         function closeCreation() {
+            const container = document.getElementById('creations-container');
+            
+            // 1. On fige la hauteur actuelle (celle du détail)
+            const currentHeight = container.offsetHeight;
+            container.style.height = `${currentHeight}px`;
+
+            // 2. On bascule l'affichage
             document.getElementById('grid-view').style.display = 'grid';
             document.getElementById('detail-view').classList.remove('active');
-            document.getElementById('creations-container').classList.remove('wide');
-            scrollToCreations();
+            container.classList.remove('wide');
+
+            // 3. On libère la hauteur pour que la grille reprenne sa place
+            // On met un tout petit timeout pour que le navigateur ait le temps de "repeindre" la grille
+            setTimeout(() => {
+                container.style.height = 'auto';
+                scrollToCreations();
+            }, 10);
         }
 
         // --- LOGIQUE COMPÉTENCES ---
