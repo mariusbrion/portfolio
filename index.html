@@ -697,13 +697,13 @@
             detailView.classList.add('active');
             container.classList.add('wide');
             
-            // DÉPLOIEMENT DANS LA LONGUEUR MAXIMUM IMMÉDIATEMENT
-            // Cela assure que la page est déjà longue lors du scroll, évitant le glitch
-            content.style.minHeight = '100vh';
+            // DÉPLOIEMENT DANS LA LONGUEUR MAXIMUM IMMÉDIATEMENT (6500px)
+            // Cela assure que la page est déjà extrêmement longue lors du scroll, évitant tout glitch
+            content.style.minHeight = '6500px';
             content.style.opacity = '0.5';
             content.innerHTML = '<p style="text-align:center; padding: 40px;">Chargement du projet...</p>';
 
-            // 2. SCROLL IMMÉDIAT (Le conteneur est déjà grand)
+            // 2. SCROLL IMMÉDIAT (Le conteneur est déjà très grand)
             scrollToCreations();
 
             // 3. MISE À JOUR DE LA NAVIGATION SECONDAIRE
