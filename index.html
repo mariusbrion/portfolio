@@ -8,12 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
     <!-- Anime.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- Lottie Web Component Officiel -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
     <style>
         :root {
             --skills-bg: #f8f9fa;
             --skills-primary: #2c3e50;
             --skills-accent: #3498db;
-            --neutral-bg: #f0f4f8; /* Ton fond neutre de référence */
+            --neutral-bg: #f0f4f8; 
         }
 
         body, html {
@@ -115,7 +117,6 @@
             transition: max-width 0.5s ease;
         }
 
-        /* Largeur étendue spécifique pour les créations en vue détaillée */
         .creations-section .section-content.wide {
             max-width: 1200px;
         }
@@ -138,23 +139,27 @@
         a { color: #1a73e8; text-decoration: none; font-weight: bold; }
         a:hover { color: #1557b0; }
 
-        /* --- CRÉATIONS --- */
+        /* --- CRÉATIONS (GRILLE ET CARTES) --- */
         .creations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .creation-card {
-            background: white;
+            background: #ffffff; /* Fond blanc demandé */
             border: 2px solid #e2e8f0;
             border-radius: 2rem;
-            padding: 40px 20px;
+            padding: 25px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
         .creation-card:hover {
@@ -163,27 +168,55 @@
             transform: translateY(-5px);
         }
 
-        .creation-card .emoji { font-size: 4rem; margin-bottom: 15px; }
+        /* Conteneur pour Lottie : Taille réduite et ratio préservé */
+        .lottie-box {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        dotlottie-wc {
+            width: 100%;
+            height: 100%;
+            display: block;
+            aspect-ratio: 1/1; /* Anti-déformation */
+        }
 
         .creation-card h3 {
             font-family: 'Shrikhand', cursive;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #1a73e8;
-            margin: 0;
+            margin: 10px 0 0 0;
         }
 
+        /* --- VUE DÉTAILLÉE --- */
         #detail-view { display: none; }
         #detail-view.active { display: block; }
 
         .detail-header {
-            background: white;
+            background: #ffffff;
             border-radius: 2rem;
-            padding: 30px;
+            padding: 20px 30px;
             margin-bottom: 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             border: 2px solid #e2e8f0;
+        }
+
+        .active-title-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Conteneur Lottie dans l'en-tête du détail */
+        #active-lottie-header {
+            width: 80px;
+            height: 80px;
         }
 
         .btn-back {
@@ -193,8 +226,12 @@
         .btn-back:hover { color: #1a73e8; }
 
         #active-content {
-            background: white; border-radius: 2rem; padding: 40px;
-            border: 2px solid #f1f5f9; min-height: 300px; text-align: justify;
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 40px;
+            border: 2px solid #f1f5f9;
+            min-height: 300px;
+            text-align: justify;
             width: 100%;
             box-sizing: border-box;
         }
@@ -315,7 +352,7 @@
         .ripple { fill: none; stroke: var(--skills-accent); stroke-width: 2; opacity: 0; }
         .drop-line { stroke: var(--skills-primary); stroke-width: 3; stroke-linecap: round; }
 
-        /* --- MODALE --- */
+        /* --- MODALES --- */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -402,33 +439,48 @@
         </div>
     </section>
 
-    <!-- Mes créations (Zone élargie en vue détaillée) -->
+    <!-- Mes créations -->
     <section id="creations-section" class="creations-section">
         <div id="creations-container" class="section-content">
             <h2>Mes créations</h2>
             <div id="grid-view" class="creations-grid">
+                
+                <!-- Ligne 1 : Urbanisme et 3D | Analyse Spatiale -->
                 <div class="creation-card" onclick="openCreation('urbanisme3D')">
-                    <span class="emoji">🏛️</span>
+                    <div class="lottie-box">
+                        <dotlottie-wc src="https://lottie.host/77dec24d-5a66-4f2c-8bcd-c1472f1f97e9/FIYSZhGA6a.lottie" autoplay loop></dotlottie-wc>
+                    </div>
                     <h3>Urbanisme & 3D</h3>
                 </div>
+
                 <div class="creation-card" onclick="openCreation('analysespatiale')">
-                    <span class="emoji">🗺️</span>
+                    <div class="lottie-box">
+                        <dotlottie-wc src="https://lottie.host/d3687639-c0e2-4ac7-a2b0-ec8ea6d8bb7f/S1wFjyFaZ8.lottie" autoplay loop></dotlottie-wc>
+                    </div>
                     <h3>Analyse Spatiale</h3>
                 </div>
+
+                <!-- Ligne 2 : Engagement citoyen | Données -->
                 <div class="creation-card" onclick="openCreation('engagementcitoyen')">
-                    <span class="emoji">🤝</span>
+                    <div class="lottie-box">
+                        <dotlottie-wc src="https://lottie.host/f5abf154-652f-4b74-960b-392fed20ea94/qLLIgG1Ofm.lottie" autoplay loop></dotlottie-wc>
+                    </div>
                     <h3>Engagement Citoyen</h3>
                 </div>
+
                 <div class="creation-card" onclick="openCreation('manipulationdonnes')">
-                    <span class="emoji">📊</span>
+                    <div class="lottie-box">
+                        <dotlottie-wc src="https://lottie.host/648537b4-55e7-41de-a7e0-24f69717f801/I0AWbpzN4i.lottie" autoplay loop></dotlottie-wc>
+                    </div>
                     <h3>Données</h3>
                 </div>
             </div>
 
+            <!-- Detail View -->
             <div id="detail-view">
                 <div class="detail-header">
                     <div class="active-title-group">
-                        <span id="active-emoji" style="font-size: 3rem;"></span>
+                        <div id="active-lottie-header"></div>
                         <h2 id="active-title" style="margin:0; text-align:left;"></h2>
                     </div>
                     <button class="btn-back" onclick="closeCreation()">×</button>
@@ -521,7 +573,7 @@
         </div>
     </section>
 
-    <!-- Section Contact (Fond harmonisé) -->
+    <!-- Section Contact -->
     <section id="me-contacter-section" class="contact-section">
         <div class="section-content">
             <h2>Merci pour votre visite</h2>
@@ -544,40 +596,38 @@
         </div>
     </div>
 
-    <!-- DONNÉES DES COMPÉTENCES (CACHÉES) -->
+    <!-- DONNÉES DES COMPÉTENCES -->
     <div id="skills-data" style="display:none">
         <div id="data-central">
             <h3>Accès à la culture en milieu carcéral : table ronde Festisol</h3>
-            <p>Dans le cadre du Festisol (Festival des Solidarités), nous avons mis en place au sein de notre IUT une commission thématique intitulée "Évasion culturelle", dont l'objectif central était de promouvoir l'accès à la culture en milieu carcéral. Cette initiative est née de la conviction que la culture peut être un puissant levier d’émancipation, de reconstruction personnelle et de réinsertion sociale.<br><br>En tant que membre actif de cette commission, j’ai eu la responsabilité de concevoir, organiser et animer une table ronde publique consacrée à cette thématique. Cet événement a rassemblé plus d’une centaine de personnes, principalement des étudiant·e·s et des enseignant·e·s de l’IUT.</p>
+            <p>Commission thématique "Évasion culturelle" au sein de l'IUT Bordeaux Montaigne...</p>
             <div class="image-container">
-                <img src="table_ronde_1.JPG" alt="Photo de la table ronde 1">
-                <img src="table_ronde_2.JPG" alt="Photo de la table ronde 2">
+                <img src="table_ronde_1.JPG" alt="Table ronde 1">
+                <img src="table_ronde_2.JPG" alt="Table ronde 2">
             </div>
         </div>
         <div id="data-sig">
             <h3>SIG et Cartographie</h3>
-            <p>Maîtrise avancée de QGIS pour la création de cartes thématiques, le géotraitement et l'analyse spatiale. L'exemple ci-dessous illustre les inégalités de répartition de la population dans la Vienne.</p>
-            <img src="cartopopulation.png" alt="Exemple de cartographie">
+            <p>Maîtrise avancée de QGIS...</p>
+            <img src="cartopopulation.png" alt="Cartographie">
         </div>
         <div id="data-langues">
             <h3>Langues et Outils</h3>
-            <p>Anglais B2+ (Cambridge C1), Allemand et Espagnol B1. Maîtrise de HTML/CSS, Looker Studio, Google Sheets/Excel et QGIS.</p>
+            <p>Anglais B2+ (Cambridge C1)...</p>
             <div class="image-container">
-                <img src="cambridge_cert_1.jpg" alt="Certificat Cambridge 1">
-                <img src="cambridge_cert_2.jpg" alt="Certificat Cambridge 2">
+                <img src="cambridge_cert_1.jpg" alt="Cambridge 1">
+                <img src="cambridge_cert_2.jpg" alt="Cambridge 2">
             </div>
         </div>
         <div id="data-visualisation">
-            <h3>Visualisation de Données (Data Viz)</h3>
-            <p>Capacité à structurer et analyser des données européennes via Google Sheets avant de les restituer visuellement dans Looker Studio.</p>
+            <h3>Visualisation de Données</h3>
             <iframe class="sheets-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTyCeQoxzkmSvx91E2jDk8VusqqxZAr6vvw6yBK4_gWB4NchnvDabFbZuJ3NlcWXCq8jv5QGznFqOmt/pubhtml?widget=true&headers=false" height="350"></iframe>
         </div>
         <div id="data-analyse">
             <h3>Analyse Territoriale</h3>
-            <p>Lecture rigoureuse des structures sociales (Durkheim) et des formes urbaines (Jon Lang) pour décrypter la complexité des territoires.</p>
             <div class="image-container">
-                <img src="emile-durkheim.jpg" alt="Durkheim">
-                <img src="urban-typology.jpg" alt="Typologie urbaine">
+                <img src="emile-durkheim.jpg" alt="Socio">
+                <img src="urban-typology.jpg" alt="Typologie">
             </div>
         </div>
     </div>
@@ -585,10 +635,26 @@
     <script>
         // --- LOGIQUE CRÉATIONS ---
         const categories = [
-            { id: 'urbanisme3D', title: "Urbanisme & 3D", emoji: "🏛️" },
-            { id: 'analysespatiale', title: "Analyse Spatiale", emoji: "🗺️" },
-            { id: 'engagementcitoyen', title: "Engagement Citoyen", emoji: "🤝" },
-            { id: 'manipulationdonnes', title: "Données", emoji: "📊" }
+            { 
+                id: 'urbanisme3D', 
+                title: "Urbanisme & 3D", 
+                lottie: "https://lottie.host/77dec24d-5a66-4f2c-8bcd-c1472f1f97e9/FIYSZhGA6a.lottie" 
+            },
+            { 
+                id: 'analysespatiale', 
+                title: "Analyse Spatiale", 
+                lottie: "https://lottie.host/d3687639-c0e2-4ac7-a2b0-ec8ea6d8bb7f/S1wFjyFaZ8.lottie" 
+            },
+            { 
+                id: 'engagementcitoyen', 
+                title: "Engagement Citoyen", 
+                lottie: "https://lottie.host/f5abf154-652f-4b74-960b-392fed20ea94/qLLIgG1Ofm.lottie" 
+            },
+            { 
+                id: 'manipulationdonnes', 
+                title: "Données", 
+                lottie: "https://lottie.host/648537b4-55e7-41de-a7e0-24f69717f801/I0AWbpzN4i.lottie" 
+            }
         ];
 
         async function openCreation(id) {
@@ -597,21 +663,26 @@
             const content = document.getElementById('active-content');
             const loader = document.getElementById('loader');
             const container = document.getElementById('creations-container');
+            const lottieHeader = document.getElementById('active-lottie-header');
             const cat = categories.find(c => c.id === id);
             
-            document.getElementById('active-emoji').innerText = cat.emoji;
             document.getElementById('active-title').innerText = cat.title;
+            
+            // Injecte l'animation Lottie dans l'en-tête à la place de l'emoji
+            lottieHeader.innerHTML = `<dotlottie-wc src="${cat.lottie}" autoplay loop></dotlottie-wc>`;
             
             gridView.style.display = 'none';
             detailView.classList.add('active');
-            container.classList.add('wide'); // Élargit la section
+            container.classList.add('wide');
             loader.style.display = 'block';
             content.innerHTML = '';
 
             const others = categories.filter(c => c.id !== id);
             document.getElementById('other-grid').innerHTML = others.map(c => `
                 <div class="nav-card-small" onclick="openCreation('${c.id}')">
-                    <span style="font-size:1.5rem">${c.emoji}</span>
+                    <div style="width:40px; height:40px;">
+                        <dotlottie-wc src="${c.lottie}" autoplay loop></dotlottie-wc>
+                    </div>
                     <span>${c.title}</span>
                 </div>
             `).join('');
@@ -676,7 +747,6 @@
         function runBubbleAnimation() {
             const tl = anime.timeline({ easing: 'easeOutExpo' });
 
-            // Reset
             anime.set('#bg-container', { opacity: 0 });
             anime.set('.circle-outline', { opacity: 0, strokeDashoffset: anime.setDashoffset });
             anime.set('.main-text, .central-hint, .bubble-text, .satellite-hint', { opacity: 0 });
@@ -762,7 +832,7 @@
                     skillAnimPlayed = true;
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.75 });
 
         window.onload = () => {
             initBackground();
