@@ -359,7 +359,7 @@
         }
 
         .ripple { fill: none; stroke: var(--skills-accent); stroke-width: 2; opacity: 0; }
-        .drop-line { stroke: var(--skills-primary); stroke-width: 3; stroke-linecap: round; }
+        .drop-path { stroke: var(--skills-primary); stroke-width: 3; stroke-linecap: round; }
 
         /* --- MODALES --- */
         .modal-overlay {
@@ -688,23 +688,25 @@
             const lottieHeader = document.getElementById('active-lottie-header');
             const cat = categories.find(c => c.id === id);
             
-            // 1. MISE À JOUR DE L'UI INITIALE (On prépare le titre et l'animation)
+            // 1. MISE À JOUR DE L'UI INITIALE
             document.getElementById('active-title').innerText = cat.title;
             lottieHeader.innerHTML = `<dotlottie-wc src="${cat.lottie}" autoplay loop></dotlottie-wc>`;
             
-            // On bascule la vue mais on garde un loader léger
+            // On bascule la vue immédiatement
             gridView.style.display = 'none';
             detailView.classList.add('active');
             container.classList.add('wide');
-            content.innerHTML = '<p style="text-align:center; padding: 40px; opacity: 0.5;">Préparation de l\'affichage...</p>';
+            
+            // DÉPLOIEMENT DANS LA LONGUEUR MAXIMUM IMMÉDIATEMENT
+            // Cela assure que la page est déjà longue lors du scroll, évitant le glitch
+            content.style.minHeight = '100vh';
+            content.style.opacity = '0.5';
+            content.innerHTML = '<p style="text-align:center; padding: 40px;">Chargement du projet...</p>';
 
-            // 2. SCROLL D'ABORD
+            // 2. SCROLL IMMÉDIAT (Le conteneur est déjà grand)
             scrollToCreations();
 
-            // 3. DÉLAI DE SÉCURITÉ (0.5s) POUR LAISSER LE SCROLL SE FINIR ET ÉVITER LE GLITCH
-            await new Promise(resolve => setTimeout(resolve, 500));
-
-            // 4. FETCH ET INJECTION ENSUITE
+            // 3. MISE À JOUR DE LA NAVIGATION SECONDAIRE
             const others = categories.filter(c => c.id !== id);
             document.getElementById('other-grid').innerHTML = others.map(c => `
                 <div class="nav-card-small" onclick="openCreation('${c.id}')">
@@ -715,20 +717,24 @@
                 </div>
             `).join('');
 
+            // 4. FETCH SANS DÉLAI
             try {
                 const response = await fetch(`./components/${id}.html`);
                 if (!response.ok) throw new Error();
                 const html = await response.text();
-                // Transition douce du contenu
-                content.style.opacity = 0;
+                
+                // Injection et transition
                 content.innerHTML = html;
+                content.style.minHeight = '300px'; // Retour à la valeur normale après injection
                 anime({
                     targets: content,
-                    opacity: [0, 1],
+                    opacity: [0.5, 1],
                     duration: 400,
                     easing: 'easeOutQuad'
                 });
             } catch (e) {
+                content.style.minHeight = '300px';
+                content.style.opacity = '1';
                 content.innerHTML = `<p style="text-align:center; color:#1a73e8; font-weight:bold; padding: 40px;">Contenu du projet "${cat.title}" à venir.</p>`;
             }
         }
