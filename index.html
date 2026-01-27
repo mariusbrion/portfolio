@@ -142,7 +142,7 @@
         /* --- CRÉATIONS (GRILLE ET CARTES) --- */
         .creations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            grid-template-columns: repeat(2, 1fr); /* Grille 2x2 forcée sur ordinateur */
             gap: 40px;
             max-width: 1200px; 
             margin: 0 auto;
@@ -150,7 +150,7 @@
         }
 
         .creation-card {
-            background: var(--neutral-bg); 
+            background: #ffffff; /* Fond blanc permanent */
             border: 2px solid #cbd5e1;
             border-radius: 2rem;
             padding: 40px;
@@ -171,7 +171,6 @@
             border-color: #1a73e8;
             box-shadow: 0 15px 30px rgba(26, 115, 232, 0.1);
             transform: translateY(-5px);
-            background: #ffffff; 
         }
 
         /* Conteneur pour Lottie */
@@ -263,7 +262,7 @@
         }
 
         .nav-card-small {
-            background: var(--neutral-bg); 
+            background: #ffffff; /* Fond blanc permanent pour les petites cartes aussi */
             padding: 15px 25px;
             border-radius: 1.5rem;
             border: 2px solid #cbd5e1;
@@ -280,7 +279,7 @@
             border-color: #1a73e8;
             color: #1a73e8;
             transform: scale(1.03);
-            background: white;
+            background: #f8fafc;
         }
 
         /* --- SECTION COMPÉTENCES --- */
@@ -348,7 +347,7 @@
 
         .circle-outline {
             fill: white; 
-            fill-opacity: 1; /* Remplissage blanc opaque ajouté */
+            fill-opacity: 1; 
             stroke: var(--skills-primary);
             stroke-width: 1.5;
             opacity: 0;
@@ -402,9 +401,13 @@
         .image-container img { flex: 1; min-width: 200px; object-fit: cover; }
         .sheets-iframe { width: 100%; border: 1px solid #ddd; border-radius: 10px; margin-top: 15px; }
 
+        @media (max-width: 1024px) {
+            .creations-grid { grid-template-columns: 1fr; }
+            .creation-card { width: 90%; max-width: 550px; }
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
-            .creations-grid { grid-template-columns: 1fr; }
             .creation-card { width: 90vw; aspect-ratio: auto; padding: 20px; }
             .skills-section { height: 90vh; }
             .bubbles-wrapper { transform: scale(0.75); }
@@ -679,14 +682,19 @@
             const lottieHeader = document.getElementById('active-lottie-header');
             const cat = categories.find(c => c.id === id);
             
+            // 1. MISE À JOUR DE L'UI INITIALE
             document.getElementById('active-title').innerText = cat.title;
             lottieHeader.innerHTML = `<dotlottie-wc src="${cat.lottie}" autoplay loop></dotlottie-wc>`;
             
             gridView.style.display = 'none';
             detailView.classList.add('active');
             container.classList.add('wide');
-            content.innerHTML = '';
+            content.innerHTML = '<p style="text-align:center; padding: 40px;">Chargement en cours...</p>';
 
+            // 2. SCROLL D'ABORD (Processus inverse pour plus de fluidité)
+            scrollToCreations();
+
+            // 3. FETCH ET INJECTION ENSUITE
             const others = categories.filter(c => c.id !== id);
             document.getElementById('other-grid').innerHTML = others.map(c => `
                 <div class="nav-card-small" onclick="openCreation('${c.id}')">
@@ -703,8 +711,6 @@
                 content.innerHTML = await response.text();
             } catch (e) {
                 content.innerHTML = `<p style="text-align:center; color:#1a73e8; font-weight:bold; padding: 40px;">Contenu du projet "${cat.title}" à venir.</p>`;
-            } finally {
-                scrollToCreations();
             }
         }
 
@@ -736,7 +742,6 @@
         window.onclick = (e) => { if(e.target == modal) closeModal(); }
 
         function initBackground() {
-            // Animation des chemins SVG s'ils sont présents
             document.querySelectorAll('.background-anim path').forEach(pathEl => {
                 const offset = anime.setDashoffset(pathEl);
                 pathEl.setAttribute('stroke-dashoffset', offset);
