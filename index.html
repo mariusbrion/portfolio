@@ -142,17 +142,18 @@
         /* --- CRÉATIONS (GRILLE ET CARTES) --- */
         .creations-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 800px;
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            gap: 40px;
+            max-width: 1200px; 
             margin: 0 auto;
+            justify-items: center;
         }
 
         .creation-card {
-            background: #ffffff; /* Fond blanc demandé */
-            border: 2px solid #e2e8f0;
+            background: var(--neutral-bg); 
+            border: 2px solid #cbd5e1;
             border-radius: 2rem;
-            padding: 25px;
+            padding: 40px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
@@ -160,34 +161,39 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            width: 550px; 
+            height: auto;
+            aspect-ratio: 1.2 / 1; 
+            box-sizing: border-box;
         }
 
         .creation-card:hover {
             border-color: #1a73e8;
             box-shadow: 0 15px 30px rgba(26, 115, 232, 0.1);
             transform: translateY(-5px);
+            background: #ffffff; 
         }
 
-        /* Conteneur pour Lottie : Taille réduite et ratio préservé */
+        /* Conteneur pour Lottie */
         .lottie-box {
-            width: 150px;
-            height: 150px;
+            width: 250px; 
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         dotlottie-wc {
             width: 100%;
             height: 100%;
             display: block;
-            aspect-ratio: 1/1; /* Anti-déformation */
+            aspect-ratio: 1/1;
         }
 
         .creation-card h3 {
             font-family: 'Shrikhand', cursive;
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             color: #1a73e8;
             margin: 10px 0 0 0;
         }
@@ -197,14 +203,14 @@
         #detail-view.active { display: block; }
 
         .detail-header {
-            background: #ffffff;
+            background: var(--neutral-bg); 
             border-radius: 2rem;
             padding: 20px 30px;
             margin-bottom: 30px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #cbd5e1;
         }
 
         .active-title-group {
@@ -213,7 +219,6 @@
             gap: 15px;
         }
 
-        /* Conteneur Lottie dans l'en-tête du détail */
         #active-lottie-header {
             width: 80px;
             height: 80px;
@@ -226,10 +231,10 @@
         .btn-back:hover { color: #1a73e8; }
 
         #active-content {
-            background: #ffffff;
+            background: var(--neutral-bg); 
             border-radius: 2rem;
             padding: 40px;
-            border: 2px solid #f1f5f9;
+            border: 2px solid #cbd5e1;
             min-height: 300px;
             text-align: justify;
             width: 100%;
@@ -239,7 +244,7 @@
         .other-nav {
             margin-top: 60px;
             padding-top: 40px;
-            border-top: 2px solid #e2e8f0;
+            border-top: 2px solid #cbd5e1;
         }
 
         .other-nav-title {
@@ -258,10 +263,10 @@
         }
 
         .nav-card-small {
-            background: white;
+            background: var(--neutral-bg); 
             padding: 15px 25px;
             border-radius: 1.5rem;
-            border: 2px solid #f1f5f9;
+            border: 2px solid #cbd5e1;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -275,7 +280,7 @@
             border-color: #1a73e8;
             color: #1a73e8;
             transform: scale(1.03);
-            box-shadow: 0 5px 15px rgba(26, 115, 232, 0.1);
+            background: white;
         }
 
         /* --- SECTION COMPÉTENCES --- */
@@ -343,7 +348,7 @@
 
         .circle-outline {
             fill: white; 
-            fill-opacity: 0.05;
+            fill-opacity: 1; /* Remplissage blanc opaque ajouté */
             stroke: var(--skills-primary);
             stroke-width: 1.5;
             opacity: 0;
@@ -400,6 +405,7 @@
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             .creations-grid { grid-template-columns: 1fr; }
+            .creation-card { width: 90vw; aspect-ratio: auto; padding: 20px; }
             .skills-section { height: 90vh; }
             .bubbles-wrapper { transform: scale(0.75); }
         }
@@ -657,24 +663,28 @@
             }
         ];
 
+        function scrollToCreations() {
+            const section = document.getElementById('creations-section');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                window.history.pushState(null, null, '#creations-section');
+            }
+        }
+
         async function openCreation(id) {
             const gridView = document.getElementById('grid-view');
             const detailView = document.getElementById('detail-view');
             const content = document.getElementById('active-content');
-            const loader = document.getElementById('loader');
             const container = document.getElementById('creations-container');
             const lottieHeader = document.getElementById('active-lottie-header');
             const cat = categories.find(c => c.id === id);
             
             document.getElementById('active-title').innerText = cat.title;
-            
-            // Injecte l'animation Lottie dans l'en-tête à la place de l'emoji
             lottieHeader.innerHTML = `<dotlottie-wc src="${cat.lottie}" autoplay loop></dotlottie-wc>`;
             
             gridView.style.display = 'none';
             detailView.classList.add('active');
             container.classList.add('wide');
-            loader.style.display = 'block';
             content.innerHTML = '';
 
             const others = categories.filter(c => c.id !== id);
@@ -692,10 +702,9 @@
                 if (!response.ok) throw new Error();
                 content.innerHTML = await response.text();
             } catch (e) {
-                content.innerHTML = `<p style="text-align:center; color:red;">Erreur de chargement du projet.</p>`;
+                content.innerHTML = `<p style="text-align:center; color:#1a73e8; font-weight:bold; padding: 40px;">Contenu du projet "${cat.title}" à venir.</p>`;
             } finally {
-                loader.style.display = 'none';
-                window.scrollTo({ top: document.getElementById('creations-section').offsetTop - 20, behavior: 'smooth' });
+                scrollToCreations();
             }
         }
 
@@ -703,7 +712,7 @@
             document.getElementById('grid-view').style.display = 'grid';
             document.getElementById('detail-view').classList.remove('active');
             document.getElementById('creations-container').classList.remove('wide');
-            window.scrollTo({ top: document.getElementById('creations-section').offsetTop - 20, behavior: 'smooth' });
+            scrollToCreations();
         }
 
         // --- LOGIQUE COMPÉTENCES ---
@@ -727,6 +736,7 @@
         window.onclick = (e) => { if(e.target == modal) closeModal(); }
 
         function initBackground() {
+            // Animation des chemins SVG s'ils sont présents
             document.querySelectorAll('.background-anim path').forEach(pathEl => {
                 const offset = anime.setDashoffset(pathEl);
                 pathEl.setAttribute('stroke-dashoffset', offset);
@@ -836,7 +846,8 @@
 
         window.onload = () => {
             initBackground();
-            skillObserver.observe(document.getElementById('skills-section'));
+            const skillSec = document.getElementById('skills-section');
+            if(skillSec) skillObserver.observe(skillSec);
             
             document.querySelectorAll('.satellite, #main-bubble').forEach(el => {
                 el.addEventListener('click', () => openModal(el.getAttribute('data-skill')));
