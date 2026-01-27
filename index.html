@@ -117,6 +117,11 @@
             transition: max-width 0.5s ease;
         }
 
+        /* Ajustement spécifique pour que les bulles de 550px soient centrées sous le titre */
+        #creations-container.section-content {
+            max-width: 1140px; /* 550px * 2 + 40px gap */
+        }
+
         .creations-section .section-content.wide {
             max-width: 1200px;
         }
@@ -142,15 +147,15 @@
         /* --- CRÉATIONS (GRILLE ET CARTES) --- */
         .creations-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Grille 2x2 forcée sur ordinateur */
+            grid-template-columns: repeat(2, 1fr); 
             gap: 40px;
-            max-width: 1200px; 
             margin: 0 auto;
             justify-items: center;
+            width: fit-content;
         }
 
         .creation-card {
-            background: #ffffff; /* Fond blanc permanent */
+            background: #ffffff; 
             border: 2px solid #cbd5e1;
             border-radius: 2rem;
             padding: 40px;
@@ -262,7 +267,7 @@
         }
 
         .nav-card-small {
-            background: #ffffff; /* Fond blanc permanent pour les petites cartes aussi */
+            background: #ffffff; 
             padding: 15px 25px;
             border-radius: 1.5rem;
             border: 2px solid #cbd5e1;
@@ -401,9 +406,10 @@
         .image-container img { flex: 1; min-width: 200px; object-fit: cover; }
         .sheets-iframe { width: 100%; border: 1px solid #ddd; border-radius: 10px; margin-top: 15px; }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1140px) {
             .creations-grid { grid-template-columns: 1fr; }
             .creation-card { width: 90%; max-width: 550px; }
+            #creations-container.section-content { max-width: 900px; }
         }
 
         @media (max-width: 768px) {
@@ -682,19 +688,23 @@
             const lottieHeader = document.getElementById('active-lottie-header');
             const cat = categories.find(c => c.id === id);
             
-            // 1. MISE À JOUR DE L'UI INITIALE
+            // 1. MISE À JOUR DE L'UI INITIALE (On prépare le titre et l'animation)
             document.getElementById('active-title').innerText = cat.title;
             lottieHeader.innerHTML = `<dotlottie-wc src="${cat.lottie}" autoplay loop></dotlottie-wc>`;
             
+            // On bascule la vue mais on garde un loader léger
             gridView.style.display = 'none';
             detailView.classList.add('active');
             container.classList.add('wide');
-            content.innerHTML = '<p style="text-align:center; padding: 40px;">Chargement en cours...</p>';
+            content.innerHTML = '<p style="text-align:center; padding: 40px; opacity: 0.5;">Préparation de l\'affichage...</p>';
 
-            // 2. SCROLL D'ABORD (Processus inverse pour plus de fluidité)
+            // 2. SCROLL D'ABORD
             scrollToCreations();
 
-            // 3. FETCH ET INJECTION ENSUITE
+            // 3. DÉLAI DE SÉCURITÉ (0.5s) POUR LAISSER LE SCROLL SE FINIR ET ÉVITER LE GLITCH
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            // 4. FETCH ET INJECTION ENSUITE
             const others = categories.filter(c => c.id !== id);
             document.getElementById('other-grid').innerHTML = others.map(c => `
                 <div class="nav-card-small" onclick="openCreation('${c.id}')">
@@ -708,7 +718,16 @@
             try {
                 const response = await fetch(`./components/${id}.html`);
                 if (!response.ok) throw new Error();
-                content.innerHTML = await response.text();
+                const html = await response.text();
+                // Transition douce du contenu
+                content.style.opacity = 0;
+                content.innerHTML = html;
+                anime({
+                    targets: content,
+                    opacity: [0, 1],
+                    duration: 400,
+                    easing: 'easeOutQuad'
+                });
             } catch (e) {
                 content.innerHTML = `<p style="text-align:center; color:#1a73e8; font-weight:bold; padding: 40px;">Contenu du projet "${cat.title}" à venir.</p>`;
             }
