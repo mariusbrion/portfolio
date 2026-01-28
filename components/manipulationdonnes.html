@@ -1,1 +1,87 @@
+<div class="portfolio-container" style="font-family: system-ui, -apple-system, sans-serif; max-width: 1200px; margin: 0 auto; color: #374151; line-height: 1.6; padding: 40px; background-color: #f0f4f8;">
 
+    <!-- SECTION 1 : CALCULATEUR CARBONE -->
+    <div class="project-section" style="margin-bottom: 60px;">
+        
+        <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #f59e0b; padding-left: 20px;">
+            Calculateur Carbone : Coût social et étalement urbain
+        </h3>
+
+        <div style="margin-bottom: 2rem; font-size: 1.1rem; text-align: justify;">
+            <p style="margin-bottom: 1rem;">
+                Parmi mes projets récents, j'ai développé un <strong>Calculateur Carbone</strong> qui estime le coût social de la création de logements en périphérie des villes, en mettant en lumière l'impact d'un mode de vie centré sur la voiture.
+            </p>
+            <p style="margin-bottom: 1rem;">
+                Le coût social du carbone représente l'ensemble des dommages économiques causés par les émissions de CO₂ : baisse des rendements agricoles (sécheresses, stress hydrique), dégradation de la santé publique (maladies respiratoires, vagues de chaleur), ainsi que les dégâts liés à la montée des eaux (inondations côtières, recul du trait de côte).
+            </p>
+            <p style="margin-bottom: 1.5rem;">
+                Ce projet vise à sensibiliser aux enjeux de l'étalement urbain et de la transition écologique, en illustrant l'impact des mobilités pendulaires (trajets quotidiens domicile-travail).
+            </p>
+            
+            <p style="font-weight: 600;">
+                <a href="https://mariusbrion.github.io/calculateur-carbone/" target="_blank" style="color: #f59e0b; text-decoration: none; border-bottom: 2px solid #f59e0b; padding-bottom: 2px;">
+                    Découvrir le calculateur en ligne →
+                </a>
+            </p>
+        </div>
+
+        <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); margin-bottom: 2rem;">
+            <img src="calculateur.png" alt="Capture d'écran du Calculateur Carbone" style="width: 100%; display: block;">
+        </div>
+
+        <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
+            <p style="margin-bottom: 1.5rem;">
+                Pour développer cet outil, je me suis appuyé sur une analyse de la corrélation linéaire entre l’électrification du parc automobile et la baisse des émissions moyennes de CO₂ par véhicule. Les données utilisées proviennent de l' <a href="https://ufe-electricite.fr/watt-the-carte/emissions-de-co2-en-france/parc-automobile/" target="_blank" style="color: #3b82f6; text-decoration: underline;">Union Française de l'Électricité (UFE)</a>.
+            </p>
+            
+            <!-- IFRAME GOOGLE SHEETS -->
+            <div style="width: 100%; height: 500px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 1.5rem; background: white; padding: 10px;">
+                <iframe style="width: 100%; height: 100%; border: none;" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQG1iuKlUeFgOQEBmkmMqDFTJz-pRB_EmnRLedFQ9dKHkIEdEFJdZaBTAT7tK_rjNyjSiDXgUGHDOWd/pubchart?oid=56657791&format=interactive&embedded=true"></iframe>
+            </div>
+
+            <p style="margin-bottom: 1rem;">
+                Ce graphique montre une corrélation négative forte (R² = 0,989), ce qui signifie qu'une augmentation du pourcentage de véhicules électriques dans le parc automobile entraîne une réduction significative des émissions de CO₂. Toutefois, grâce à l'outil du Calculateur Carbone, on voit que cette solution ne suffit pas à faire du mode de vie <a href="https://fr.wikipedia.org/wiki/Rurbanisation" target="_blank" style="color: #3b82f6; text-decoration: underline;">rurbain</a> un mode de vie durable <strong>si les pratiques actuelles d'autosolisme persistent</strong>.
+            </p>
+            <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">
+                L'impact environnemental est estimé à travers un indice économique fondé sur le coût social du carbone par tonne de CO₂, tel que défini par l' <a href="https://www.insee.fr/fr/statistiques/8276271?sommaire=8071406" target="_blank" style="color: #6b7280; text-decoration: underline;">INSEE dans son étude de 2023</a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- SÉPARATEUR ESTHÉTIQUE -->
+    <div style="display: flex; align-items: center; justify-content: center; margin: 60px 0;">
+        <div style="height: 1px; background: linear-gradient(to right, transparent, #cbd5e1, transparent); width: 80%;"></div>
+    </div>
+
+    <!-- SECTION 2 : DASHBOARD EUROPE -->
+    <div class="project-section" style="margin-bottom: 40px;">
+        
+        <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #6366f1; padding-left: 20px;">
+            Analyse des émissions de CO₂ (Transports Europe 2023)
+        </h3>
+
+        <div style="margin-bottom: 2rem; font-size: 1.05rem; text-align: justify; color: #4b5563;">
+            <p style="margin-bottom: 1rem;">
+                Ce dashboard interactif a été réalisé à partir d’un croisement de données issues de l’<strong>Agence européenne pour l’environnement</strong> — notamment les <a href="https://co2cars.apps.eea.europa.eu/" target="_blank" style="color: #3b82f6; text-decoration: underline;">émissions moyennes de CO₂ des véhicules neufs</a> et l' <a href="https://www.eea.europa.eu/en/analysis/maps-and-charts/greenhouse-gases-viewer-data-viewers" target="_blank" style="color: #3b82f6; text-decoration: underline;">inventaire des gaz à effet de serre</a> — et de la <a href="https://donnees.banquemondiale.org/indicator/SP.POP.TOTL" target="_blank" style="color: #3b82f6; text-decoration: underline;">Banque mondiale</a> pour les données démographiques.
+            </p>
+            <p>
+                L’objectif de cette visualisation est de proposer une lecture critique des dynamiques de décarbonation. Elle met en évidence l’absence de corrélation directe entre la performance technologique des véhicules neufs et les émissions globales du secteur des transports par habitant, <strong>les niveaux de richesse des populations apparaissant comme des facteurs bien plus déterminants</strong> quant à l'explication de la pollution moyenne par habitant dans le secteur des transports.
+            </p>
+        </div>
+
+        <!-- IFRAME LOOKER STUDIO -->
+        <div style="width: 100%; height: 800px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); margin-bottom: 2rem; background: white;">
+            <iframe style="width: 100%; height: 100%; border: none;" src="https://lookerstudio.google.com/embed/reporting/88ef1b09-3975-4195-97b4-14f57f97abab/page/0FgHF" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        </div>
+
+        <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
+            <p style="margin-bottom: 1rem;">
+                Grâce aux filtres dynamiques, il est possible d'isoler des groupes de pays pour explorer les contrastes territoriaux. Cette analyse souligne que l’électrification ne suffit pas si elle n’est pas accompagnée de transformations structurelles (aménagement, accessibilité).
+            </p>
+            <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">
+                En conclusion, l'analyse suggère que <strong>soit l’électrification seule ne suffit pas</strong> à infléchir les tendances globales, <strong>soit elle n’est pas encore assez avancée</strong> à l'échelle des flottes nationales pour avoir un impact significatif. Une approche systémique incluant l'aménagement du territoire demeure indispensable.
+            </p>
+        </div>
+    </div>
+
+</div>
