@@ -203,36 +203,14 @@
         /* --- NOUVEAU SYSTÈME STACK --- */
         #stack-view { display: none; }
         
-        /* En-tête global de la stack (bouton fermer) */
+        /* En-tête global de la stack (Masqué comme demandé) */
         .stack-header-global {
-            background: var(--neutral-bg);
-            border-radius: 2rem;
-            padding: 15px 30px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: flex-end;
-            border: 2px solid #cbd5e1;
-            position: sticky;
-            top: 20px;
-            z-index: 100;
+            display: none; 
         }
-
-        .btn-back-global {
-            background: white; 
-            border: 2px solid #1a73e8; 
-            color: #1a73e8;
-            padding: 8px 20px;
-            border-radius: 20px;
-            cursor: pointer; 
-            font-size: 1rem; 
-            font-weight: bold;
-            transition: all 0.2s;
-        }
-        .btn-back-global:hover { background: #1a73e8; color: white; }
 
         /* Wrapper d'un projet individuel */
         .project-wrapper {
-            background: #ffffff;
+            background: var(--neutral-bg); /* Couleur de fond modifiée pour se fondre (#f0f4f8) */
             border-radius: 2rem;
             padding: 40px;
             border: 2px solid #cbd5e1;
@@ -246,7 +224,7 @@
             align-items: center;
             gap: 20px;
             margin-bottom: 30px;
-            border-bottom: 1px solid #f1f5f9;
+            border-bottom: 1px solid #cbd5e1; /* Légèrement plus foncé pour le contraste sur fond gris clair */
             padding-bottom: 20px;
         }
 
@@ -371,7 +349,9 @@
         }
 
         .ripple { fill: none; stroke: var(--skills-accent); stroke-width: 2; opacity: 0; }
-        .drop-path { stroke: var(--skills-primary); stroke-width: 3; stroke-linecap: round; }
+        
+        /* Correction : utilisation de la classe correcte correspondant à l'HTML */
+        .drop-line { stroke: var(--skills-primary); stroke-width: 3; stroke-linecap: round; }
 
         /* --- MODALES --- */
         .modal-overlay {
@@ -458,10 +438,12 @@
         <div class="section-content">
             <h2>À propos de moi</h2>
             <p>
-                Étudiant en deuxième année de BUT Villes et Territoires Durables à l'IUT Bordeaux Montaigne, je suis passionné par l'aménagement du territoire et l'urbanisme durable. Mon parcours académique, enrichi par des stages pratiques, m'a permis de développer une compréhension approfondie des enjeux urbains et environnementaux qui façonnent notre quotidien.<br><br>
-                Au cours de mon stage d'un mois à l'agglomération du <a href="https://www.grand-chatellerault.fr/" target="_blank">Grand Châtellerault</a>, j'ai activement contribué au programme Action Cœur de Ville, visant à revitaliser le centre-ville et à encourager un urbanisme plus inclusif. Mon stage de deux mois à l' <a href="https://www.at86.fr/" target="_blank">Agence des Territoires de la Vienne</a> m'a permis d'intervenir sur des projets stratégiques d'aménagement, avec un focus particulier sur la gestion des mobilités et le développement de territoires durables.<br><br>
-                Ces expériences professionnelles m'ont non seulement permis de comprendre les enjeux locaux, mais elles ont aussi renforcé mon désir de poursuivre un master en urbanisme pour approfondir mes compétences théoriques et pratiques, et contribuer à la construction de villes intelligentes et résilientes.<br><br>
-                Dynamique, curieux et profondément engagé, je cherche à m'investir dans des projets innovants qui allient développement territorial, transition énergétique et bien-être des citoyens. Mon objectif est de contribuer activement à l'évolution des territoires pour répondre aux défis contemporains, qu'il s'agisse de la gestion des mobilités, de la transition écologique ou de la revitalisation des espaces urbains.
+                Étudiant en <strong>troisième année de BUT Villes et Territoires Durables</strong> à l’IUT Bordeaux Montaigne, je m’oriente vers les enjeux de <strong>mobilité durable</strong>, d’aménagement du territoire et d’analyse territoriale. Mon parcours combine formation académique et expériences en collectivités, avec une attention particulière portée à l’efficacité des politiques publiques et à l’usage de l’existant.<br><br>
+                Au cours de mes stages à l’agglomération du <a href="https://www.grand-chatellerault.fr/" target="_blank">Grand Châtellerault</a> (programme Action Cœur de Ville) et à l’<a href="https://www.at86.fr/" target="_blank">Agence des Territoires de la Vienne</a>, j’ai participé à des projets d’aménagement et de développement territorial en lien avec les enjeux de durabilité.<br><br>
+                Je réalise actuellement une alternance d’un an en tant que <strong>chargé de mobilité</strong> à <a href="https://www.bordeaux-metropole.fr/" target="_blank">Bordeaux Métropole</a>, qui constitue une mise en application directe des enseignements de ma formation. J’y travaille notamment sur la préparation de l’organisation des mobilités autour de l’arrivée d’un nouveau collège, en intégrant les transports collectifs, les mobilités actives et les contraintes urbaines existantes. Cette mission repose sur une coordination étroite entre plusieurs partenaires (agence d’urbanisme, exploitant de transport Keolis, services métropolitains), ainsi que sur l’articulation avec des projets concomitants et un calendrier contraint, le collège devant ouvrir à la rentrée 2026.<br><br>
+                J’ai également conduit un <strong>diagnostic du réseau cyclable structurant</strong> à l’échelle d’un regroupement de 11 communes, dans un contexte marqué par une forte accélération de la création d’infrastructures cyclables ces dernières années. Ce travail visait à évaluer l’état du réseau existant, notamment la qualité des revêtements, les problématiques de dégradation et de gestion des eaux pluviales, ainsi que les enjeux d’entretien à moyen et long terme. L’objectif était d’objectiver les effets cumulés de cette phase d’investissement rapide, afin d’orienter les politiques cyclables vers une gestion plus réaliste et soutenable, intégrant les contraintes budgétaires et la prévention des coûts futurs.<br><br>
+                Enfin, j’ai mené un <strong>diagnostic des mobilités autour d’une école primaire</strong>, intégrant à la fois les mobilités actives et les transports en commun. Ce travail a mobilisé des outils d’analyse spatiale tels que la géolocalisation des élèves, l’évaluation de la marchabilité, la production d’isochrones d’accessibilité, et l’étude de dispositifs comme une potentielle rue aux écoles, afin d’objectiver les conditions d’accès et de sécurité aux abords de l’établissement.<br><br>
+                Ces expériences nourrissent mon projet de poursuite d’études en <strong>master d’urbanisme</strong>, avec l’objectif de contribuer à des territoires plus sobres, fonctionnels et résilients, en particulier sur les enjeux de mobilités du quotidien.
             </p>
         </div>
     </section>
@@ -501,7 +483,7 @@
 
             <!-- VUE FLUX CONTINU (Stack) -->
             <div id="stack-view">
-                <!-- En-tête global pour fermer -->
+                <!-- En-tête global pour fermer (Désactivé) -->
                 <div class="stack-header-global">
                     <button class="btn-back-global" onclick="closeStack()">Retour à la grille ×</button>
                 </div>
@@ -693,9 +675,18 @@
 
         function updateStackNav(currentId) {
             const navGrid = document.getElementById('stack-nav-grid');
-            // On affiche tous les autres projets qui ne sont PAS le courant (ou tous pour permettre le retour)
-            // Pour être plus "Clean", on affiche tout ce qui n'est pas "currentId"
+            
+            // On récupère les catégories qui NE SONT PAS l'actuelle
             const others = categories.filter(c => c.id !== currentId);
+            
+            // Tri : Ceux qui ne sont PAS encore ouverts (pas dans loadedProjects) apparaissent en premier
+            others.sort((a, b) => {
+                const aOpened = loadedProjects.includes(a.id);
+                const bOpened = loadedProjects.includes(b.id);
+                // aOpened est true (1) ou false (0). On veut false avant true.
+                // Donc 0 - 1 = -1 (a vient avant b si a est fermé et b ouvert)
+                return aOpened - bOpened;
+            });
             
             navGrid.innerHTML = others.map(c => `
                 <div class="nav-card-small" onclick="openCreation('${c.id}')">
@@ -748,7 +739,7 @@
             wrapper.className = 'project-wrapper';
             wrapper.innerHTML = `
                 <div class="project-header-inline">
-                    <div style="width:60px; height:60px;">
+                    <div style="width:120px; height:120px;"> <!-- Taille augmentée ici -->
                         <dotlottie-wc src="${cat.lottie}" autoplay loop></dotlottie-wc>
                     </div>
                     <h3>${cat.title}</h3>
@@ -819,9 +810,7 @@
             gridView.style.display = 'grid';
             container.classList.remove('wide');
             
-            // 3. Reset Logique (On vide tout pour repartir à zéro la prochaine fois, ou on garde en cache ? 
-            // Le prompt dit "Navigation Persistante" mais pour "Fermer", on revient généralement à l'état initial.
-            // On vide la stack pour éviter les duplications bizarres si on réouvre.)
+            // 3. Reset Logique
             stackContainer.innerHTML = '';
             loadedProjects = [];
 
