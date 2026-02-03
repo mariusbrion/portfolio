@@ -7,6 +7,55 @@
             Accessibilité scolaire sur la commune du Haillan : vue isochrone
         </h3>
 
+        <!-- ASTUCE D'INJECTION : Ce petit élément permet de forcer l'exécution du JS après un fetch innerHTML -->
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="display:none;" onerror="(function(){
+            const container = document.querySelector('.portfolio-container');
+            if (!container || window.spatialAnalysisInitialized) return;
+            
+            const maps = ['pieton-map', 'velo-map', 'bus-map'];
+            const activeColor = '#0ea5e9';
+            const inactiveColor = '#e2e8f0';
+            const activeTextColor = '#ffffff';
+            const inactiveTextColor = '#475569';
+
+            window.showMap = function(mapId) {
+                maps.forEach(id => {
+                    const img = document.getElementById(id);
+                    if (img) {
+                        img.style.display = 'none';
+                        img.style.opacity = '0';
+                    }
+                    const btn = document.getElementById(id.replace('map', 'btn'));
+                    if (btn) {
+                        btn.style.backgroundColor = inactiveColor;
+                        btn.style.color = inactiveTextColor;
+                    }
+                });
+
+                const selectedImg = document.getElementById(mapId);
+                if (selectedImg) {
+                    selectedImg.style.display = 'block';
+                    setTimeout(() => { selectedImg.style.opacity = '1'; }, 50);
+                }
+
+                const selectedBtn = document.getElementById(mapId.replace('map', 'btn'));
+                if (selectedBtn) {
+                    selectedBtn.style.backgroundColor = activeColor;
+                    selectedBtn.style.color = activeTextColor;
+                }
+            };
+
+            const initAnimation = () => {
+                maps.forEach((id, index) => {
+                    setTimeout(() => { window.showMap(id); }, index * 800);
+                });
+                setTimeout(() => { window.showMap('bus-map'); }, maps.length * 800);
+            };
+
+            initAnimation();
+            window.spatialAnalysisInitialized = true;
+        })()">
+
         <!-- CONTENEUR DE LA CARTE INTERACTIVE -->
         <div class="map-wrapper" style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #fff; margin-bottom: 25px;">
             <div style="position: relative; width: 100%; padding-top: 60%; /* Ratio 5:3 */">
@@ -46,74 +95,4 @@
             </p>
         </div>
     </div>
-
-    <!-- SCRIPT DE GESTION DES CARTES -->
-    <script>
-        (function() {
-            const maps = ['pieton-map', 'velo-map', 'bus-map'];
-            const activeColor = '#0ea5e9';
-            const inactiveColor = '#e2e8f0';
-            const activeTextColor = '#ffffff';
-            const inactiveTextColor = '#475569';
-
-            // On attache la fonction à l'objet window pour qu'elle soit accessible par le onclick
-            window.showMap = function(mapId) {
-                maps.forEach(id => {
-                    const img = document.getElementById(id);
-                    if (img) {
-                        img.style.display = 'none';
-                        img.style.opacity = '0';
-                    }
-                    
-                    const btn = document.getElementById(id.replace('map', 'btn'));
-                    if (btn) {
-                        btn.style.backgroundColor = inactiveColor;
-                        btn.style.color = inactiveTextColor;
-                    }
-                });
-
-                const selectedImg = document.getElementById(mapId);
-                if (selectedImg) {
-                    selectedImg.style.display = 'block';
-                    setTimeout(() => {
-                        selectedImg.style.opacity = '1';
-                    }, 50);
-                }
-
-                const selectedBtn = document.getElementById(mapId.replace('map', 'btn'));
-                if (selectedBtn) {
-                    selectedBtn.style.backgroundColor = activeColor;
-                    selectedBtn.style.color = activeTextColor;
-                }
-            };
-
-            // Lancement immédiat de l'animation sans attendre l'événement 'load'
-            const initAnimation = () => {
-                maps.forEach((id, index) => {
-                    setTimeout(() => {
-                        window.showMap(id);
-                    }, index * 800);
-                });
-
-                setTimeout(() => {
-                    window.showMap('bus-map');
-                }, maps.length * 800);
-            };
-
-            // On vérifie si les éléments sont déjà présents dans le DOM
-            if (document.getElementById('bus-btn')) {
-                initAnimation();
-            } else {
-                // Fallback si l'injection prend un peu de temps
-                const observer = new MutationObserver((mutations, obs) => {
-                    const btn = document.getElementById('bus-btn');
-                    if (btn) {
-                        initAnimation();
-                        obs.disconnect();
-                    }
-                });
-                observer.observe(document.body, { childList: true, subtree: true });
-            }
-        })();
-    </script>
 </div>
