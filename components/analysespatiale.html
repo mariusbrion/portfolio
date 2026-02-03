@@ -14,21 +14,21 @@
                 <img id="main-map" src="carte_principale.png" alt="Carte principale de l'école" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
                 
                 <!-- Overlays isochrones -->
-                <img id="pieton-map" class="overlay-map" src="carte_pieton.png" alt="Carte isochrone piéton" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease;">
-                <img id="velo-map" class="overlay-map" src="carte_velo.png" alt="Carte isochrone vélo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease;">
-                <img id="bus-map" class="overlay-map" src="carte_voiture.png" alt="Carte isochrone bus" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease;">
+                <img id="pieton-map" class="overlay-map" src="carte_pieton.png" alt="Carte isochrone piéton" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
+                <img id="velo-map" class="overlay-map" src="carte_velo.png" alt="Carte isochrone vélo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
+                <img id="bus-map" class="overlay-map" src="carte_voiture.png" alt="Carte isochrone bus" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
             </div>
         </div>
 
         <!-- BOUTONS DE CONTRÔLE -->
         <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
-            <button id="pieton-btn" onclick="showMap('pieton-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; background-color: #e2e8f0; color: #475569;">
+            <button id="pieton-btn" onclick="window.showMap('pieton-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; background-color: #e2e8f0; color: #475569;">
                 Piéton
             </button>
-            <button id="velo-btn" onclick="showMap('velo-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; background-color: #e2e8f0; color: #475569;">
+            <button id="velo-btn" onclick="window.showMap('velo-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; background-color: #e2e8f0; color: #475569;">
                 Vélo
             </button>
-            <button id="bus-btn" onclick="showMap('bus-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; background-color: #e2e8f0; color: #475569;">
+            <button id="bus-btn" onclick="window.showMap('bus-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; background-color: #e2e8f0; color: #475569;">
                 Bus
             </button>
         </div>
@@ -49,51 +49,71 @@
 
     <!-- SCRIPT DE GESTION DES CARTES -->
     <script>
-        const maps = ['pieton-map', 'velo-map', 'bus-map'];
-        const activeColor = '#0ea5e9';
-        const inactiveColor = '#e2e8f0';
-        const activeTextColor = '#ffffff';
-        const inactiveTextColor = '#475569';
+        (function() {
+            const maps = ['pieton-map', 'velo-map', 'bus-map'];
+            const activeColor = '#0ea5e9';
+            const inactiveColor = '#e2e8f0';
+            const activeTextColor = '#ffffff';
+            const inactiveTextColor = '#475569';
 
-        function showMap(mapId) {
-            // Cacher toutes les cartes
-            maps.forEach(id => {
-                const img = document.getElementById(id);
-                img.style.display = 'none';
-                img.style.opacity = '0';
-                
-                // Reset styles boutons
-                const btn = document.getElementById(id.replace('map', 'btn'));
-                btn.style.backgroundColor = inactiveColor;
-                btn.style.color = inactiveTextColor;
-            });
+            // On attache la fonction à l'objet window pour qu'elle soit accessible par le onclick
+            window.showMap = function(mapId) {
+                maps.forEach(id => {
+                    const img = document.getElementById(id);
+                    if (img) {
+                        img.style.display = 'none';
+                        img.style.opacity = '0';
+                    }
+                    
+                    const btn = document.getElementById(id.replace('map', 'btn'));
+                    if (btn) {
+                        btn.style.backgroundColor = inactiveColor;
+                        btn.style.color = inactiveTextColor;
+                    }
+                });
 
-            // Afficher la carte sélectionnée
-            const selectedImg = document.getElementById(mapId);
-            selectedImg.style.display = 'block';
-            // Petit délai pour l'effet de fondu
-            setTimeout(() => {
-                selectedImg.style.opacity = '1';
-            }, 50);
+                const selectedImg = document.getElementById(mapId);
+                if (selectedImg) {
+                    selectedImg.style.display = 'block';
+                    setTimeout(() => {
+                        selectedImg.style.opacity = '1';
+                    }, 50);
+                }
 
-            // Activer le bouton
-            const selectedBtn = document.getElementById(mapId.replace('map', 'btn'));
-            selectedBtn.style.backgroundColor = activeColor;
-            selectedBtn.style.color = activeTextColor;
-        }
+                const selectedBtn = document.getElementById(mapId.replace('map', 'btn'));
+                if (selectedBtn) {
+                    selectedBtn.style.backgroundColor = activeColor;
+                    selectedBtn.style.color = activeTextColor;
+                }
+            };
 
-        // Animation d'introduction au chargement
-        window.addEventListener('load', () => {
-            maps.forEach((id, index) => {
+            // Lancement immédiat de l'animation sans attendre l'événement 'load'
+            const initAnimation = () => {
+                maps.forEach((id, index) => {
+                    setTimeout(() => {
+                        window.showMap(id);
+                    }, index * 800);
+                });
+
                 setTimeout(() => {
-                    showMap(id);
-                }, index * 800);
-            });
+                    window.showMap('bus-map');
+                }, maps.length * 800);
+            };
 
-            // Stabilisation finale sur la carte Bus après l'animation
-            setTimeout(() => {
-                showMap('bus-map');
-            }, maps.length * 800);
-        });
+            // On vérifie si les éléments sont déjà présents dans le DOM
+            if (document.getElementById('bus-btn')) {
+                initAnimation();
+            } else {
+                // Fallback si l'injection prend un peu de temps
+                const observer = new MutationObserver((mutations, obs) => {
+                    const btn = document.getElementById('bus-btn');
+                    if (btn) {
+                        initAnimation();
+                        obs.disconnect();
+                    }
+                });
+                observer.observe(document.body, { childList: true, subtree: true });
+            }
+        })();
     </script>
 </div>
