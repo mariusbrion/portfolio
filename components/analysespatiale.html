@@ -7,17 +7,15 @@
             Accessibilité scolaire sur la commune du Haillan : vue isochrone
         </h3>
 
-        <!-- ASTUCE D'INJECTION : Ce petit élément permet de forcer l'exécution du JS après un fetch innerHTML -->
-        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="display:none;" onerror="(function(){
-            const container = document.querySelector('.portfolio-container');
-            if (!container || window.spatialAnalysisInitialized) return;
-            
+        <!-- DECLENCHEUR JS : Force l'exécution du code après l'injection fetch -->
+        <img src="trigger" onerror="(function(){
             const maps = ['pieton-map', 'velo-map', 'bus-map'];
             const activeColor = '#0ea5e9';
             const inactiveColor = '#e2e8f0';
             const activeTextColor = '#ffffff';
             const inactiveTextColor = '#475569';
 
+            // Définition de la fonction globale
             window.showMap = function(mapId) {
                 maps.forEach(id => {
                     const img = document.getElementById(id);
@@ -35,7 +33,8 @@
                 const selectedImg = document.getElementById(mapId);
                 if (selectedImg) {
                     selectedImg.style.display = 'block';
-                    setTimeout(() => { selectedImg.style.opacity = '1'; }, 50);
+                    // Petit délai pour assurer la transition CSS
+                    setTimeout(() => { selectedImg.style.opacity = '1'; }, 20);
                 }
 
                 const selectedBtn = document.getElementById(mapId.replace('map', 'btn'));
@@ -45,16 +44,9 @@
                 }
             };
 
-            const initAnimation = () => {
-                maps.forEach((id, index) => {
-                    setTimeout(() => { window.showMap(id); }, index * 800);
-                });
-                setTimeout(() => { window.showMap('bus-map'); }, maps.length * 800);
-            };
-
-            initAnimation();
-            window.spatialAnalysisInitialized = true;
-        })()">
+            // Initialisation immédiate sur la vue Bus
+            window.showMap('bus-map');
+        })()" style="display:none;">
 
         <!-- CONTENEUR DE LA CARTE INTERACTIVE -->
         <div class="map-wrapper" style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #fff; margin-bottom: 25px;">
