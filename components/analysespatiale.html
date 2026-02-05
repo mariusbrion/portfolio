@@ -1,7 +1,7 @@
 <div class="portfolio-container" style="font-family: system-ui, -apple-system, sans-serif; max-width: 1200px; margin: 0 auto; color: #374151; line-height: 1.6; padding: 40px; background-color: #f0f4f8;">
 
-    <!-- SECTION : ACCESSIBILITÉ SCOLAIRE -->
-    <div class="project-section" style="margin-bottom: 40px;">
+    <!-- SECTION 1 : ACCESSIBILITÉ SCOLAIRE (ISOCHRONES) -->
+    <div class="project-section" style="margin-bottom: 60px;">
         
         <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #0ea5e9; padding-left: 20px;">
             Accessibilité scolaire sur la commune du Haillan : vue isochrone
@@ -15,7 +15,6 @@
             const activeTextColor = '#ffffff';
             const inactiveTextColor = '#475569';
 
-            // Définition de la fonction globale
             window.showMap = function(mapId) {
                 maps.forEach(id => {
                     const img = document.getElementById(id);
@@ -33,7 +32,6 @@
                 const selectedImg = document.getElementById(mapId);
                 if (selectedImg) {
                     selectedImg.style.display = 'block';
-                    // Petit délai pour assurer la transition CSS
                     setTimeout(() => { selectedImg.style.opacity = '1'; }, 20);
                 }
 
@@ -44,47 +42,89 @@
                 }
             };
 
-            // Initialisation immédiate sur la vue Bus
             window.showMap('bus-map');
         })()" style="display:none;">
 
         <!-- CONTENEUR DE LA CARTE INTERACTIVE -->
         <div class="map-wrapper" style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #fff; margin-bottom: 25px;">
             <div style="position: relative; width: 100%; padding-top: 60%; /* Ratio 5:3 */">
-                <!-- Carte de base -->
-                <img id="main-map" src="carte_principale.png" alt="Carte principale de l'école" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-                
-                <!-- Overlays isochrones -->
-                <img id="pieton-map" class="overlay-map" src="carte_pieton.png" alt="Carte isochrone piéton" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
-                <img id="velo-map" class="overlay-map" src="carte_velo.png" alt="Carte isochrone vélo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
-                <img id="bus-map" class="overlay-map" src="carte_voiture.png" alt="Carte isochrone bus" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
+                <img id="main-map" src="carte_principale.png" alt="Carte principale" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <img id="pieton-map" class="overlay-map" src="carte_pieton.png" alt="Isochrone piéton" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
+                <img id="velo-map" class="overlay-map" src="carte_velo.png" alt="Isochrone vélo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
+                <img id="bus-map" class="overlay-map" src="carte_voiture.png" alt="Isochrone bus" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
             </div>
         </div>
 
-        <!-- BOUTONS DE CONTRÔLE -->
+        <!-- BOUTONS -->
         <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
-            <button id="pieton-btn" onclick="window.showMap('pieton-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; background-color: #e2e8f0; color: #475569;">
-                Piéton
-            </button>
-            <button id="velo-btn" onclick="window.showMap('velo-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; background-color: #e2e8f0; color: #475569;">
-                Vélo
-            </button>
-            <button id="bus-btn" onclick="window.showMap('bus-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; background-color: #e2e8f0; color: #475569;">
-                Bus
-            </button>
+            <button id="pieton-btn" onclick="window.showMap('pieton-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; background-color: #e2e8f0; color: #475569;">Piéton</button>
+            <button id="velo-btn" onclick="window.showMap('velo-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; background-color: #e2e8f0; color: #475569;">Vélo</button>
+            <button id="bus-btn" onclick="window.showMap('bus-map')" style="cursor: pointer; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; background-color: #e2e8f0; color: #475569;">Bus</button>
         </div>
 
-        <!-- DESCRIPTION -->
         <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
             <p style="margin-bottom: 1.2rem;">
-                Cette cartographie interactive montre les temps d’accès aux écoles élémentaire et maternelle du centre du Haillan selon trois modes de transport : à pied, à vélo et en bus. Réalisée à l’aide des données d’OpenStreetMap et d’un algorithme de calcul d’isochrones sous <strong>QGIS</strong>, elle permet de visualiser finement la répartition temporelle des déplacements vers l’école.
+                Cette cartographie interactive représente les temps d’accès aux écoles maternelles et élémentaires du centre du Haillan selon trois modes de déplacement : la marche, le vélo et le bus. Réalisée sous <strong>QGIS</strong> à partir des données OpenStreetMap et d’un algorithme de calcul d’isochrones, elle permet une lecture fine et comparative de l’accessibilité scolaire à l’échelle du tissu urbain.
             </p>
             <p style="margin-bottom: 1.2rem;">
-                Les zones colorées indiquent les distances-temps : la zone violette correspond à un accès en moins de 10 minutes. Chaque point est associé à un chiffre représentant le temps estimé, en minutes, nécessaire pour rejoindre l’école depuis ce point.
+                La comparaison des isochrones met en évidence des écarts marqués d’efficacité entre les modes de transport : le vélo dessine une zone d’accessibilité plus homogène et continue, tandis que le bus reste fortement dépendant du tracé des lignes et de leur maillage. Cette lecture révèle également des discontinuités du réseau viaire, notamment à l’est du secteur étudié, où une <strong>rue en cul-de-sac génère une véritable « fracture urbaine »</strong>, visible sous la forme d’une dent claire dans une zone pourtant globalement bien desservie.
             </p>
             <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">
-                Les boutons interactifs permettent d’alterner entre les modes de déplacement afin de comparer leur efficacité respective. Ce travail propose une lecture synthétique de l’accessibilité scolaire sur le territoire, et peut servir d’appui à la planification des mobilités durables à l’échelle locale.
+                L’outil dépasse ainsi la simple représentation des temps de parcours pour devenir un support d’analyse des choix d’aménagement, mettant en lumière l’influence conjointe de la morphologie urbaine, du maillage viaire et des modes de déplacement sur l’accessibilité quotidienne.
             </p>
         </div>
     </div>
+
+    <!-- SÉPARATEUR -->
+    <div style="display: flex; align-items: center; justify-content: center; margin: 60px 0;">
+        <div style="height: 1px; background: linear-gradient(to right, transparent, #cbd5e1, transparent); width: 80%;"></div>
+    </div>
+
+    <!-- SECTION 2 : DIAGNOSTIC DE FLUX -->
+    <div class="project-section" style="margin-bottom: 60px;">
+        <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #0ea5e9; padding-left: 20px;">
+            Analyse des cheminements et dynamiques de flux
+        </h3>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px; margin-bottom: 30px;">
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); background: white;">
+                <img src="flow.png" alt="Flux piétons théoriques" style="width: 100%; display: block;">
+                <p style="padding: 15px; font-size: 0.9rem; color: #6b7280; font-style: italic; background: #fff; text-align: center;">Estimation des cheminements piétons théoriques (Carte Flow)</p>
+            </div>
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); background: white;">
+                <img src="fluxdomicile.png" alt="Flux domicile-travail" style="width: 100%; display: block;">
+                <p style="padding: 15px; font-size: 0.9rem; color: #6b7280; font-style: italic; background: #fff; text-align: center;">Vision des flux domicile-travail et zones de dépose</p>
+            </div>
+        </div>
+
+        <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
+            <p>
+                Ce diagnostic s'appuie sur un processus complet de modélisation. La carte de <strong>cheminements théoriques (Flow)</strong> permet d'estimer le potentiel de passage sur chaque tronçon afin de définir les axes prioritaires à diagnostiquer. En parallèle, la représentation des <strong>flux domicile-travail</strong> offre une vision globale des mouvements sur le territoire, permettant d'anticiper les zones de dépose des enfants et les potentiels points de congestion aux abords des établissements scolaires.
+            </p>
+        </div>
+    </div>
+
+    <!-- SÉPARATEUR -->
+    <div style="display: flex; align-items: center; justify-content: center; margin: 60px 0;">
+        <div style="height: 1px; background: linear-gradient(to right, transparent, #cbd5e1, transparent); width: 80%;"></div>
+    </div>
+
+    <!-- SECTION 3 : SAINT-MÉDARD (SITE EXTERNE) -->
+    <div class="project-section" style="margin-bottom: 40px;">
+        <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #0ea5e9; padding-left: 20px;">
+            Diagnostic de marchabilité : Étude de cas Saint-Médard-en-Jalles
+        </h3>
+
+        <div style="font-size: 1.05rem; text-align: justify; color: #4b5563; margin-bottom: 2rem;">
+            <p>
+                Pour finaliser ce diagnostic, une étude précise de marchabilité a été menée à partir d’itinéraires définis. Ce travail intègre des estimations de coût des travaux et identifie les responsabilités des différents acteurs concernés (services techniques, riverains, mairie) afin de transformer le diagnostic en plan d'action opérationnel pour améliorer la sécurité et le confort des piétons.
+            </p>
+        </div>
+
+        <!-- IFRAME DU SITE ST-MEDARD -->
+        <div style="width: 100%; height: 700px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #e2e8f0; background: #fff;">
+            <iframe src="https://mariusbrion.github.io/st-medard/" style="width: 100%; height: 100%; border: none;" title="Diagnostic Saint-Médard"></iframe>
+        </div>
+    </div>
+
 </div>
