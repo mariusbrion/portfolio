@@ -4,7 +4,7 @@
     <div class="project-section" style="margin-bottom: 60px;">
         
         <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #0ea5e9; padding-left: 20px;">
-            Accessibilité scolaire sur la commune du Haillan : vue isochrone
+            1. Accessibilité scolaire sur la commune du Haillan | vue isochrone
         </h3>
 
         <!-- DECLENCHEUR JS : Force l'exécution du code après l'injection fetch -->
@@ -47,7 +47,7 @@
 
         <!-- CONTENEUR DE LA CARTE INTERACTIVE -->
         <div class="map-wrapper" style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #fff; margin-bottom: 25px;">
-            <div style="position: relative; width: 100%; padding-top: 60%; /* Ratio 5:3 */">
+            <div style="position: relative; width: 100%; padding-top: 60%;">
                 <img id="main-map" src="carte_principale.png" alt="Carte principale" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
                 <img id="pieton-map" class="overlay-map" src="carte_pieton.png" alt="Isochrone piéton" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
                 <img id="velo-map" class="overlay-map" src="carte_velo.png" alt="Isochrone vélo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; display: none; transition: opacity 0.5s ease; opacity: 0;">
@@ -67,10 +67,13 @@
                 Cette cartographie interactive représente les temps d’accès aux écoles maternelles et élémentaires du centre du Haillan selon trois modes de déplacement : la marche, le vélo et le bus. Réalisée sous <strong>QGIS</strong> à partir des données OpenStreetMap et d’un algorithme de calcul d’isochrones, elle permet une lecture fine et comparative de l’accessibilité scolaire à l’échelle du tissu urbain.
             </p>
             <p style="margin-bottom: 1.2rem;">
-                La comparaison des isochrones met en évidence des écarts marqués d’efficacité entre les modes de transport : le vélo dessine une zone d’accessibilité plus homogène et continue, tandis que le bus reste fortement dépendant du tracé des lignes et de leur maillage. Cette lecture révèle également des discontinuités du réseau viaire, notamment à l’est du secteur étudié, où une <strong>rue en cul-de-sac génère une véritable « fracture urbaine »</strong>, visible sous la forme d’une dent claire dans une zone pourtant globalement bien desservie.
+                Les zones colorées traduisent des distances|temps, la teinte violette correspondant à un accès en moins de 10 minutes. Chaque point est associé à un temps estimé, exprimé en minutes, nécessaire pour rejoindre l’établissement depuis ce lieu.
+            </p>
+            <p style="margin-bottom: 1.2rem;">
+                La comparaison des isochrones met en évidence des écarts marqués entre les modes de déplacement : le vélo dessine une zone d’accessibilité plus homogène et continue, tandis que le bus apparaît fortement contraint par le tracé des lignes et leur maillage. Cette lecture fait également ressortir des discontinuités du réseau viaire, notamment à l’est du secteur étudié, où une rue sans issue génère une véritable <strong>« fracture urbaine »</strong>. Celle|ci se matérialise par une dent claire au sein d’une zone pourtant globalement bien desservie.
             </p>
             <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">
-                L’outil dépasse ainsi la simple représentation des temps de parcours pour devenir un support d’analyse des choix d’aménagement, mettant en lumière l’influence conjointe de la morphologie urbaine, du maillage viaire et des modes de déplacement sur l’accessibilité quotidienne.
+                Cette représentation reste toutefois théorique : elle ne prend pas en compte les adresses réelles des élèves ni la qualité effective des cheminements et des aménagements. Pour dépasser cette limite, elle est complétée par une analyse des flux de déplacements scolaires, visant à rapprocher le potentiel d’accessibilité des usages probables.
             </p>
         </div>
     </div>
@@ -80,34 +83,26 @@
         <div style="height: 1px; background: linear-gradient(to right, transparent, #cbd5e1, transparent); width: 80%;"></div>
     </div>
 
-    <!-- SECTION 2 : ANALYSE DES CHEMINEMENTS -->
+    <!-- SECTION 2 : FLOW -->
     <div class="project-section" style="margin-bottom: 60px;">
         <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #0ea5e9; padding-left: 20px;">
-            Analyse des cheminements et dynamiques de flux
+            2. Cartographie des flux de cheminements piétons théoriques
         </h3>
 
-        <!-- PARTIE 1 : FLOW -->
-        <div style="margin-bottom: 40px;">
-            <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); background: white; margin-bottom: 20px;">
-                <img src="flow.png" alt="Flux piétons théoriques" style="width: 100%; display: block;">
-            </div>
-            <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
-                <p>
-                    Grâce à la <strong>géolocalisation anonymisée</strong> des adresses des élèves, nous définissons des trajets théoriques permettant de déterminer précisément quels axes doivent être diagnostiqués et aménagés en priorité. Cette modélisation du potentiel de passage sur chaque tronçon permet d'orienter les investissements publics vers les cheminements les plus fréquentés par les écoliers.
-                </p>
-            </div>
+        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); background: white; margin-bottom: 25px;">
+            <img src="flow.png" alt="Flux piétons théoriques" style="width: 100%; display: block;">
         </div>
 
-        <!-- PARTIE 2 : FLUX DOMICILE TRAVAIL -->
-        <div style="margin-bottom: 40px;">
-            <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); background: white; margin-bottom: 20px;">
-                <img src="fluxdomicile.png" alt="Flux domicile-travail" style="width: 100%; display: block;">
-            </div>
-            <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
-                <p>
-                    Dans un second temps, l'analyse des <strong>flux domicile-travail</strong> permet d'adopter une vision plus globale du territoire. Elle aide à anticiper les zones de dépose des enfants et les potentiels points de congestion, offrant une compréhension macro des mouvements quotidiens qui viennent s'ajouter aux mobilités scolaires.
-                </p>
-            </div>
+        <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
+            <p style="margin-bottom: 1.2rem;">
+                Cette cartographie de flux modélise les cheminements piétons théoriques vers l’établissement scolaire à partir des <strong>adresses d’élèves anonymisées</strong>. Elle permet de spatialiser le potentiel de passage sur chaque tronçon du réseau viaire et d’identifier les axes les plus susceptibles d’être empruntés par les écoliers.
+            </p>
+            <p style="margin-bottom: 1.2rem;">
+                L’objectif n’est pas de prédire des trajets individuels, mais de faire émerger des axes à enjeux, caractérisés par une concentration potentielle des flux. Cette lecture linéaire complète l’approche surfacique des isochrones en introduisant une hiérarchisation des itinéraires.
+            </p>
+            <p style="font-style: italic; color: #6b7280;">
+                Cette modélisation constitue un outil d’aide à la décision pour orienter les diagnostics de terrain : elle permet de cibler en priorité les cheminements présentant le plus fort potentiel de fréquentation et, par conséquent, les besoins les plus urgents en matière de sécurisation et d’aménagement.
+            </p>
         </div>
     </div>
 
@@ -116,15 +111,49 @@
         <div style="height: 1px; background: linear-gradient(to right, transparent, #cbd5e1, transparent); width: 80%;"></div>
     </div>
 
-    <!-- SECTION 3 : SAINT-MÉDARD (SITE EXTERNE) -->
+    <!-- SECTION 3 : FLUX DOMICILE TRAVAIL -->
+    <div class="project-section" style="margin-bottom: 60px;">
+        <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #0ea5e9; padding-left: 20px;">
+            3. Cartographie des flux domicile | travail | Changement d’échelle
+        </h3>
+
+        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); background: white; margin-bottom: 25px;">
+            <img src="fluxdomicile.png" alt="Flux domicile-travail" style="width: 100%; display: block;">
+        </div>
+
+        <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
+            <p style="margin-bottom: 1.2rem;">
+                Cette cartographie adopte une approche volontairement dézoomée afin d’élargir la lecture des mobilités au fonctionnement global du territoire. L’analyse des flux domicile | travail offre une compréhension macro des déplacements quotidiens et permet de replacer l’école dans un système de mobilités plus large.
+            </p>
+            <p style="margin-bottom: 1.2rem;">
+                Cette représentation met en évidence les grandes tendances de circulation, comme ici des flux majoritaires orientés vers le nord|est, révélant des territoires fonctionnels structurés par les déplacements pendulaires. Elle permet notamment d’anticiper les zones de congestion, les risques de bouchons aux heures de pointe ou encore les secteurs propices à l’implantation de zones de dépose|minute.
+            </p>
+            <p style="font-style: italic; color: #6b7280;">
+                En complément des flux scolaires, cette approche élargie aide à comprendre les interactions entre mobilités actives, trafic automobile et usages quotidiens, en apportant un cadre de lecture stratégique aux enjeux observés à l’échelle locale.
+            </p>
+        </div>
+    </div>
+
+    <!-- SÉPARATEUR -->
+    <div style="display: flex; align-items: center; justify-content: center; margin: 60px 0;">
+        <div style="height: 1px; background: linear-gradient(to right, transparent, #cbd5e1, transparent); width: 80%;"></div>
+    </div>
+
+    <!-- SECTION 4 : DIAGNOSTIC DE TERRAIN -->
     <div class="project-section" style="margin-bottom: 40px;">
         <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #0ea5e9; padding-left: 20px;">
-            Diagnostic de terrain : Étude de marchabilité (Saint-Médard)
+            4. Diagnostic de terrain | Étude de marchabilité
         </h3>
 
         <div style="font-size: 1.05rem; text-align: justify; color: #4b5563; margin-bottom: 2rem;">
+            <p style="margin-bottom: 1.2rem;">
+                L’ensemble de ces analyses cartographiques permet de pré|identifier des itinéraires prioritaires en fonction des modes de déplacement et du nombre potentiel d’élèves concernés. Ces résultats servent de base à la réalisation d’un diagnostic de terrain, visant à confronter la vision théorique de la cartographie à la réalité des usages et des aménagements.
+            </p>
+            <p style="margin-bottom: 1.2rem;">
+                Le <strong>diagnostic de marchabilité</strong> permet d’évaluer concrètement la qualité des cheminements : continuités piétonnes, lisibilité, sécurité, entretien et usages effectifs de l’espace public. Il met également en lumière des dysfonctionnements non|visibles à l’échelle cartographique, tels que le stationnement sur les cheminements, l’encombrement des voies vertes ou le manque d’entretien de la végétation débordante.
+            </p>
             <p>
-                Le <strong>diagnostic de marchabilité</strong> constitue la suite logique et concrète de ces analyses théoriques. Il permet de passer de la modélisation spatiale à l'expertise de terrain à partir d’itinéraires définis. Ce travail intègre des estimations de coût des travaux et identifie les responsabilités (services techniques, riverains, mairie) pour transformer l'analyse en plan d'action opérationnel.
+                Cet exemple de restitution prend la forme d’un outil interactif, combinant photographies géolocalisées, tableau de suivi et estimations de coûts. Chaque point diagnostiqué est associé à des ordres de grandeur financiers, aux acteurs responsables et aux lieux concernés, permettant de passer d’un diagnostic spatial à une logique opérationnelle et hiérarchisée.
             </p>
         </div>
 
@@ -135,7 +164,7 @@
 
         <!-- NOTE DE PRECISION -->
         <p style="font-style: italic; font-size: 0.9rem; color: #94a3b8; margin-top: 40px; text-align: center; border-top: 1px solid #e2e8f0; padding-top: 20px;">
-            Note : L'ensemble de ces représentations cartographiques ne portent pas sur le même territoire. Les données de flux géolocalisées ont été modifiées dans le but de présenter un exemple de démarche complète.
+            Note : L'ensemble de ces représentations cartographiques constitue une démonstration méthodologique. Bien qu'elles portent sur des territoires distincts (Saint|Médard, Le Haillan) et utilisent des données modifiées à des fins d'anonymisation, elles illustrent la cohérence d'une démarche de diagnostic complète.
         </p>
     </div>
 
