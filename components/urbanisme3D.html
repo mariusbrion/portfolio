@@ -1,97 +1,245 @@
+<!-- PDF.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
 <div class="portfolio-container" style="font-family: system-ui, -apple-system, sans-serif; max-width: 1200px; margin: 0 auto; color: #374151; line-height: 1.6; padding: 40px; background-color: #f0f4f8;">
 
+    <!-- SECTION 1 : CHÂTELLERAULT -->
     <div class="project-section" style="margin-bottom: 60px;">
-        
         <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #10b981; padding-left: 20px;">
             Analyse 3D : relief et aménagement de la voie verte
         </h3>
-
         <div style="margin-bottom: 2rem; font-size: 1.1rem; text-align: justify;">
-            <p>
-                Ce projet, réalisé dans le cadre de mon mémoire, vise à rendre intelligible l’impact spatial de la ligne verte à l’échelle de l’agglomération de Châtellerault. À l’aide de <strong>QGIS</strong> et <strong>Blender</strong>, j’ai transformé les données de la BD TOPO® et du MNT de l’IGN en un bloc-diagramme 3D animé.
-            </p>
+            <p>Ce projet, réalisé dans le cadre de mon mémoire, vise à rendre intelligible l'impact spatial de la ligne verte à l'échelle de l'agglomération de Châtellerault. À l'aide de <strong>QGIS</strong> et <strong>Blender</strong>, j'ai transformé les données de la BD TOPO® et du MNT de l'IGN en un bloc-diagramme 3D animé.</p>
         </div>
-
-        <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); background: #000; margin-bottom: 2rem;">
+        <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); background: #000; margin-bottom: 2rem;">
             <video autoplay muted loop controls style="width: 100%; display: block;">
                 <source src="analyse3D.MP4" type="video/mp4">
                 Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
         </div>
-
         <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
-            <p style="margin-bottom: 1.2rem;">
-                Les contraintes topographiques ont été volontairement exagérées afin de renforcer la lisibilité du relief. Ce choix met en évidence le fait que la voie verte s’inscrit dans le réaménagement d’une ancienne <strong>emprise ferroviaire</strong>, expliquant un tracé privilégiant les secteurs les plus aplatis.
-            </p>
-            <p style="margin-bottom: 1.2rem;">
-                Cette logique d’implantation se fait toutefois au détriment de la desserte d’une importante poche de population située au centre de la commune de Thuré, révélant des enjeux d’accessibilité à l’échelle <strong>intercommunale</strong>. Ces limites sont d’autant plus marquées dans des territoires ruraux où la dépendance à la voiture individuelle demeure forte.
-            </p>
-            <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">
-                Cette méthode de représentation permet de croiser morphologie du relief et densités de population, offrant une lecture à la fois lisible et critique des choix d’infrastructure et d’aménagement du territoire.
-            </p>
+            <p style="margin-bottom: 1.2rem;">Les contraintes topographiques ont été volontairement exagérées afin de renforcer la lisibilité du relief. Ce choix met en évidence le fait que la voie verte s'inscrit dans le réaménagement d'une ancienne <strong>emprise ferroviaire</strong>, expliquant un tracé privilégiant les secteurs les plus aplatis.</p>
+            <p style="margin-bottom: 1.2rem;">Cette logique d'implantation se fait toutefois au détriment de la desserte d'une importante poche de population située au centre de la commune de Thuré, révélant des enjeux d'accessibilité à l'échelle <strong>intercommunale</strong>. Ces limites sont d'autant plus marquées dans des territoires ruraux où la dépendance à la voiture individuelle demeure forte.</p>
+            <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">Cette méthode de représentation permet de croiser morphologie du relief et densités de population, offrant une lecture à la fois lisible et critique des choix d'infrastructure et d'aménagement du territoire.</p>
         </div>
     </div>
 
+    <!-- SÉPARATEUR -->
     <div style="display: flex; align-items: center; justify-content: center; margin: 60px 0;">
         <div style="height: 1px; background: linear-gradient(to right, transparent, #cbd5e1, transparent); width: 80%;"></div>
     </div>
 
-    <div class="project-section" style="margin-bottom: 60px;">
-        
+    <!-- SECTION 2 : BORDEAUX CAO -->
+    <div class="project-section" style="margin-bottom: 40px;">
         <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #3b82f6; padding-left: 20px;">
             Projet CAO : liaison cyclable entre les Bassins à Flots et les quais – Bordeaux
         </h3>
-
-        <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); background: #000; margin-bottom: 2rem;">
+        <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); background: #000; margin-bottom: 2rem;">
             <video autoplay muted loop controls style="width: 100%; display: block;">
                 <source src="CAO.mp4" type="video/mp4">
                 Votre navigateur ne supporte pas la lecture de vidéos.
             </video>
         </div>
-
         <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
-            <p style="margin-bottom: 1.2rem;">
-                Ce projet fictif propose la conception d’une piste cyclable visant à renforcer la continuité des mobilités douces sur le territoire bordelais. L’aménagement relie la zone piétonne des Bassins à Flots à la piste cyclable déjà existante le long des quais, aujourd’hui séparées par un axe routier à fort trafic.
-            </p>
-            <p style="margin-bottom: 1.2rem;">
-                Réalisé sous <strong>SketchUp</strong>, ce travail met en œuvre des compétences en conception assistée par ordinateur (CAO) pour imaginer un aménagement cyclable sécurisé et intégré dans le tissu urbain dense.
-            </p>
-            <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">
-                Ce cas d’étude illustre la manière dont des outils de CAO peuvent accompagner la réflexion sur les continuités cyclables en milieu urbain, et servir de support à la préfiguration d’un aménagement cohérent, adapté aux enjeux de mobilité durable.
-            </p>
+            <p style="margin-bottom: 1.2rem;">Ce projet fictif propose la conception d'une piste cyclable visant à renforcer la continuité des mobilités douces sur le territoire bordelais. L'aménagement relie la zone piétonne des Bassins à Flots à la piste cyclable déjà existante le long des quais, aujourd'hui séparées par un axe routier à fort trafic.</p>
+            <p style="margin-bottom: 1.2rem;">Réalisé sous <strong>SketchUp</strong>, ce travail met en œuvre des compétences en conception assistée par ordinateur (CAO) pour imaginer un aménagement cyclable sécurisé et intégré dans le tissu urbain dense.</p>
+            <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">Ce cas d'étude illustre la manière dont des outils de CAO peuvent accompagner la réflexion sur les continuités cyclables en milieu urbain, et servir de support à la préfiguration d'un aménagement cohérent, adapté aux enjeux de mobilité durable.</p>
         </div>
     </div>
 
+    <!-- SÉPARATEUR -->
     <div style="display: flex; align-items: center; justify-content: center; margin: 60px 0;">
         <div style="height: 1px; background: linear-gradient(to right, transparent, #cbd5e1, transparent); width: 80%;"></div>
     </div>
 
+    <!-- SECTION 3 : DIAG — PDF SLIDESHOW -->
     <div class="project-section" style="margin-bottom: 40px;">
-        
-        <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #8b5cf6; padding-left: 20px;">
-            diag
+        <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #f59e0b; padding-left: 20px;">
+            Diag
         </h3>
 
         <div style="margin-bottom: 2rem; font-size: 1.1rem; text-align: justify;">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
 
-        <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); background: #fff; margin-bottom: 2rem; height: 600px;">
-            <iframe src="diag.pdf#toolbar=0&navpanes=0&scrollbar=0" style="width: 100%; height: 100%; border: none;" allow="autoplay">
-                Votre navigateur ne supporte pas l'affichage de documents PDF. <a href="diag.pdf">Cliquez ici pour télécharger le document.</a>
-             iframe>
+        <!-- PDF SLIDESHOW VIEWER -->
+        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.10); background: #1e2433; margin-bottom: 2rem;">
+
+            <!-- Canvas area with navigation arrows -->
+            <div id="pdf-wrapper" style="position: relative; width: 100%; min-height: 480px; display: flex; align-items: center; justify-content: center; padding: 24px 80px; box-sizing: border-box;">
+
+                <canvas id="pdf-canvas" style="max-width: 100%; display: block; border-radius: 4px; box-shadow: 0 8px 32px rgba(0,0,0,0.4);"></canvas>
+
+                <!-- Placeholder shown before PDF loads or on error -->
+                <div id="pdf-placeholder" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; color: #64748b; text-align: center; padding: 24px;">
+                    <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="9" y1="13" x2="15" y2="13"/>
+                        <line x1="9" y1="17" x2="15" y2="17"/>
+                    </svg>
+                    <span id="pdf-placeholder-text" style="font-size: 0.9rem; line-height: 1.5; max-width: 280px;">
+                        Chargement de <strong style="color:#f59e0b">diag.pdf</strong>…
+                    </span>
+                </div>
+
+                <!-- Left arrow -->
+                <button id="btn-prev" onclick="pdfPrev()"
+                    style="position:absolute; left:14px; top:50%; transform:translateY(-50%);
+                           width:46px; height:46px; border-radius:50%; border:1px solid rgba(255,255,255,0.15);
+                           background:rgba(255,255,255,0.10); backdrop-filter:blur(8px);
+                           color:#fff; display:flex; align-items:center; justify-content:center;
+                           cursor:pointer; transition:background 0.2s, border-color 0.2s; z-index:10;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                </button>
+
+                <!-- Right arrow -->
+                <button id="btn-next" onclick="pdfNext()"
+                    style="position:absolute; right:14px; top:50%; transform:translateY(-50%);
+                           width:46px; height:46px; border-radius:50%; border:1px solid rgba(255,255,255,0.15);
+                           background:rgba(255,255,255,0.10); backdrop-filter:blur(8px);
+                           color:#fff; display:flex; align-items:center; justify-content:center;
+                           cursor:pointer; transition:background 0.2s, border-color 0.2s; z-index:10;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Bottom bar -->
+            <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 24px; background:rgba(0,0,0,0.3); border-top:1px solid rgba(255,255,255,0.06);">
+                <span id="pdf-page-label" style="font-size:0.82rem; color:#94a3b8; font-weight:500; letter-spacing:0.05em; min-width:80px;"></span>
+                <div id="pdf-dots" style="display:flex; gap:6px; align-items:center;"></div>
+                <div style="min-width:80px;"></div>
+            </div>
         </div>
 
         <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
-            <p style="margin-bottom: 1.2rem;">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">
-                Prendre connaissance du document complet directement via la visionneuse interactive ci-dessus pour en analyser la structure et les détails techniques.
-            </p>
+            <p style="margin-bottom: 1.2rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
         </div>
     </div>
 
 </div>
+
+<!-- Arrow hover styles -->
+<style>
+    #btn-prev:hover, #btn-next:hover {
+        background: rgba(245, 158, 11, 0.30) !important;
+        border-color: rgba(245, 158, 11, 0.55) !important;
+    }
+</style>
+
+<script>
+(function () {
+    // Set PDF.js worker
+    if (typeof pdfjsLib === 'undefined') return;
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    let pdfDoc = null;
+    let currentPage = 1;
+    let totalPages = 0;
+    let rendering = false;
+
+    const canvas   = document.getElementById('pdf-canvas');
+    const ctx      = canvas.getContext('2d');
+    const placeholder = document.getElementById('pdf-placeholder');
+    const placeholderText = document.getElementById('pdf-placeholder-text');
+    const pageLabel = document.getElementById('pdf-page-label');
+    const dotsContainer = document.getElementById('pdf-dots');
+    const wrapper  = document.getElementById('pdf-wrapper');
+
+    /* ── Load PDF ── */
+    pdfjsLib.getDocument('diag.pdf').promise
+        .then(function (doc) {
+            pdfDoc = doc;
+            totalPages = doc.numPages;
+            placeholder.style.display = 'none';
+            buildDots();
+            renderPage(1);
+        })
+        .catch(function () {
+            placeholderText.innerHTML =
+                'Placez <strong style="color:#f59e0b">diag.pdf</strong> dans le même dossier que ce fichier HTML pour afficher le diaporama.';
+        });
+
+    /* ── Render a page ── */
+    function renderPage(num) {
+        if (!pdfDoc || rendering) return;
+        rendering = true;
+
+        pdfDoc.getPage(num).then(function (page) {
+            const desiredWidth = wrapper.clientWidth - 160; // 80px padding each side
+            const baseVp = page.getViewport({ scale: 1 });
+            const scale  = Math.min(desiredWidth / baseVp.width, 2.5);
+            const vp     = page.getViewport({ scale });
+
+            canvas.width  = vp.width;
+            canvas.height = vp.height;
+
+            return page.render({ canvasContext: ctx, viewport: vp }).promise;
+        }).then(function () {
+            currentPage = num;
+            pageLabel.textContent = 'Page ' + num + ' / ' + totalPages;
+            updateDots();
+            rendering = false;
+        });
+    }
+
+    /* ── Dots ── */
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        var max = Math.min(totalPages, 14);
+        for (var i = 1; i <= max; i++) {
+            var dot = document.createElement('div');
+            dot.dataset.page = i;
+            dot.style.cssText =
+                'width:8px;height:8px;border-radius:50%;cursor:pointer;transition:background 0.2s, transform 0.2s;' +
+                'background:' + (i === 1 ? '#f59e0b' : 'rgba(255,255,255,0.22)') + ';';
+            dot.addEventListener('click', (function (p) {
+                return function () { goTo(p); };
+            })(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateDots() {
+        var dots = dotsContainer.children;
+        for (var i = 0; i < dots.length; i++) {
+            var p = parseInt(dots[i].dataset.page);
+            dots[i].style.background = p === currentPage ? '#f59e0b' : 'rgba(255,255,255,0.22)';
+            dots[i].style.transform  = p === currentPage ? 'scale(1.3)' : 'scale(1)';
+        }
+    }
+
+    /* ── Navigation ── */
+    function goTo(n) {
+        if (!pdfDoc || n < 1 || n > totalPages || rendering) return;
+        renderPage(n);
+    }
+
+    window.pdfPrev = function () { goTo(currentPage - 1); };
+    window.pdfNext = function () { goTo(currentPage + 1); };
+
+    /* ── Keyboard ── */
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') window.pdfNext();
+        if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   window.pdfPrev();
+    });
+
+    /* ── Touch / swipe ── */
+    var touchX = 0;
+    wrapper.addEventListener('touchstart', function (e) {
+        touchX = e.touches[0].clientX;
+    }, { passive: true });
+    wrapper.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 40) {
+            dx < 0 ? window.pdfNext() : window.pdfPrev();
+        }
+    }, { passive: true });
+})();
+</script>
