@@ -53,193 +53,158 @@
     </div>
 
     <!-- SECTION 3 : DIAG — PDF SLIDESHOW -->
-    <div class="project-section" style="margin-bottom: 40px;">
-        <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #f59e0b; padding-left: 20px;">
-            Diag
-        </h3>
+<div class="project-section" style="margin-bottom: 40px;">
+    <h3 style="color: #111827; font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem; border-left: 5px solid #f59e0b; padding-left: 20px;">
+        Diag
+    </h3>
 
-        <div style="margin-bottom: 2rem; font-size: 1.1rem; text-align: justify;">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
+    <div style="margin-bottom: 2rem; font-size: 1.1rem; text-align: justify;">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
 
-        <!-- PDF SLIDESHOW VIEWER -->
-        <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.10); background: #1e2433; margin-bottom: 2rem;">
+    <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.10); background: #1e2433; margin-bottom: 2rem;">
 
-            <!-- Canvas area with navigation arrows -->
-            <div id="pdf-wrapper" style="position: relative; width: 100%; min-height: 480px; display: flex; align-items: center; justify-content: center; padding: 24px 80px; box-sizing: border-box;">
+        <div id="diag-wrapper" style="position: relative; width: 100%; min-height: 480px; display: flex; align-items: center; justify-content: center; padding: 24px 80px; box-sizing: border-box;">
 
-                <canvas id="pdf-canvas" style="max-width: 100%; display: block; border-radius: 4px; box-shadow: 0 8px 32px rgba(0,0,0,0.4);"></canvas>
+            <img id="diag-viewer" src="" alt="Page du diagnostic" style="max-width: 100%; max-height: 70vh; display: block; border-radius: 4px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); transition: opacity 0.2s ease;">
 
-                <!-- Placeholder shown before PDF loads or on error -->
-                <div id="pdf-placeholder" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; color: #64748b; text-align: center; padding: 24px;">
-                    <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="9" y1="13" x2="15" y2="13"/>
-                        <line x1="9" y1="17" x2="15" y2="17"/>
-                    </svg>
-                    <span id="pdf-placeholder-text" style="font-size: 0.9rem; line-height: 1.5; max-width: 280px;">
-                        Chargement de <strong style="color:#f59e0b">diag.pdf</strong>…
-                    </span>
-                </div>
-
-                <!-- Left arrow -->
-                <button id="btn-prev" onclick="pdfPrev()"
-                    style="position:absolute; left:14px; top:50%; transform:translateY(-50%);
+            <button id="diag-btn-prev" style="position:absolute; left:14px; top:50%; transform:translateY(-50%);
                            width:46px; height:46px; border-radius:50%; border:1px solid rgba(255,255,255,0.15);
                            background:rgba(255,255,255,0.10); backdrop-filter:blur(8px);
                            color:#fff; display:flex; align-items:center; justify-content:center;
                            cursor:pointer; transition:background 0.2s, border-color 0.2s; z-index:10;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"/>
-                    </svg>
-                </button>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+            </button>
 
-                <!-- Right arrow -->
-                <button id="btn-next" onclick="pdfNext()"
-                    style="position:absolute; right:14px; top:50%; transform:translateY(-50%);
+            <button id="diag-btn-next" style="position:absolute; right:14px; top:50%; transform:translateY(-50%);
                            width:46px; height:46px; border-radius:50%; border:1px solid rgba(255,255,255,0.15);
                            background:rgba(255,255,255,0.10); backdrop-filter:blur(8px);
                            color:#fff; display:flex; align-items:center; justify-content:center;
                            cursor:pointer; transition:background 0.2s, border-color 0.2s; z-index:10;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"/>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Bottom bar -->
-            <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 24px; background:rgba(0,0,0,0.3); border-top:1px solid rgba(255,255,255,0.06);">
-                <span id="pdf-page-label" style="font-size:0.82rem; color:#94a3b8; font-weight:500; letter-spacing:0.05em; min-width:80px;"></span>
-                <div id="pdf-dots" style="display:flex; gap:6px; align-items:center;"></div>
-                <div style="min-width:80px;"></div>
-            </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"/>
+                </svg>
+            </button>
         </div>
 
-        <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
-            <p style="margin-bottom: 1.2rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 24px; background:rgba(0,0,0,0.3); border-top:1px solid rgba(255,255,255,0.06);">
+            <span id="diag-page-label" style="font-size:0.82rem; color:#94a3b8; font-weight:500; letter-spacing:0.05em; min-width:80px;">Page 1 / 12</span>
+            <div id="diag-dots" style="display:flex; gap:6px; align-items:center; max-width: 60%; overflow-x: auto; padding: 4px 0;"></div>
+            <div style="min-width:80px;"></div>
         </div>
     </div>
 
+    <div style="font-size: 1.05rem; text-align: justify; color: #4b5563;">
+        <p style="margin-bottom: 1.2rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p style="font-style: italic; border-top: 2px solid #e2e8f0; padding-top: 1.5rem; margin-top: 1.5rem; color: #6b7280;">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    </div>
 </div>
 
-<!-- Arrow hover styles -->
 <style>
-    #btn-prev:hover, #btn-next:hover {
+    #diag-btn-prev:hover, #diag-btn-next:hover {
         background: rgba(245, 158, 11, 0.30) !important;
         border-color: rgba(245, 158, 11, 0.55) !important;
     }
 </style>
 
 <script>
-(function () {
-    // Set PDF.js worker
-    if (typeof pdfjsLib === 'undefined') return;
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-    let pdfDoc = null;
-    let currentPage = 1;
-    let totalPages = 0;
-    let rendering = false;
-
-    const canvas   = document.getElementById('pdf-canvas');
-    const ctx      = canvas.getContext('2d');
-    const placeholder = document.getElementById('pdf-placeholder');
-    const placeholderText = document.getElementById('pdf-placeholder-text');
-    const pageLabel = document.getElementById('pdf-page-label');
-    const dotsContainer = document.getElementById('pdf-dots');
-    const wrapper  = document.getElementById('pdf-wrapper');
-
-    /* ── Load PDF ── */
-    pdfjsLib.getDocument('diag.pdf').promise
-        .then(function (doc) {
-            pdfDoc = doc;
-            totalPages = doc.numPages;
-            placeholder.style.display = 'none';
-            buildDots();
-            renderPage(1);
-        })
-        .catch(function () {
-            placeholderText.innerHTML =
-                'Placez <strong style="color:#f59e0b">diag.pdf</strong> dans le même dossier que ce fichier HTML pour afficher le diaporama.';
-        });
-
-    /* ── Render a page ── */
-    function renderPage(num) {
-        if (!pdfDoc || rendering) return;
-        rendering = true;
-
-        pdfDoc.getPage(num).then(function (page) {
-            const desiredWidth = wrapper.clientWidth - 160; // 80px padding each side
-            const baseVp = page.getViewport({ scale: 1 });
-            const scale  = Math.min(desiredWidth / baseVp.width, 2.5);
-            const vp     = page.getViewport({ scale });
-
-            canvas.width  = vp.width;
-            canvas.height = vp.height;
-
-            return page.render({ canvasContext: ctx, viewport: vp }).promise;
-        }).then(function () {
-            currentPage = num;
-            pageLabel.textContent = 'Page ' + num + ' / ' + totalPages;
-            updateDots();
-            rendering = false;
-        });
+document.addEventListener('DOMContentLoaded', function () {
+    // Génération automatique du tableau de 1.jpg à 12.jpg
+    const diagImages = [];
+    for (let i = 1; i <= 12; i++) {
+        diagImages.push(`${i}.jpg`);
     }
 
-    /* ── Dots ── */
+    let currentIndex = 0;
+
+    const imgViewer = document.getElementById('diag-viewer');
+    const pageLabel = document.getElementById('diag-page-label');
+    const dotsContainer = document.getElementById('diag-dots');
+    const wrapper = document.getElementById('diag-wrapper');
+    const btnPrev = document.getElementById('diag-btn-prev');
+    const btnNext = document.getElementById('diag-btn-next');
+
+    // Initialisation des indicateurs (dots)
     function buildDots() {
         dotsContainer.innerHTML = '';
-        var max = Math.min(totalPages, 14);
-        for (var i = 1; i <= max; i++) {
-            var dot = document.createElement('div');
-            dot.dataset.page = i;
-            dot.style.cssText =
-                'width:8px;height:8px;border-radius:50%;cursor:pointer;transition:background 0.2s, transform 0.2s;' +
-                'background:' + (i === 1 ? '#f59e0b' : 'rgba(255,255,255,0.22)') + ';';
-            dot.addEventListener('click', (function (p) {
-                return function () { goTo(p); };
-            })(i));
+        diagImages.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.style.cssText = 'width:8px; height:8px; border-radius:50%; cursor:pointer; flex-shrink: 0; transition: background 0.2s, transform 0.2s;';
+            dot.addEventListener('click', () => updateSlideshow(index));
             dotsContainer.appendChild(dot);
+        });
+    }
+
+    // Mise à jour de l'affichage
+    function updateSlideshow(index) {
+        currentIndex = index;
+        
+        // Effet de transition léger
+        imgViewer.style.opacity = '0.3';
+        
+        setTimeout(() => {
+            imgViewer.src = diagImages[currentIndex];
+            pageLabel.textContent = `Page ${currentIndex + 1} / ${diagImages.length}`;
+            
+            // Mise à jour des dots
+            Array.from(dotsContainer.children).forEach((dot, idx) => {
+                if (idx === currentIndex) {
+                    dot.style.background = '#f59e0b';
+                    dot.style.transform = 'scale(1.3)';
+                } else {
+                    dot.style.background = 'rgba(255,255,255,0.22)';
+                    dot.style.transform = 'scale(1)';
+                }
+            });
+            imgViewer.style.opacity = '1';
+        }, 150);
+    }
+
+    function showNext() {
+        if (currentIndex < diagImages.length - 1) {
+            updateSlideshow(currentIndex + 1);
+        } else {
+            updateSlideshow(0); // Boucle et revient au début
         }
     }
 
-    function updateDots() {
-        var dots = dotsContainer.children;
-        for (var i = 0; i < dots.length; i++) {
-            var p = parseInt(dots[i].dataset.page);
-            dots[i].style.background = p === currentPage ? '#f59e0b' : 'rgba(255,255,255,0.22)';
-            dots[i].style.transform  = p === currentPage ? 'scale(1.3)' : 'scale(1)';
+    function showPrev() {
+        if (currentIndex > 0) {
+            updateSlideshow(currentIndex - 1);
+        } else {
+            updateSlideshow(diagImages.length - 1); // Va à la fin
         }
     }
 
-    /* ── Navigation ── */
-    function goTo(n) {
-        if (!pdfDoc || n < 1 || n > totalPages || rendering) return;
-        renderPage(n);
-    }
+    // Événements boutons click
+    btnNext.addEventListener('click', showNext);
+    btnPrev.addEventListener('click', showPrev);
 
-    window.pdfPrev = function () { goTo(currentPage - 1); };
-    window.pdfNext = function () { goTo(currentPage + 1); };
-
-    /* ── Keyboard ── */
+    // Navigation au clavier
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') window.pdfNext();
-        if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   window.pdfPrev();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
     });
 
-    /* ── Touch / swipe ── */
-    var touchX = 0;
+    // Touch / Swipe pour mobile
+    let touchX = 0;
     wrapper.addEventListener('touchstart', function (e) {
         touchX = e.touches[0].clientX;
     }, { passive: true });
+
     wrapper.addEventListener('touchend', function (e) {
-        var dx = e.changedTouches[0].clientX - touchX;
-        if (Math.abs(dx) > 40) {
-            dx < 0 ? window.pdfNext() : window.pdfPrev();
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 50) {
+            if (dx < 0) showNext();
+            else showPrev();
         }
     }, { passive: true });
-})();
+
+    // Démarrage
+    buildDots();
+    updateSlideshow(0);
+});
+</script>
 </script>
